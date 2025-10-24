@@ -19,7 +19,7 @@
       "category": "tech",
       "url": "/posts/21-10-2025/",
       "thumbnailUrl": "/assets/images/thumbnails/21-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/21-10-2025.png",
+      "bannerUrl": "/assets/images/banners/21-10-2025.webp",
       "readingTime": 9
     },
     {
@@ -30,7 +30,7 @@
       "category": "commentary",
       "url": "/posts/20-10-2025/",
       "thumbnailUrl": "/assets/images/thumbnails/20-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/20-10-2025.png",
+      "bannerUrl": "/assets/images/banners/20-10-2025.webp",
       "readingTime": 5
     },
     {
@@ -41,7 +41,7 @@
       "category": "tech",
       "url": "/posts/19-10-2025/",
       "thumbnailUrl": "/assets/images/thumbnails/19-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/19-10-2025.png",
+      "bannerUrl": "/assets/images/banners/19-10-2025.webp",
       "readingTime": 7
     }
   ]
