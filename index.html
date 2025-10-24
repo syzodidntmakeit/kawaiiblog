@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KawaiiBlog</title>
-    <meta name="description" content="A personal blog about tech, lifting, self-hosting, anime, and whatever else is occupying my brain space. Built the Arch Way.">
+    <title>Why I'm Breaking Up With Microsoft (And You Should Too) - kawaii-san.org</title>
+    <meta name="description" content="Microsoft's data collection is intrusive, Windows 11's requirements are arbitrary, and the ecosystem lock-in is real. It's time to talk about the open-source rebellion.">
+    
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
-    <meta property="og:title" content="KawaiiBlog">
-    <meta property="og:description" content="A personal blog about tech, lifting, self-hosting, anime, and whatever else is occupying my brain space.">
-    <meta property="og:image" content="https://kawaii-san.org/assets/images/og-default.png">
-    <meta property="og:url" content="https://kawaii-san.org">
+
+    <meta property="og:title" content="Why I'm Breaking Up With Microsoft (And You Should Too) - kawaii-san.org">
+    <meta property="og:description" content="Microsoft's data collection is intrusive, Windows 11's requirements are arbitrary, and the ecosystem lock-in is real. It's time to talk about the open-source rebellion.">
+    <meta property="og:image" content="https://kawaii-san.org/assets/images/banners/19-10-2025.png">
+    <meta property="og:url" content="https://kawaii-san.org/posts/19-10-2025/">
     <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="alternate" type="application/rss+xml" title="kawaii-san.org" href="/rss.xml">
     <style>
         body{font-family:'Inter',sans-serif;background:#111827;color:#e5e7eb;margin:0}
         .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -22,70 +26,129 @@
     </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
-    tailwind.config = {
+      tailwind.config = {
         darkMode: 'class',
         theme: {
-        extend: {
+          extend: {
             colors: {
-          'kawaii-pink': '#FFC0CB',
-          'kawaii-blue': '#A7C7E7',
-          'kawaii-mint': '#B2F2BB',
-          'kawaii-lavender': '#E6E6FA'
+              'kawaii-pink': '#FFC0CB',
+              'kawaii-blue': '#A7C7E7',
+              'kawaii-mint': '#B2F2BB',
+              'kawaii-lavender': '#E6E6FA'
             }
+          }
         }
-        }
-    }
+      }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="alternate" type="application/rss+xml" title="kawaii-san.org" href="/rss.xml">
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/js/site-config.js"></script>
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/assets/js/sw.js')
-            .then(reg => console.log('Service Worker registered'))
-            .catch(err => console.error('Service Worker registration failed:', err));
-        });
-    }
-</script>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/assets/js/sw.js')
-        .catch(err => console.error('SW registration failed:', err));
-    });
-  }
-</script>
 </head>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why I'm Breaking Up With Microsoft (And You Should Too)",
+  "image": "https://kawaii-san.org/assets/images/banners/19-10-2025.png",
+  "datePublished": "2025-10-19",
+  "dateModified": "2025-10-19",
+  "description": "Microsoft's data collection is intrusive, Windows 11's requirements are arbitrary, and the ecosystem lock-in is real. It's time to talk about the open-source rebellion.",
+  "author": {
+    "@type": "Person",
+    "name": "Isaiah",
+    "url": "https://kawaii-san.org/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KawaiiBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kawaii-san.org/assets/favicon/favicon-32x32.png"
+    }
+  }
+}
+</script>
+    
 <body class="bg-gray-900 text-gray-200 antialiased">
-
     <div id="header-placeholder"></div>
-
+    
     <main class="container mx-auto px-4 py-12">
-        <div class="space-y-12">
-            
-            <div class="flex gap-2 mb-12 flex-wrap">
-                <button data-category="all" class="px-4 py-2 rounded-lg font-bold bg-kawaii-pink text-gray-900 transition-colors hover:opacity-80">All Posts</button>
-                <button data-category="tech" class="px-4 py-2 rounded-lg font-bold bg-gray-800/50 text-gray-300 hover:text-gray-100 transition-colors">Tech</button>
-                <button data-category="commentary" class="px-4 py-2 rounded-lg font-bold bg-gray-800/50 text-gray-300 hover:text-gray-100 transition-colors">Commentary</button>
-                </div>
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-sm text-gray-400">Oct 19, 2025 • 11 min read • tech</p>
+                <h1 class="text-5xl font-black mt-2 leading-tight gradient-text">Why I'm Breaking Up With Microsoft (And You Should Too)</h1>
+            </div>
 
-            <div id="posts-container" class="space-y-12">
-                <div class="flex justify-center items-center py-12">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-kawaii-pink"></div>
-                </div>
+            <div class="mb-12">
+                <img src="/assets/images/banners/19-10-2025.webp" alt="Why I'm Breaking Up With Microsoft (And You Should Too)" class="w-full rounded-lg shadow-lg">
+            </div>
+            
+            <div class="text-lg text-gray-300 leading-relaxed blog-content">
+                <p class="mb-6">Look, just use Linux. You don&#39;t even need terminal. It&#39;s not big scary any more.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">Microsoft: The Partner Who Won&#39;t Stop Tracking You</h2>
+<p class="mb-6">Microsoft; purveyors of intrusive bloated. Popular for it&#39;s Windows Operating System. Proprietary, intrusive and extremely babys the user.</p>
+<div class="bg-gray-800 p-6 rounded-lg my-8 border-l-4 border-kawaii-pink">[object Object]</div>
+<p class="mb-6">And it tracks users&#39; data so much it makes the Chine Communist Party get an erection. They know so much about you, they could probably predict that your 16 daughter is going through pregnancy before you do. (You should probably talk to her about it btw).</p>
+<p class="mb-6">All this data collection, can I opt out? Nah. Nope. Your data belongs to Microsoft now. They make money from this by selling it to advertisers, or worse, the Russians. Sure, you can go through the Group Policy Editor. But I&#39;d rather defuse a fucking bomb.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-blue">Windows 10 is dead</h2>
+<p class="mb-6">We never liked it. But it&#39;s the only thing good about the 4 blue square company. It&#39;s so widely adopted, we have no option BUT to use Windows 10. What application do you know that doesn&#39;t support Windows? (Mac OS is dead to me). And Windows 10 is now declared End Of Life by the company Indians use to scam old white Americans. Any good memories you had from Windows X, pales in comparison to the dumpster fire that it was during launch. And God forbid user use Windows 7.</p>
+<p class="mb-6">Ok… So why not just update? Surely this multi-trillion dollar company listened to their customer base and fixed any underlying issues within it&#39;s proprietary Operating System, right?</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-mint">Windows 11: The Devil&#39;s Necromancer</h2>
+<p class="mb-6">Whatever perfect that is Windows 10 (what little there was), ceases to exist in their latest, newest and forced-down-our-throat Operating Shitpiece; Windows 11.</p>
+<p class="mb-6">Microsoft, fuck you. Where do I begin? Even more bloatware, even more updates, bitlocker that locks down on booting another OS, and worse of all, patching up any way to make a local account. I have a laptop that ran Windows 11 before Windows 10 died. And I made it with a local account by bypassing the Out-Of-Box-Experience when installing the OS. Now I&#39;m too afraid to update my laptop because it might kick me out and force me to make a Microsoft account.</p>
+<p class="mb-6">You might be thinking, &quot;Microsoft wants you to make an account to use Windows 11 so they can make devices using their OS have the most up to date security!&quot; And you are absolutely right. But let me introduce you to the idea of ulterior motive. Sure, they wanna update security so if there is a malware that is hidden within a Microsoft accepted driver like what happened with Genshin Impact. But this means that they can track you as easily as pissing off white people on Twitter (not X, fuck you). Why do I need to be signed in on MY DEVICE, my LOCAL device? I just wanna watch funny cats on YouTube or girls in revealing clothing dancing on TikTok.</p>
+<p class="mb-6">&quot;Ok, Isaiah. I actually like being tracked by big bad.&quot; You&#39;re fucking weird. But also, you still can&#39;t. Check your hardware. And I don&#39;t mean CPU cores, RAM capacity or storage. I mean TPM 2.0 and secure boot. The requirements for Windows 11 makes American police officers in the second state look like Ghandi. What regular user would EVER need Secure Boot, other than to stop them from installing another OS. EVEN IF Microsoft itself said, &quot;YIPEE! Yourw new hawrdware suppowrts Bindows 11!!! YAY!&quot; LIES! It&#39;ll fail during the installation phase. And if it didn&#39;t fail BEFORE you agree to install as a new drive or whatever. Boom. Wipes drive. All your loli hentai is eviscerated. Well in this case that&#39;s a good thing. Fucking disgusting).</p>
+<p class="mb-6">So you&#39;re stuck between a piece of shit software and a piece of shit software with AI and you can&#39;t escape. Yipee.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-lavender">Am I a slave?</h2>
+<p class="mb-6">I will refrain from making a joke about slavery on African Americans during the 1800&#39;s, I do not want Twitter to come after me… yet…</p>
+<p class="mb-6">But God forbid you use Adobe Creative Suite. Like why? It&#39;s 2025. Who pays for that shit? Even if you pirate it, it&#39;s still disgusting. It&#39;s like breaking into homes and stealing their rubbish. Why? Use free or open source alternatives.</p>
+<ul>
+<li><p class="mb-6"><strong>Wanna edit videos?</strong> Davinci Resolve. Your favourite film studios are using Da Twinki. Sure they have a Premium option. And also signing up for the free option is a little hassle. Like why do you need to know where I live? Bugger off. But it&#39;s free. And full support for Linux btw. Fire.</p>
+</li>
+<li><p class="mb-6"><strong>Wanna use photoshop?</strong> A term that is now coined as a verb to alter digital image… GIMP! And I&#39;m a simp for FOSS. You can even (idk you would want to) install an extension that turns all the shortcuts into Adobe&#39;s Photoshop shortcut. YAY! Old habits die hard. And so do I. wait…</p>
+</li>
+</ul>
+<p class="mb-6">And whatever else that fucker offers. Idk. There&#39;s probably an open source software for it.</p>
+<p class="mb-6">This is just some examples of alternatives. But if you continue to use these services, that are proprietary to Windows software, you can&#39;t leave. It&#39;s a &#39;gotcha&#39; if you ever wanna use Linux or whatever. &quot;I can&#39;t use my Adobe apps&quot;. Honestly? It&#39;s for the best. Bite the bullet. It&#39;s made of candy. Pay the unsubscription fee, which by the way is scummy as fuck but I&#39;m pretty sure it&#39;s illegal so something&#39;s gonna happen.</p>
+<p class="mb-6">&quot;But where do I go?&quot; God you&#39;re so dumb.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">Linux: the penguin that never gets mad</h2>
+<p class="mb-6">Linux used to be super niche and using it leaves a sour taste in your mouth. You probably don&#39;t shower, only use CLI and still only chats in IRC. You probably wear a fedora in public.</p>
+<p class="mb-6">But some random fucks all over the world that volunteered FOR FREE (Chads), to help develop Operating Systems that look and feel just like your comfort home that is rundown because you forget to pay rent, or probably pirated it anyways, Windows. Built on a kernel by some random Finnish guy in 1991 FOR FREE! He also publicly gave Nvidia the middle finger back in 2012 (Giga Chad). They made it so easy to use Linux for user that are not as tech savy. And even if you are, the terminal is right there. Big scary green boi. It gives you control over your machine. If you know what you&#39;re doing. If not, just read documents, ask questions in forums, fuck even use ChatGPT. It doesn&#39;t matter anymore. And the community is actively developing code that runs Windows based software on Linux. Even if it&#39;s not natively supported it will probably work on the Penguin OS.</p>
+<p class="mb-6">Try Linux Mint for office use if you just wanna watch YouTube and do research on Japan cars from the late 90&#39;s, Ubuntu is the go-to for networking like in servers it&#39;s notoriously heavy but NOT bloated and VERY begineer friendly, Pop_OS! is seen as the gaming distro but there are gaming focused distros, like my favourite Steam OS, or go all in with Arch Linux. But I must warn you, it&#39;s only for you if you aren&#39;t afraid to fuck up 3 times just to succeed once. You ARE going to make mistakes. But that&#39;s the joy of it. So i recommend Linux Mint. But it almost really doesn&#39;t matter cuz if you didn&#39;t like, just get another one. It&#39;s just that easy.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-blue">The Good Stuff</h2>
+<ul>
+<li><p class="mb-6"><strong>Privacy</strong> Imagine your computer NOT selling your every personal info to Russia or China (or if you ARE russian or Chinese, not to America). What a dream… Or NOT. Cuz the penguin will almost never run background tracking apps that sees your every move like a hawk (tuah?). You could… idk why tho…</p>
+</li>
+<li><p class="mb-6"><strong>No Bloatware</strong> Only have what you need. &quot;But what if I don&#39;t I need?&quot; Literally just go to your terminal and type <code>sudo apt install discord</code> and that&#39;s it. Literally. You will have to find out what package managers your OS uses. And also how you wanna install those files. Like Arch uses pacman, or yay. Basically, when installing apps, there&#39;s a special word you use right after <code>sudo</code>. Find which one you use and viola.</p>
+</li>
+<li><p class="mb-6"><strong>Full Control</strong> I know <code>terminal</code> sounds like the things in the NERV HQ in Evangelion… because it is. It&#39;s basically how you interact with the Operating System from under the skirt. Computers were develop AROUND the terminal. Before fancy folder icons, we did everything in Command Line Interfaces where you interact in a single line of a text box. And it makes you look cool. Maybe don&#39;t try <code>git www.github.com/dafuqboom/skibidi-toilet.git</code> or Mr. Beast will steal your car keys at 3 AM.</p>
+</li>
+<li><p class="mb-6"><strong>Free as in Beer AND Freedom</strong> Did I mention it costs nothing? If it did, you fucked up. Because the OS that you will probably use for you desktop environment is most probably free. Just… kindly ask for a refund.</p>
+</li>
+</ul>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-mint">Wait… Steam OS? Like the gaming marketplace</h2>
+<p class="mb-6">No steam like the smoke from trains. YES Steam from Valve. Valve correctly predicated that Microsoft would turn to subscription based and bloated intrusive approach to developing their software way before I was even fucking born (so like before yesterday). And quickly assigned their crew to make anything related to Valve support for Linux. Heavily. Using the corpse that is Wine to build Proton, a compatibility layer that allows Windows software to run on Linux-based operating systems. You can game on Linux, even if the game devs didn&#39;t intend to. Of course shit like Anti-cheat might have problems and that&#39;s a whole other bullshit. But you can play Elden Ring on Arch Linux. And that&#39;s the only game that you should ever play btw. Since Sony refuses to port Bloodbourne to PC.</p>
+<p class="mb-6">Imagine if Valve released a product that is competitive in the handheld gaming market built around their own Operating System that supports almost any game to be playable almost anyway (for a limited time). OH WAIT THEY DID.</p>
+<p class="mb-6">Le Steam Deck. Sounds like a boat that runs on water… or just a more advanced boat i guess… x86-64 based, same architecture as your desktop. Though devices like the Raspberry Pi use ARM which is far more suited for portable devices. Idk why laptops STILL do x86 64bit. YOU HAVE A BATTERY. You can watch LTT&#39;s video on YouTube reviewing the Steam Deck, and despite his critics, it still competes in the gaming market. I even considered purchasing one till i realized that instead of getting a job, I spend my hours writing a blog that nobody reads… hmm…</p>
+<p class="mb-6">And if you&#39;re worried that your game isn&#39;t supported on Linux, ProtonDB is your friend. The DB stands for database, a database of games on Steam that supports Proton. If it isn&#39;t supported now, it will be in the close future (probably…)</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-lavender">Cat and Mouse</h2>
+<p class="mb-6">We can&#39;t talk about gaming on Linux without mentioning Anti-cheat. Yes this means you can&#39;t play Valorant or FACEIT on Linux, which honestly, is for your own good. In a closed textbook, some anti-cheats run on kernel access. Windows&#39; kernel access. Meant to stop bad guys from installing software that gives the player an unfair advantage when playing. Some even go to the hardware level like FACEIT&#39;s IOMMU checks which might actually brick your computer if it fails. MIGHT. Highly unlikely because those madlads know wtf their doing but it&#39;s STILL a failing point. But in case of Linux? Big no no. And it is too much effort for developers to provide support for Linux OS. That is because not enough of their playerbase or using Linux. Thus the solution is simple. More people on Linux, more supported, more happy. Steal the moon.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">The Future Is Open</h2>
+<p class="mb-6">Windows had a strong hand on the operating system industry. There was no asking what OS you use. It&#39;s always Microsoft&#39;s Windows, or you&#39;re a snob. And if you use Linux, you don&#39;t interact with other people. But not anymore. Linux continues to be widely adopted and support for Linux only continues to grow. No subscriptions, no inflation (pyrocynical ahh), no &quot;Ah. Need an update. Sowwy.&quot; Take control of your device. It belongs to you. Even if you don&#39;t know how to use it. There&#39;s no Windows 10 for a blender. Why is a computer any different? It serves a purpose. Let it serve you. Don&#39;t become the product. Not anymore.</p>
+<p class="mb-6"><em>Disclaimer: This blog post was written by a penguin.</em></p>
+
             </div>
         </div>
-    </main>
 
-    <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
+        <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
+    </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="/assets/js/script.js"></script>
-    <script src="/assets/js/homepage.js"></script>
 </body>
 </html>
+
