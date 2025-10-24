@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon; Our Overlords Have Failed Us - kawaii-san.org</title>
+    <meta name="description" content="AWS went down for three hours and broke the internet. And I think it's entirely our fault.">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+    <meta property="og:title" content="Amazon; Our Overlords Have Failed Us - kawaii-san.org">
+    <meta property="og:description" content="AWS went down for three hours and broke the internet. And I think it's entirely our fault.">
+    <meta property="og:image" content="https://kawaii-san.org/assets/images/banners/21-10-2025.png">
+    <meta property="og:url" content="https://kawaii-san.org/posts/21-10-2025/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="alternate" type="application/rss+xml" title="kawaii-san.org" href="/rss.xml">
+    <style>
+        body{font-family:'Inter',sans-serif;background:#111827;color:#e5e7eb;margin:0}
+        .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        header{padding:2rem 1rem}
+        .container{max-width:1280px;margin:0 auto;padding:0 1rem}
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'kawaii-pink': '#FFC0CB',
+              'kawaii-blue': '#A7C7E7',
+              'kawaii-mint': '#B2F2BB',
+              'kawaii-lavender': '#E6E6FA'
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/js/site-config.js"></script>
+</head>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Amazon; Our Overlords Have Failed Us",
+  "image": "https://kawaii-san.org/assets/images/banners/21-10-2025.png",
+  "datePublished": "2025-10-21",
+  "dateModified": "2025-10-21",
+  "description": "AWS went down for three hours and broke the internet. And I think it's entirely our fault.",
+  "author": {
+    "@type": "Person",
+    "name": "Isaiah",
+    "url": "https://kawaii-san.org/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KawaiiBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kawaii-san.org/assets/favicon/favicon-32x32.png"
+    }
+  }
+}
+</script>
+    
+<body class="bg-gray-900 text-gray-200 antialiased">
+    <div id="header-placeholder"></div>
+    
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-sm text-gray-400">Oct 21, 2025 • 6 min read • tech</p>
+                <h1 class="text-5xl font-black mt-2 leading-tight gradient-text">Amazon; Our Overlords Have Failed Us</h1>
+            </div>
+
+            <div class="mb-12">
+                <img 
+                    src="/assets/images/banners/21-10-2025.webp" 
+                    alt="Amazon; Our Overlords Have Failed Us" 
+                    class="w-full rounded-lg shadow-lg"
+                    onerror="this.onerror=null; this.src='https://placehold.co/1200x600/111827/FFC0CB?text=Banner+Not+Found';">
+            </div>
+            
+            <div class="text-lg text-gray-300 leading-relaxed blog-content">
+                <p class="mb-6">Look, I hate Amazon as much as the next Twitter user, but maybe we do need them after all.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">What happened?</h2>
+<p class="mb-6">Around 11:49 PM PDT on October 19th (that&#39;s 3 AM ET for you East Coasters), AWS&#39;s US-EAST-1 region in Northern Virginia, like where a huge portion of the fucking internet lives, experienced what they&#39;re calling &quot;DNS resolution issues for the regional DynamoDB service endpoints.&quot; It&#39;s always the fucking DNS.</p>
+<p class="mb-6">What does that mean? The computers tried to ask &quot;How do I get to the DynamoDB database?&quot; and the internet responded with &quot;I have no fucking clue what you&#39;re talking about.&quot; And then just… full face of fuckery lmao.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-blue">The Cascade of Incompetence</h2>
+<p class="mb-6">They fixed the DynamoDB DNS problem by 2:24 AM PDT. Victory, right? WRONG. Because then EC2 (Amazon&#39;s Elastic Compute Cloud) started having a meltdown since it depended on DynamoDB to launch instances. And THEN the Network Load Balancer health checks got impaired, which triggered network connectivity issues in Lambda, DynamoDB (again!), and CloudWatch.</p>
+<p class="mb-6">The fuckery got even fucking worse lmao.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-mint">The Carnage (Venom reference?)</h2>
+<p class="mb-6">Over 50,000 people rage-filed reports on Downdetector around 7:50 AM. Unfortunately, I wasn&#39;t one of them. I was busy enjoying my self hosted stack 🖕. Snapchat, Ring doorbells, Roblox, Fortnite, Signal, WhatsApp, Coinbase, Robinhood, Zoom, Delta, United Airlines, T-Mobile, Starbucks, McDonald&#39;s, Medicare&#39;s enrollment site, UK banks like Lloyds, UK government tax websites, United Healthcare, PlayStation Network, Prime Video, Alexa, Duolingo, Venmo, Canva, and even parts of ChatGPT all went woopsy. And that&#39;s all we know of. Imagine the niche that entirely depend on AWS.</p>
+<p class="mb-6">Probably lost hundreds of billions but I&#39;m not in the finance industry. I only know computers.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-lavender">The Recovery (not feat. M&amp;M)</h2>
+<p class="mb-6">AWS declared the DNS issue &quot;fully mitigated&quot; by 6:35 AM ET, then had to backtrack at 10:14 AM admitting there were still &quot;significant API errors and connectivity issues.&quot; Full recovery wasn&#39;t until around 12:28 PM PDT, with some lingering issues into the evening.</p>
+<p class="mb-6">Ouchie.</p>
+<p class="mb-6">So… A major centralized cloud computing service provider decided to take a nap because it was eepy time, and basically half the internet fucking died. That&#39;s not scary at all.</p>
+<p class="mb-6">The worse part is that this wasn&#39;t a planned cyberattack or counts of terrorism, it&#39;s a fundamental error within the infrastructure itself. Totally not scawy at all.</p>
+<p class="mb-6">AWS engineers checked the error logs. They found this sent by the server:</p>
+<div class="my-8 flex justify-center">
+<img src="/posts/21-10-2025/green-mile-quote.webp" alt="i's tired, boss. dog tired." class="w-full max-w-3xl rounded-lg shadow-lg" />
+</div>
+<p class="mb-6">Oh, and while the internet was burning? Elon Musk was on X gloating that his platform didn&#39;t go down and posting memes dunking on Jeff Bezos. Cool, Elon. It didn&#39;t go down because you&#39;re so incompetent, you somehow saved yourself. Fucking armadillo.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">Just go vegan lmao</h2>
+<p class="mb-6">Here&#39;s the thing, dumbfuck. You can&#39;t just &quot;Make Your Own datacenters&quot;</p>
+<p class="mb-6">It is basically financial suicide and I think the majority of the employees at big tech companies aren&#39;t emo (i think).</p>
+<p class="mb-6">Building a data center would cost around $10-15 million USD just to facilitate small business. Billions for bigger infrastructure like Reddit or LinkedIn. Land, construction, power infrastructure, cooling systems, security, servers, networking equipment, storage hardware, engineers all costs mani bro.</p>
+<p class="mb-6">The power bills go as much as I do with my 5090. Cooling contributes to global warming, physical security to prevent from terrorist attacks on physical infrastructure, network engineers, sys admins (ew), on-call teams, hardware replacement because some WILL fail and you WILL have to change it, redundancy systems for backup. All are just too much money to &quot;just do-it-yourself, forehead&quot;</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-blue">Maybe big bad ain&#39;t so big bad</h2>
+<p class="mb-6">You know who can? Amazon (ew). Google (blegh). Microsoft (grr). Apple (booo!). Meta (yuck). We all hate them. But they&#39;re the ones with pockets deeper than I am in your mother last night, air&#39; night. Papa been smooth since days of Underoo&#39;s). These &quot;companies&quot; sink billions, trillions total, to build these giant data centers and then sell it to smaller business in bite sizes to use. Some even offer to use small regular people. They take on the heavy lifting and turn a profit by charging their services to us. WE don&#39;t have to pay for GPUs and security, I can focus on my business while having reliable computing. Until it fails…</p>
+<p class="mb-6">Having these giants eat the .45 just for us to play with Nerf darts is the reason the internet even exists today, let alone strive. Only because they made enough money selling your data to advertisers (and China) to be able to afford. They also probably blew the president for rebate taxes…</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-mint">Wait a minute bucko… You&#39;re hosting this on GitHub</h2>
+<p class="mb-6">Yes. I&#39;m not fucking hiding it. I open source this blogging website because I am a mini Chad. I am dependent on GitHub, which is owned by Microsoft (grr). And, if for whatever reason, GitHub goes down, so does my website. I regularly keep backups locally if it gets lost but still. Because I can&#39;t afford to host it on my own hardware. For now anyways. I am actively working on hosting my own future proof web server. I&#39;m planning on scalability and redundancy)</p>
+<p class="mb-6">Just like how Reddit depends on AWS for their website to work. Because they can&#39;t afford hosting it on their own hardware.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-lavender">Dutch Van Der Lin&#39;s &quot;I have a plan&quot;</h2>
+<p class="mb-6">Run critical services simultaneously on AWS, Azure, and Google Cloud. If one fails, traffic automatically routes to the others. Redundancy, redundancy, redundancy is the name of the game. Have multiple copies just in case one dies. You have 3 servers storing the same piece of data—if one dies, you still have 2 backups. But this is really expensive. I have 3 data centers for a planet that only supports 1. Only for important shit that CANNOT be destroyed. Like government documents, medical files…</p>
+<p class="mb-6">Active-Passive Setup: Primary on AWS, backup on Azure that activates during outages. So basically plan A but cheaper. Still sucks because it takes time to migrate to the backup which means users will still be in the dark for a period of time. Which could be costly. But better than nothing.</p>
+<p class="mb-6">Keep essential functions on local servers. Being implemented in government offices, hospitals, education and media centres. Having saved the important files locally AND on the cloud, so if their provider goes down, internal officers can still operate though significantly limited. Like battery saver. Better than nothing.</p>
+<h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">Give it to me straight, doc.</h2>
+<p class="mb-6">Nothing will change. It&#39;s either too expensive or too much hassle to implement any changes. Oct 20 is not a one-off, but happens too infrequent to suggests changes immediately. Hell, it took us only 3 years to bounce back from COVID 19. So we COULD change. But it isn&#39;t cost effective. It&#39;s just not worth it.</p>
+<p class="mb-6">So yes, I&#39;ll keep complaining about it on GitHub, fully aware that I&#39;m lecturing from inside the cage about how much I hate cages. I spit in the face of incompetence. (being fully incompetent).</p>
+<p class="mb-6">Welcome to the future. It&#39;s centralized, it&#39;s fragile, and your favorite blog host could disappear tomorrow. (probably for good)</p>
+<p class="mb-6">Sweet dreams, pussy.</p>
+<p class="mb-6"><em>Still clinging on to the idea that the same thing happens to Twitter. Hopefully forever.</em></p>
+
+            </div>
+        </div>
+
+        <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
+
