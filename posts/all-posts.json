@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "id": "from-its-so-over-to-we-are-so-back",
+      "date": "Oct 22, 2025",
+      "title": "Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption.",
+      "excerpt": "Cyberpunk 2077: A story of corporate greed, gamer rage, and the rarest ending in gaming — redemption.",
+      "category": "games",
+      "url": "/posts/22-10-2025/",
+      "thumbnailUrl": "/assets/images/thumbnails/22-10-2025.webp",
+      "bannerUrl": "/assets/images/banners/22-10-2025.webp",
+      "readingTime": 23
+    },
+    {
+      "id": "amazon-failed-us",
+      "date": "Oct 21, 2025",
+      "title": "Amazon; Our Overlord Has Failed Us",
+      "excerpt": "AWS went down for three hours and broke the internet. And I think it's entirely our fault.",
+      "category": "tech",
+      "url": "/posts/21-10-2025/",
+      "thumbnailUrl": "/assets/images/thumbnails/21-10-2025.webp",
+      "bannerUrl": "/assets/images/banners/21-10-2025.png",
+      "readingTime": 9
+    },
+    {
+      "id": "clanker-new-nword",
+      "date": "Oct 20, 2025",
+      "title": "Clanker Might Be the New N Word",
+      "excerpt": "Economic anxiety is real, and people bond over shared fears. But we don't have to normalize slurs to do it—even if we totally get why people are reaching for them.",
+      "category": "commentary",
+      "url": "/posts/20-10-2025/",
+      "thumbnailUrl": "/assets/images/thumbnails/20-10-2025.webp",
+      "bannerUrl": "/assets/images/banners/20-10-2025.png",
+      "readingTime": 5
+    },
+    {
+      "id": "breaking-up-with-microsoft",
+      "date": "Oct 19, 2025",
+      "title": "Why I'm Breaking Up With Microsoft (And You Should Too)",
+      "excerpt": "Microsoft's data collection is intrusive, Windows 11's requirements are arbitrary, and the ecosystem lock-in is real. It's time to talk about the open-source rebellion: Linux.",
+      "category": "tech",
+      "url": "/posts/19-10-2025/",
+      "thumbnailUrl": "/assets/images/thumbnails/19-10-2025.webp",
+      "bannerUrl": "/assets/images/banners/19-10-2025.png",
+      "readingTime": 7
+    }
+  ]
+}
