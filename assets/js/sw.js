@@ -1,8 +1,16 @@
 const CACHE_NAME = 'kawaii-blog-v1';
 const urlsToCache = [
   '/',
+  '/index.html',
+  '/assets/archive.html',
+  '/assets/about.html',
   '/assets/style.css',
+  '/assets/js/homepage.js',
+  '/assets/js/archive.js',
+  '/assets/js/site-config.js',
   '/assets/js/script.js',
+  '/includes/header.html',
+  '/includes/footer.html',
   '/posts/all-posts.json'
 ];
 

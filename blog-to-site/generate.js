@@ -1,13 +1,3 @@
-// generate.js
-// Your fully automated static site publisher
-// ---------------------------------------------------
-// This script now:
-// 1. Converts your markdown to HTML (like before).
-// 2. Automatically updates /posts/all-posts.json.
-// 3. Automatically updates /rss.xml.
-// 4. Automatically updates /sitemap.xml.
-// ---------------------------------------------------
-
 import fs from 'fs';
 import path from 'path';
 import { marked } from 'marked';
