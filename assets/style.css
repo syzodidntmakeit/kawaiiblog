@@ -1,6 +1,9 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+body.bg-custom-dark {
+    background-color: #1d0c3b;
+}
 
 :root {
     --kawaii-pink: #FFC0CB;
