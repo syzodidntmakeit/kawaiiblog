@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <style>
+        body{font-family:'Inter',sans-serif;background:#111827;color:#e5e7eb;margin:0}
+        .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        header{padding:2rem 1rem}
+        .container{max-width:1280px;margin:0 auto;padding:0 1rem}
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+        extend: {
+            colors: {
+          'kawaii-pink': '#FFC0CB',
+          'kawaii-blue': '#A7C7E7',
+          'kawaii-mint': '#B2F2BB',
+          'kawaii-lavender': '#E6E6FA'
+            }
+        }
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/js/site-config.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/assets/js/sw.js')
+        .catch(err => console.error('SW registration failed:', err));
+    });
+  }
+</script>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+    <div id="header-placeholder"></div>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <h1 class="text-6xl font-black mt-2 leading-tight text-kawaii-pink mb-6">Woops!</h1>
+            
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">Something went wrong. This page either doesn't exist or decided to go vegan. Sowwy.</p>
+
+            <div class="flex justify-center">
+                <img src="https://media1.tenor.com/m/XIrqTtjz5q8AAAAd/gotou-hitori-bocchi-the-rock.gif" alt="Bocchi the Rock glitching gif" class="rounded-lg shadow-lg">
+            </div>
+
+            <a href="/" class="inline-block mt-12 px-8 py-4 bg-gray-800 hover:bg-gray-700 border border-kawaii-pink rounded-lg transition-colors font-bold text-kawaii-pink">
+                Go Back Home
+            </a>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

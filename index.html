@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KawaiiBlog</title>
+    <meta name="description" content="A personal blog about tech, lifting, self-hosting, anime, and whatever else is occupying my brain space. Built the Arch Way.">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <meta property="og:title" content="KawaiiBlog">
+    <meta property="og:description" content="A personal blog about tech, lifting, self-hosting, anime, and whatever else is occupying my brain space.">
+    <meta property="og:image" content="https://kawaii-san.org/assets/images/og-default.png">
+    <meta property="og:url" content="https://kawaii-san.org">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        body{font-family:'Inter',sans-serif;background:#111827;color:#e5e7eb;margin:0}
+        .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        header{padding:2rem 1rem}
+        .container{max-width:1280px;margin:0 auto;padding:0 1rem}
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+        extend: {
+            colors: {
+          'kawaii-pink': '#FFC0CB',
+          'kawaii-blue': '#A7C7E7',
+          'kawaii-mint': '#B2F2BB',
+          'kawaii-lavender': '#E6E6FA'
+            }
+        }
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="kawaii-san.org" href="/rss.xml">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/js/site-config.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/assets/js/sw.js')
+            .then(reg => console.log('Service Worker registered'))
+            .catch(err => console.error('Service Worker registration failed:', err));
+        });
+    }
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/assets/js/sw.js')
+        .catch(err => console.error('SW registration failed:', err));
+    });
+  }
+</script>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+
+    <div id="header-placeholder"></div>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="space-y-12">
+            
+            <div class="flex gap-2 mb-12 flex-wrap">
+                <button data-category="all" class="px-4 py-2 rounded-lg font-bold bg-kawaii-pink text-gray-900 transition-colors hover:opacity-80">All Posts</button>
+                <button data-category="tech" class="px-4 py-2 rounded-lg font-bold bg-gray-800/50 text-gray-300 hover:text-gray-100 transition-colors">Tech</button>
+                <button data-category="commentary" class="px-4 py-2 rounded-lg font-bold bg-gray-800/50 text-gray-300 hover:text-gray-100 transition-colors">Commentary</button>
+                </div>
+
+            <div id="posts-container" class="space-y-12">
+                <div class="flex justify-center items-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-kawaii-pink"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/homepage.js"></script>
+</body>
+</html>
