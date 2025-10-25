@@ -1,4 +1,16 @@
+html, body {
+    height: 100%;
+}
+
+main {
+    flex-grow: 1;
+}
+
 body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: 'Inter', sans-serif;
 }
 
@@ -154,4 +166,8 @@ body.bg-custom-dark {
     background-color: rgba(0, 0, 0, 0.8); /* Darker background for copied state on card hover */
     color: #ffffff;
     border-color: #000000;
+}
+
+footer {
+    flex-shrink: 0;
 }
