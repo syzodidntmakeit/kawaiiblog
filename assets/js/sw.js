@@ -9,8 +9,6 @@ const urlsToCache = [
   '/assets/js/archive.js',
   '/assets/js/site-config.js',
   '/assets/js/script.js',
-  '/includes/header.html',
-  '/includes/footer.html',
   '/posts/all-posts.json'
 ];
 

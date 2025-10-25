@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/style.css --minify"
+  },
   "devDependencies": {
     "tailwindcss": "^4.1.16"
   }
