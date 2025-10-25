@@ -19,31 +19,36 @@
         .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         header{padding:2rem 1rem}
         .container{max-width:1280px;margin:0 auto;padding:0 1rem}
+        /* Added CSS for icon alignment */
+        .contact-page a svg { /* Ensure this targets contact page icons correctly */
+             display: inline-block;
+             vertical-align: middle;
+             margin-top: -2px;
+        }
     </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
-    // Keep Tailwind config for other elements
     tailwind.config = {
         darkMode: 'class',
         theme: {
         extend: {
             colors: {
-          'kawaii-pink': '#FFC0CB',
-          'kawaii-blue': '#A7C7E7',
-          'kawaii-mint': '#B2F2BB',
-          'kawaii-lavender': '#E6E6FA',
-          'social-email': '#8B55CC',
-          'social-github': '#FFFFFF',
-          'social-linkedin': '#0A66C2',
-          'social-twitter': '#FFFFFF',
-          'social-instagram': '#E4405F',
-          'social-mastodon': '#6364FF',
-          'social-twitch': '#9146FF',
-          'social-telegram': '#26A5E4',
-          'social-patreon': '#FF424D',
-          'social-threads': '#FFFFFF'
-                }
+              'kawaii-pink': '#FFC0CB',
+              'kawaii-blue': '#A7C7E7',
+              'kawaii-mint': '#B2F2BB',
+              'kawaii-lavender': '#E6E6FA',
+              'social-email': '#8B55CC', // Proton Mail Purple
+              'social-github': '#FFFFFF',
+              'social-linkedin': '#0A66C2',
+              'social-twitter': '#FFFFFF',
+              'social-instagram': '#E4405F',
+              'social-mastodon': '#6364FF',
+              'social-twitch': '#9146FF',
+              'social-telegram': '#26A5E4',
+              'social-patreon': '#FF424D',
+              'social-threads': '#FFFFFF',
             }
+        }
         }
     }
     </script>
@@ -72,7 +77,7 @@
             </h1>
             <nav class="hidden md:flex space-x-6 text-lg font-bold items-center">
                 <a href="/" class="hover:text-kawaii-pink transition-colors">Home</a>
-                <a href="/assets/archive.html" class="hover:#text-kawaii-blue transition-colors">Archive</a>
+                <a href="/assets/archive.html" class="hover:text-kawaii-blue transition-colors">Archive</a>
                 <a href="/assets/about.html" class="hover:text-kawaii-mint transition-colors">About</a>
                 <a href="/assets/contact.html" class="hover:text-kawaii-lavender transition-colors">Contact</a>
             </nav>
@@ -84,8 +89,8 @@
         </div>
          <div id="mobile-menu" class="hidden md:hidden mt-4">
             <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Home</a>
-            <a href="/archive/" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Archive</a>
-            <a href="/about/" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">About</a>
+            <a href="/assets/archive.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Archive</a>
+            <a href="/assets/about.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">About</a>
             <a href="/assets/contact.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Contact</a>
         </div>
     </header>
@@ -115,9 +120,9 @@
     <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-500">
         <p>&copy; 2025 kawaii-san.org. All wrongs reserved.</p>
         <p class="mt-2 text-sm">
-            The code for this site is licensed under the 
+            The code for this site is licensed under the
             <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="underline hover:text-gray-300">GPLv3</a>.
-            Blog content is licensed under a 
+            Blog content is licensed under a
             <a href="http://creativecommons.org/licenses/by-sa/4.0/" class="underline hover:text-gray-300">CC BY-SA 4.0</a>.
             Don't be a bitch.
         </p>
