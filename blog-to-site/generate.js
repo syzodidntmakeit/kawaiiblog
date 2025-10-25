@@ -111,7 +111,7 @@ const updateAllPosts = (chalk, postData) => {
 };
 
 // Updates rss.xml
-const updateRssFeed = (chalk, metadata, postUrl, htmlContent) => {
+const updateRssFeed = (chalk, metadata, postUrl, htmlContent, bannerUrl) => {
     const rssPath = path.resolve(__dirname, '..', 'rss.xml');
     const siteUrl = 'https://kawaii-san.org';
     try {
@@ -308,7 +308,7 @@ const runGenerator = async (markdownPath) => {
     
     // Run updates
     updateAllPosts(chalk, postData);
-    updateRssFeed(chalk, metadata, postUrl);
+    updateRssFeed(chalk, metadata, postUrl, htmlContent, bannerUrl);
     updateSitemap(chalk, metadata, postUrl);
     
     console.log(chalk.green.bold('\n✅ All done. Your post is published.'));

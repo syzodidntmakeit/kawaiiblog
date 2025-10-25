@@ -1,6 +1,6 @@
 ---
 id: '[POST_ID_SLUG]'
-title: '[title]'
+title: '[POST_TITLE]'
 date: '[YYYY-MM-DD]'
 category: '[CATEGORY]'
 excerpt: "[EXCERPT]"

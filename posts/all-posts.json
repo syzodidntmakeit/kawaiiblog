@@ -1,6 +1,17 @@
 {
   "posts": [
     {
+      "id": "the-greatest-rapper-mf-doom",
+      "date": "Oct 25, 2025",
+      "title": "The Greatest Rapper: MF DOOM",
+      "excerpt": "A deep dive into the villain's origins, the making of Madvillainy, and why MF DOOM is the G.O.A.T.",
+      "category": "music",
+      "url": "/posts/25-10-2025/",
+      "thumbnailUrl": "/assets/images/thumbnails/25-10-2025.webp",
+      "bannerUrl": "/assets/images/banners/25-10-2025.webp",
+      "readingTime": 20
+    },
+    {
       "id": "from-its-so-over-to-we-are-so-back",
       "date": "Oct 22, 2025",
       "title": "Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption.",
