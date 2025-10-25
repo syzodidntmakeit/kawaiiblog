@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Posts - KawaiiBlog</title>
-    <meta name="description" content="Browse all blog posts on KawaiiBlog. Filter by category or search for specific topics about tech, self-hosting, anime, and more.">
+    
+    <title>Contact</title>
+    <meta name="description" content="Reach out to me.">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+    <meta property="og:title" content="About">
+    <meta property="og:description" content="Electronics engineer, Linux enthusiast, and professional yapper about tech.">
+    <meta property="og:image" content="https://kawaii-san.org/assets/images/Blog%2019-10-2025.png">
+    <meta property="og:url" content="https://kawaii-san.org/about">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         body{font-family:'Inter',sans-serif;background:#111827;color:#e5e7eb;margin:0}
         .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -34,6 +42,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="kawaii-san.org" href="/rss.xml">
+    
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/site-config.js"></script>
     <script>
@@ -79,7 +89,7 @@
             <a href="/assets/contact.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Contact</a>
         </div>
     </header>
-
+    
     <div id="contact-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <button id="close-modal-button" class="absolute top-2 right-4 text-3xl text-gray-400 hover:text-white">&times;</button>
@@ -106,34 +116,44 @@
     </div>
 
     <main class="container mx-auto px-4 py-12">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl font-black mb-4 gradient-text">All Posts</h1>
-            <p class="text-gray-400 mb-12">A complete archive of everything I've written.</p>
+    <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl font-black mb-4 gradient-text">Get In Touch</h1>
+        <p class="text-gray-400 mb-12">Want to talk tech, collaborate on a project, argue about distros, or tell me my opinions are wrong?</p>
 
-            <div class="flex flex-col md:flex-row gap-4 mb-8">
-                <input 
-                    type="text" 
-                    id="search-input" 
-                    placeholder="Search all posts..." 
-                    class="w-full px-4 py-3 rounded-lg bg-gray-800 text-gray-200 border border-gray-700 focus:border-kawaii-pink focus:outline-none transition-colors"
-                >
-                <button 
-                    id="sort-button"
-                    class="flex-shrink-0 px-4 py-3 rounded-lg font-bold bg-gray-800/50 text-gray-300 hover:text-gray-100 transition-colors"
-                >
-                    Sort: Newest
-                </button>
-            </div>
-
-            <div id="posts-container" class="space-y-6">
-                <div class="flex justify-center items-center py-12">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-kawaii-pink"></div>
-                </div>
-            </div>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="mailto:syzodidntmakealongemail@proton.me" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-social-email/10 border border-social-email rounded-lg transition-colors font-bold text-social-email text-sm">
+                Email
+            </a>
+            <a href="https://github.com/syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-gray-700 border border-gray-500 rounded-lg transition-colors font-bold text-gray-300 hover:text-white hover:border-white text-sm">
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/isaiah-s-o-raja-rajendra-verma" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-social-linkedin/10 border border-social-linkedin rounded-lg transition-colors font-bold text-social-linkedin text-sm">
+                LinkedIn
+            </a>
+            <a href="https://twitter.com/syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-gray-700 border border-gray-500 rounded-lg transition-colors font-bold text-gray-300 hover:text-white hover:border-white text-sm">
+                X (Twitter)
+            </a>
+            <a href="https://instagram.com/isaiah.rawr" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-social-instagram/10 border border-social-instagram rounded-lg transition-colors font-bold text-social-instagram text-sm">
+                Instagram
+            </a>
+            <a href="https://mastodon.social/@syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-social-mastodon/10 border border-social-mastodon rounded-lg transition-colors font-bold text-social-mastodon text-sm">
+                Mastodon
+            </a>
+            <a href="https://www.twitch.tv/syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-social-twitch/10 border border-social-twitch rounded-lg transition-colors font-bold text-social-twitch text-sm">
+                Twitch
+            </a>
+            <a href="https://t.me/syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-social-telegram/10 border border-social-telegram rounded-lg transition-colors font-bold text-social-telegram text-sm">
+                Telegram
+            </a>
+            <a href="https://www.patreon.com/syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-social-patreon/10 border border-social-patreon rounded-lg transition-colors font-bold text-social-patreon text-sm">
+                Patreon
+            </a>
+            <a href="https://www.threads.net/@isaiah.rawr" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-2 bg-transparent hover:bg-gray-700 border border-gray-500 rounded-lg transition-colors font-bold text-gray-300 hover:text-white hover:border-white text-sm">
+                Threads
+            </a>
         </div>
-    </main>
-
-    <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
+    </div>
+</main>
 
     <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-500">
         <p>&copy; 2025 kawaii-san.org. All wrongs reserved.</p>
@@ -147,6 +167,5 @@
     </footer>
 
     <script src="/assets/js/script.js"></script>
-    <script src="/assets/js/archive.js"></script>
 </body>
 </html>

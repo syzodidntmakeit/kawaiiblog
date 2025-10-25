@@ -5,6 +5,7 @@ const urlsToCache = [
   '/assets/archive.html',
   '/assets/about.html',
   '/assets/style.css',
+  'assets/contact.html',
   '/assets/js/homepage.js',
   '/assets/js/archive.js',
   '/assets/js/site-config.js',

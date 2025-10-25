@@ -25,42 +25,6 @@ const attachMobileMenuEvent = () => {
     }
 };
 
-// Function to handle the contact modal logic
-const attachContactModalEvent = () => {
-    const contactButton = document.getElementById('contact-button');
-    const mobileContactButton = document.getElementById('mobile-contact-button');
-    const closeModalButton = document.getElementById('close-modal-button');
-    const contactModal = document.getElementById('contact-modal');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (contactButton && mobileContactButton && closeModalButton && contactModal) {
-        const openModal = (e) => {
-            e.preventDefault();
-            contactModal.classList.remove('hidden');
-        };
-
-        const closeModal = () => {
-            contactModal.classList.add('hidden');
-        };
-
-        contactButton.addEventListener('click', openModal);
-
-        mobileContactButton.addEventListener('click', (e) => {
-            if (mobileMenu) mobileMenu.classList.add('hidden'); // Close mobile menu first
-            openModal(e);
-        });
-
-        closeModalButton.addEventListener('click', closeModal);
-
-        // Also close modal if user clicks on the overlay
-        contactModal.addEventListener('click', (event) => {
-            if (event.target === contactModal) {
-                closeModal();
-            }
-        });
-    }
-};
-
 const attachBackToTopButton = () => {
     const button = document.getElementById('back-to-top');
     
@@ -122,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Header/Footer are now baked in, so just attach events directly
     attachMobileMenuEvent();
-    attachContactModalEvent();
 
     // The fetch logic for header/footer has been removed.
 });
