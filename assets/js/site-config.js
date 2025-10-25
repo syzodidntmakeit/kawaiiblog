@@ -11,7 +11,7 @@ const SITE_CONFIG = {
     email: "syzodidntmakealongemail@proton.me",
     github: "https://github.com/syzodidntmakeit",
     linkedin: "https://www.linkedin.com/in/isaiah-s-o-raja-rajendra-verma",
-    twitter: "https://twitter.com/syzodidntmakeit",
+    twitter: "https://twitter.com/syzodidntmadeit",
     instagram: "https://instagram.com/isaiah.rawr"
   },
   
