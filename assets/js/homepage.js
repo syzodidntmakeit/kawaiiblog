@@ -77,34 +77,36 @@ const attachFiltersAndSearch = () => {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            // Stop the click from propagating if needed, though targeting buttons should prevent issues
-             e.stopPropagation();
+            // Stop the click from propagating to prevent potential issues
+            e.stopPropagation();
 
             const category = button.dataset.category;
 
-            // Remove .active class from all buttons
+            // Remove .active class from ALL buttons first
             filterButtons.forEach(btn => {
                 btn.classList.remove('active');
             });
-            // Add .active class to the clicked button
+            // Add .active class ONLY to the clicked button
             button.classList.add('active');
 
+            // Re-apply filters based on the newly active button
             applyFiltersAndSearch();
         });
     });
-     // Ensure initial state correctly applies 'active' if needed (e.g., to 'All Posts')
-     const initialActive = document.querySelector('.filter-button[data-category="all"]');
-     if (initialActive && !document.querySelector('.filter-button.active')) {
-         initialActive.classList.add('active');
-     }
+
+    // Ensure initial state correctly applies 'active' to 'All Posts' on load
+    const initialActive = document.querySelector('.filter-button[data-category="all"]');
+    if (initialActive && !document.querySelector('.filter-button.active')) {
+         initialActive.classList.add('active'); // Make 'All Posts' active by default
+    }
 };
 
 const applyFiltersAndSearch = () => {
-    // Find active button based on the .active class
+    // Find the active button using the .active class
     const activeCategory = document.querySelector('.filter-button.active')?.dataset.category || 'all';
 
-    // Get the top 20 posts again for filtering
-    let filtered = allPosts.slice(0, 20);
+    // Get the top 20 posts again for filtering (or all posts if you prefer)
+    let filtered = allPosts.slice(0, 20); // Still showing top 20, adjust if needed
 
     if (activeCategory !== 'all') {
         filtered = filtered.filter(post => post.category === activeCategory);
