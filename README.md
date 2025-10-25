@@ -147,13 +147,13 @@ GitHub Pages will automatically rebuild and deploy your changes.
 - ✅ Canonical URLs
 
 ### Planned Improvements
+- [ ] Kill client-side fetching. Bake footer and header into pages. 
+- [ ] Use `tailwindcss` in `package.json` for Tailwind. Make `input.css` and add to `package.json`.
 - [ ] Minify JavaScript files
 - [ ] Image Optimization
 - [ ] Implement Pagefind for client-side search
-- [ ] Add GoatCounter or Plausible analytics
 - [ ] Newsletter system (Buttondown integration)
-- [ ] Comment system (Giscus with GitHub Discussions)
-- [ ] Convert remaining PNG images to WebP
+- [ ] Comment system in `about.html` (Giscus with GitHub Discussions)
 - [ ] Implement proper 404 error logging
 - [ ] RSS Feed enhancement
 - [ ] Comment Section

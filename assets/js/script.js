@@ -115,31 +115,16 @@ const attachShareButtons = () => {
 
 // Run all setup functions when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    const footerPlaceholder = document.getElementById('footer-placeholder');
 
     // Attach events that don't depend on fetched content
     attachBackToTopButton();
     attachShareButtons(); 
 
-    if (headerPlaceholder) {
-        fetch('/includes/header.html')
-            .then(response => response.text())
-            .then(data => {
-                headerPlaceholder.innerHTML = data;
-                // Attach events for elements inside the header
-                attachMobileMenuEvent();
-                attachContactModalEvent();
-            });
-    }
+    // Header/Footer are now baked in, so just attach events directly
+    attachMobileMenuEvent();
+    attachContactModalEvent();
 
-    if (footerPlaceholder) {
-        fetch('/includes/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                footerPlaceholder.innerHTML = data;
-            });
-    }
+    // The fetch logic for header/footer has been removed.
 });
 
 // Function to show an error message in a specified container

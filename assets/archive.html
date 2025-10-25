@@ -54,9 +54,56 @@
   }
 </script>
 </head>
-<body class="bg-gray-900 text-gray-200 antialiased">
+<body class="bg-custom-dark text-gray-200 antialiased">
+    <header class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-black tracking-tighter">
+                <a href="/" class="gradient-text">KawaiiBlog</a>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-lg font-bold items-center">
+                <a href="/" class="hover:text-kawaii-pink transition-colors">Home</a>
+                <a href="/assets/archive.html" class="hover:text-kawaii-blue transition-colors">Archive</a>
+                <a href="/assets/about.html" class="hover:text-kawaii-mint transition-colors">About</a>
+                <a href="#" id="contact-button" class="hover:text-kawaii-lavender transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+         <div id="mobile-menu" class="hidden md:hidden mt-4">
+            <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Home</a>
+             <a href="/assets/archive.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Archive</a>
+            <a href="/assets/about.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">About</a>
+            <a href="#" id="mobile-contact-button" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Contact</a>
+        </div>
+    </header>
 
-    <div id="header-placeholder"></div>
+    <div id="contact-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal-button" class="absolute top-2 right-4 text-3xl text-gray-400 hover:text-white">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 text-kawaii-mint">Get In Touch</h2>
+            <p class="text-gray-400 mb-6">Want to talk tech, collaborate on a project, argue about distros, or tell me my opinions are wrong?</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:syzodidntmakealongemail@proton.me" class="px-6 py-3 bg-kawaii-pink/10 hover:bg-kawaii-pink/20 border border-kawaii-pink rounded-lg transition-colors font-bold text-kawaii-pink">
+                    Email
+                </a>
+                <a href="https://github.com/syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-kawaii-blue/10 hover:bg-kawaii-blue/20 border border-kawaii-blue rounded-lg transition-colors font-bold text-kawaii-blue">
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/isaiah-s-o-raja-rajendra-verma" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-kawaii-mint/10 hover:bg-kawaii-mint/20 border border-kawaii-mint rounded-lg transition-colors font-bold text-kawaii-mint">
+                    LinkedIn
+                </a>
+                <a href="https://twitter.com/syzodidntmakeit" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-kawaii-lavender/10 hover:bg-kawaii-lavender/20 border border-kawaii-lavender rounded-lg transition-colors font-bold text-kawaii-lavender">
+                    Twitter
+                </a>
+                <a href="https://instagram.com/isaiah.rawr" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-kawaii-pink/10 hover:bg-kawaii-pink/20 border border-kawaii-pink rounded-lg transition-colors font-bold text-kawaii-pink">
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </div>
 
     <main class="container mx-auto px-4 py-12">
         <div class="max-w-4xl mx-auto">
@@ -88,8 +135,18 @@
 
     <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
 
-    <div id="footer-placeholder"></div>
+    <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-500">
+        <p>&copy; 2025 kawaii-san.org. All wrongs reserved.</p>
+        <p class="mt-2 text-sm">
+            The code for this site is licensed under the 
+            <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="underline hover:text-gray-300">GPLv3</a>.
+            Blog content is licensed under a 
+            <a href="http://creativecommons.org/licenses/by-sa/4.0/" class="underline hover:text-gray-300">CC BY-SA 4.0</a>.
+            Don't be a bitch.
+        </p>
+    </footer>
 
     <script src="/assets/js/script.js"></script>
-    <script src="/assets/js/archive.js"></script> </body>
+    <script src="/assets/js/archive.js"></script>
+</body>
 </html>
