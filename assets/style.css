@@ -1,8 +1,10 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
 body.bg-custom-dark {
-    background-color: #0d011f;
+    background-color: #0d011f; /* Your new dark purple */
+    color: #e5e7eb; /* Default text-gray-200 */
 }
 
 :root {
@@ -23,31 +25,27 @@ body.bg-custom-dark {
     margin-top: 2em;
     margin-bottom: 0.5em;
 }
-
 .blog-content h1 { font-size: 2.5rem; }
 .blog-content h2 { font-size: 2rem; }
 .blog-content h3 { font-size: 1.5rem; }
-
 .blog-content p {
     line-height: 1.7;
     margin-bottom: 1.5em;
 }
-
 .blog-content a {
     color: var(--kawaii-pink);
     text-decoration: underline;
 }
-
 .blog-content a:hover {
     color: var(--kawaii-blue);
 }
-
 .blog-content code {
-    background-color: #2d3748;
+    background-color: #27025e; /* Use card background for code */
     padding: 0.2em 0.4em;
     margin: 0;
     font-size: 85%;
     border-radius: 3px;
+    color: #e5e7eb; /* Ensure code text is light */
 }
 
 .modal-overlay {
@@ -56,7 +54,7 @@ body.bg-custom-dark {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(17, 24, 39, 0.8); /* bg-gray-900 with opacity */
+    background-color: rgba(17, 24, 39, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,9 +62,8 @@ body.bg-custom-dark {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
-
 .modal-content {
-    background-color: #1f2937; /* bg-gray-800 */
+    background-color: #1f2937;
     padding: 2rem;
     border-radius: 0.5rem;
     max-width: 550px;
@@ -75,4 +72,86 @@ body.bg-custom-dark {
     position: relative;
     border: 1px solid var(--kawaii-pink);
     box-shadow: 0 0 25px rgba(255, 192, 203, 0.15);
+}
+
+.post-card-container {
+    background-color: #27025e; /* Default card background */
+    color: #e5e7eb; /* Default light text */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    /* Add padding, rounded corners, shadow etc. back here */
+    padding: 2rem; /* p-8 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+}
+
+.post-card-container:hover {
+    background-color: #f182f5; /* Hover card background */
+    color: #000000 !important; /* Hover text black - !important might be needed to override Tailwind */
+    /* Adjust text colors for child elements on hover */
+    --hover-text-color: #000000;
+}
+
+.post-card-container:hover .post-date,
+.post-card-container:hover .post-excerpt,
+.post-card-container:hover .post-meta {
+    color: var(--hover-text-color, #000000); /* Fallback to black */
+}
+
+.post-card-container:hover .post-title,
+.post-card-container:hover .post-readmore,
+.post-card-container:hover .post-category-tag /* Add class if needed */ {
+    /* Maybe make these a slightly darker shade of black or keep a subtle color? */
+    /* For now, just black */
+    color: var(--hover-text-color, #000000);
+}
+
+.filter-button {
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-weight: 700; /* font-bold */
+    background-color: #27025e; /* Default card background */
+    color: #d1d5db; /* Default text-gray-300 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background-color: #f182f5; /* Hover/Active background */
+    color: #000000; /* Hover/Active text black */
+}
+
+.share-btn {
+    padding: 0.25rem 0.75rem; /* Equivalent to px-3 py-1 */
+    border-radius: 0.375rem; /* Equivalent to rounded-md */
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    border: 1px solid var(--kawaii-mint); /* Use kawaii-mint for border */
+    background-color: transparent; /* No background by default */
+    color: var(--kawaii-mint); /* Use kawaii-mint for text */
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.share-btn:hover {
+    background-color: rgba(178, 242, 187, 0.2); /* Light kawaii-mint background on hover */
+    color: #ffffff; /* Brighter text on hover */
+}
+
+.post-card-container:hover .share-btn {
+    border-color: #000000; /* Black border on card hover */
+    color: #000000; /* Black text on card hover */
+}
+.post-card-container:hover .share-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle dark background on button hover *inside* card hover */
+    color: #000000;
+}
+
+.share-btn.copied {
+    background-color: var(--kawaii-mint);
+    color: #000000;
+    border-color: var(--kawaii-mint);
+}
+.post-card-container:hover .share-btn.copied {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background for copied state on card hover */
+    color: #ffffff;
+    border-color: #000000;
 }
