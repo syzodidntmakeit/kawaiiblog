@@ -168,6 +168,12 @@ body.bg-custom-dark {
     border-color: #000000;
 }
 
+.contact-page a svg { /* Target links specifically on this page if needed */
+     display: inline-block;
+     vertical-align: middle;
+     margin-top: -2px; /* Adjust if needed */
+}
+
 footer {
     flex-shrink: 0;
 }
