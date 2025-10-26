@@ -62,16 +62,7 @@ const renderer = {
         return `<${tag} class="${listStyle} list-inside mb-6 space-y-2 text-lg leading-relaxed">${body}</${tag}>\n`;
     },
     listitem(token) {
-    // Use this.parser.parse(token.tokens) to render block-level elements 
-    // OR parseInline for purely inline content. Let's try parseInline first as list items are usually inline.
-    // We also need to handle potential nested paragraphs marked might add.
-        let text = this.parser.parseInline(token.tokens);
-
-    // Marked sometimes wraps list item content in <p> tags, which looks weird. Let's remove them.
-    // This regex removes optional leading/trailing whitespace around the <p> tags.
-        text = text.replace(/^\s*<p>\s*([\s\S]*?)\s*<\/p>\s*$/, '$1').trim(); 
-
-        return `<li class="mb-1">${text}</li>\n`; 
+        return `<li class="mb-1">${text}</li>\n`;
     },
 };
 marked.use({ renderer });
