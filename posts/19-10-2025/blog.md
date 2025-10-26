@@ -14,13 +14,13 @@ Microsoft; purveyors of intrusive bloated. Popular for it's Windows Operating Sy
 
 > You wanna dewete a fiwe? hmm? yesh u do. mhm. hewre. lemme do it for you. use the GUI.
 
-And it tracks users' data so much it makes the Chine Communist Party get an erection. They know so much about you, they could probably predict that your 16 daughter is going through pregnancy before you do. You should probably talk to her about it btw).
+And it tracks users' data so much it makes the Chine Communist Party get an erection. They know so much about you, they could probably predict that your 16 daughter is going through pregnancy before you do. (You should probably talk to her about it btw).
 
 All this data collection, can I opt out? Nah. Nope. Your data belongs to Microsoft now. They make money from this by selling it to advertisers, or worse, the Russians. Sure, you can go through the Group Policy Editor. But I'd rather defuse a fucking bomb.
 
 ## Windows 10 is dead
 
-We never liked it. But it's the only thing good about the 4 blue square company. It's so widely adopted, we have no option BUT to use Windows 10. What application do you know that doesn't support Windows? Mac OS is dead to me). And Windows 10 is now declared End Of Life by the company Indians use to scam old white Americans. Any good memories you had from Windows X, pales in comparison to the dumpster fire that it was during launch. And God forbid user use Windows 7.
+We never liked it. But it's the only thing good about the 4 blue square company. It's so widely adopted, we have no option BUT to use Windows 10. What application do you know that doesn't support Windows? (Mac OS is dead to me). And Windows 10 is now declared End Of Life by the company Indians use to scam old white Americans. Any good memories you had from Windows X, pales in comparison to the dumpster fire that it was during launch. And God forbid user use Windows 7.
 
 Ok… So why not just update? Surely this multi-trillion dollar company listened to their customer base and fixed any underlying issues within it's proprietary Operating System, right?
 

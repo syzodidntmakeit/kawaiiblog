@@ -3,7 +3,7 @@ id: 'from-its-so-over-to-we-are-so-back'
 title: 'Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption.'
 date: '2025-10-22'
 category: 'games'
-excerpt: "Cyberpunk 2077: A story of corporate greed, gamer rage, and the rarest ending in gaming — redemption."
+excerpt: "Cyberpunk 2077: From corporate greed to redemption."
 ---
 
 Look. Cyberpunk 2077 is a masterpiece born from disaster. Here’s how CD Projekt Red went from “This is ass!” to “This is gas”
