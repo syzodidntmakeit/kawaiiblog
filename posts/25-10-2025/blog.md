@@ -26,7 +26,7 @@ Dumile described himself during this period as living "damn near homeless, walki
 
 He decided to do something. Around the same time…
 
-1991. Their first album *Mr. Hood* was released under the rap group title. During this, 19 year old Dumile, along with his groupmate Onyx, testified before the United States Congress in support of the National Voter Registration Act, on behalf of Rock the Vote. 
+ It's 1991. Their first album *Mr. Hood* was released under the rap group title. During this, 19 year old Dumile, along with his groupmate Onyx, testified before the United States Congress in support of the National Voter Registration Act, on behalf of Rock the Vote. 
 
 Being the only rapper to this day to speak before the Senate about voter rights. 
 
@@ -187,9 +187,9 @@ My personal favorite. Madlib pairs the album's crispiest drums with watery, muff
 I still rap his first verse;
 
 > Tripping off the beat kinda, dripping off the meat grinder
-Heat niner, pimping, stripping, soft sweet minor
-China was a neat signer, trouble with the script
-Digits double dipped, bubble lipped, subtle lisp midget
+> Heat niner, pimping, stripping, soft sweet minor
+> China was a neat signer, trouble with the script
+> Digits double dipped, bubble lipped, subtle lisp midget
 
 He ends his first verse unexpectedly, giving the song an unfinished feel that adds to its charm. It's disorienting in the best way possible. 
 

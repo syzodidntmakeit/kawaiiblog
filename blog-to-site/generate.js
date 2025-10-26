@@ -26,43 +26,44 @@ const renderer = {
             colorIndex = (colorIndex + 1) % headingColors.length;
             return `<h2 class="text-3xl font-bold mt-12 mb-6 ${colorClass}">${this.parser.parseInline(token.tokens)}</h2>\n`;
         }
-        // Handle h3, h4, etc.
         if (token.depth > 2) {
              return `<h${token.depth} class="text-2xl font-bold mt-8 mb-4">${this.parser.parseInline(token.tokens)}</h${token.depth}>\n`;
         }
-        // Let marked handle h1
-        return false;
+        return false; // Let marked handle h1
     },
     paragraph(token) {
         const text = this.parser.parseInline(token.tokens);
+        // Check if it's the custom image div structure
         if (text.trim().startsWith('<div class="my-8 flex justify-center">')) {
-            return text;
+             return text; // Return as is if it's the image structure
         }
+        // Otherwise, wrap in standard paragraph
         return `<p class="mb-6">${text}</p>\n`;
     },
-    hr() { 
-        // Return a proper hr this time, why not
+    hr() {
         return '<hr class="my-12 border-gray-700">\n';
     },
     blockquote(quote) {
+        // This seems fine, assuming blockquote content doesn't break
         if (!quote.tokens || quote.tokens.length === 0) return '';
         const parsedQuote = this.parser.parse(quote.tokens);
-        // Remove the <p> tags from inside the blockquote for cleaner HTML
         const innerText = parsedQuote.replace(/^<p class="mb-6">/, '').replace(/<\/p>\n$/, '');
         return `<div class="bg-gray-800 p-6 rounded-lg my-8 border-l-4 border-kawaii-pink"><p class="text-xl italic">${innerText}</p></div>\n`;
     },
     image(href, title, text) {
+        // This also seems fine
         return `<div class="my-8 flex justify-center">
             <img src="${href}" alt="${text}" class="w-full max-w-3xl rounded-lg shadow-lg" />
         </div>\n`;
     },
-    list(body, ordered, start) {
-        const tag = ordered ? 'ol' : 'ul';
-        const listStyle = ordered ? 'list-decimal' : 'list-disc'; 
+    list(token) {
+        const tag = token.ordered ? 'ol' : 'ul';
+        const listStyle = token.ordered ? 'list-decimal' : 'list-disc';
+        const body = token.items.map(item => {
+            const text = this.parser.parseInline(item.tokens);
+            return `<li class="mb-1">${text}</li>`;
+        }).join('\n');
         return `<${tag} class="${listStyle} list-inside mb-6 space-y-2 text-lg leading-relaxed">${body}</${tag}>\n`;
-    },
-    listitem(token) {
-        return `<li class="mb-1">${text}</li>\n`;
     },
 };
 marked.use({ renderer });
