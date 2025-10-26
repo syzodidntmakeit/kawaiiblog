@@ -18,7 +18,7 @@ DJ Subroc was struck by a car and killed while crossing the Long Island Expressw
 
 While Dumile was grieving over the lost of his brother, their record label, Elektra Records, decided the cover art for their album was too controvesial. Mind you this was in the late 1990’s, where Hip-Hop was still in the midst of global domination it is today. Elektra Records decides to shelve the project and dropped KMD from the label. Gave Dumile something like twenty grand and the master tapes and said “Sorry for your loss”. 
 
-(insert image of BLACK BASTARDS cover art)
+![BLACK BASTARDS album cover](/posts/25-10-2025/black-bastards-cover.webp)
 
 Imagine Dumile. Death of a family member, losing your job, and your dream project is scrapped. Your career is over. 
 
@@ -38,7 +38,7 @@ In 1999, Daniel Dumile, now under the alias MF DOOM, wears a metal mask inspired
 
 He declared his new debut album, Operation: Doomsday, to be a declaration of war against the entire rap industry. An industry that once betrayed him. 
 
-(insert image of Operation: Doomsday cover art)
+![Operation: Doomsday](/posts/25-10-2025/operation-doomsday-cover.webp)
 
 A Jazz-infused lo-fi, weird, brilliant and dense album, produced mostly over three weeks at DJ Stretch Armstrong’s apartment using borrowed equipment. 
 
@@ -77,7 +77,7 @@ While Eminem was dominating radio with The Eminem Show and 50 Cent was about to 
 
 Late 2002. Madlib gets invited to the Red Bull Music Academy in Brazil and instead of just teaching classes, he decides to bring a portable setup: Boss SP-303 sampler, a turntable and a cassette deck.
 
-(insert image of Madlib’s set up in the 2002 hotel in brazil)
+![Madlib's setup in a hotel in brazil](/posts/25-10-2025/madlib-setup.webp)
 
 No million-dollar equipment like Dr. Dre, no fancy studio. Just a dude in a São Paulo hotel room with a crate of vinyl he’d brought while crate-diggig with Cut Chemist, DJ Babu and J.Rocc.
 

@@ -50,10 +50,13 @@ const renderer = {
         const innerText = parsedQuote.replace(/^<p class="mb-6">/, '').replace(/<\/p>\n$/, '');
         return `<div class="bg-gray-800 p-6 rounded-lg my-8 border-l-4 border-kawaii-pink"><p class="text-xl italic">${innerText}</p></div>\n`;
     },
-    image(href, title, text) {
-        // This also seems fine
+    image(token) {
+        const href = token.href;
+        const text = token.text;
+        const isBanner = href.includes('/banners/');
+        const maxWidth = isBanner ? 'max-w-3xl' : 'max-w-md';
         return `<div class="my-8 flex justify-center">
-            <img src="${href}" alt="${text}" class="w-full max-w-3xl rounded-lg shadow-lg" />
+            <img src="${href}" alt="${text}" class="w-full ${maxWidth} rounded-lg shadow-lg" />
         </div>\n`;
     },
     list(token) {
