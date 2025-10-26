@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption. - kawaii-san.org</title>
     <meta name="description" content="Cyberpunk 2077: A story of corporate greed, gamer rage, and the rarest ending in gaming — redemption.">
-    
+
+    <meta name="author" content="Isaiah">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="canonical" href="https://kawaii-san.org/posts/22-10-2025/">
 
     <meta property="og:title" content="Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption. - kawaii-san.org">
     <meta property="og:description" content="Cyberpunk 2077: A story of corporate greed, gamer rage, and the rarest ending in gaming — redemption.">
@@ -23,9 +28,16 @@
         .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         header{padding:2rem 1rem}
         .container{max-width:1280px;margin:0 auto;padding:0 1rem}
+        /* Added CSS for icon alignment */
+        #contact-modal a svg, .contact-page a svg {
+             display: inline-block;
+             vertical-align: middle;
+             margin-top: -2px;
+        }
     </style>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
+      // *** ADDED BACK TAILWIND CONFIG ***
       tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -34,7 +46,17 @@
               'kawaii-pink': '#FFC0CB',
               'kawaii-blue': '#A7C7E7',
               'kawaii-mint': '#B2F2BB',
-              'kawaii-lavender': '#E6E6FA'
+              'kawaii-lavender': '#E6E6FA',
+              'social-email': '#8B55CC',
+              'social-github': '#ffffff',
+              'social-linkedin': '#0A66C2',
+              'social-twitter': '#ffffff',
+              'social-instagram': '#E4405F',
+              'social-mastodon': '#6364FF',
+              'social-twitch': '#9146FF',
+              'social-telegram': '#26A5E4',
+              'social-patreon': '#FF424D',
+              'social-threads': '#ffffff'
             }
           }
         }
@@ -45,6 +67,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/site-config.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/assets/js/sw.js')
+            .then(reg => console.log('Service Worker registered'))
+            .catch(err => console.error('Service Worker registration failed:', err));
+        });
+    }
+    </script>
+    <style>
+      /* Critical CSS */
+      body{font-family:'Inter',sans-serif;background:#111827;color:#e5e7eb;margin:0}
+      .gradient-text{background:linear-gradient(45deg,#FFC0CB,#A7C7E7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+      header{padding:2rem 1rem}
+      .container{max-width:1280px;margin:0 auto;padding:0 1rem}
+    </style>
 </head>
 
 <script type="application/ld+json">
@@ -56,10 +94,15 @@
   "datePublished": "2025-10-22",
   "dateModified": "2025-10-22",
   "description": "Cyberpunk 2077: A story of corporate greed, gamer rage, and the rarest ending in gaming — redemption.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kawaii-san.org/posts/22-10-2025/"
+  },
+  "articleSection": "games",
   "author": {
     "@type": "Person",
     "name": "Isaiah",
-    "url": "https://kawaii-san.org/about/"
+    "url": "https://kawaii-san.org/assets/about.html"
   },
   "publisher": {
     "@type": "Organization",
@@ -71,25 +114,52 @@
   }
 }
 </script>
-    
+
 <body class="bg-custom-dark text-gray-200 antialiased">
-    <div id="header-placeholder"></div>
-    
+    <header class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-black tracking-tighter">
+                <a href="/" class="gradient-text">KawaiiBlog</a>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-lg font-bold items-center">
+                <a href="/" class="hover:text-kawaii-pink transition-colors">Home</a>
+                <a href="/assets/archive.html" class="hover:text-kawaii-blue transition-colors">Archive</a>
+                <a href="/assets/about.html" class="hover:text-kawaii-mint transition-colors">About</a>
+                <a href="/assets/contact.html" class="hover:text-kawaii-lavender transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+         <div id="mobile-menu" class="hidden md:hidden mt-4">
+            <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Home</a>
+            <a href="/assets/archive.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Archive</a>
+            <a href="/assets/about.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">About</a>
+            <a href="/assets/contact.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Contact</a>
+        </div>
+    </header>
+
     <main class="container mx-auto px-4 py-12">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
                 <p class="text-sm text-gray-400">Oct 22, 2025 • 23 min read • games</p>
-                <h1 class="text-5xl font-black mt-2 leading-tight gradient-text">Cyberpunk 2077: From corporate greed to redemption.</h1>
+                <h1 class="text-5xl font-black mt-2 leading-tight gradient-text">Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption.</h1>
             </div>
 
             <div class="mb-12">
-                <img 
-                    src="/assets/images/banners/22-10-2025.webp" 
-                    alt="Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption." 
+                <img
+                    src="/assets/images/banners/22-10-2025.webp"
+                    alt="Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption."
+                    width="1200"
+                    height="630"
+                    loading="eager"
+                    decoding="async"
                     class="w-full rounded-lg shadow-lg"
-                    onerror="this.onerror=null; this.src='https://placehold.co/1200x600/111827/FFC0CB?text=Banner+Not+Found';">
+                    onerror="this.onerror=null; this.src='/assets/images/og-default.png';">
             </div>
-            
+
             <div class="text-lg text-gray-300 leading-relaxed blog-content">
                 <p class="mb-6">Look. Cyberpunk 2077 is a masterpiece born from disaster. Here’s how CD Projekt Red went from “This is ass!” to “This is gas”</p>
 <h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">Grand Theft Auto: 2077</h2>
@@ -119,19 +189,10 @@
 <p class="mb-6">Grand Theft Auto 5 was released in September 2013. An open world game in 3rd person perspective and it’s own story. But during the production for the 2014 re-release for the PS4/Xbox One/PC version, Rockstar games added the 1st person perspective as a novelty. This did mean that they had to update graphics like guns and car interiors, rework certain animations and in game physics. But they were already going to do that for the newer hardware anyways. And this is after game had already been released, so that meant no pressure from the public to rush it. So why <em>not</em> add a 1st person POV option? And if you didn’t like it, you can turn it off with just a single button. You had the <em>option</em> between 1st person and 3rd person. It was about <strong>player choice and flexibility.</strong> Which Cyberpunk didn’t provide. You were stuck in first person (except in cars) because they believed the entire experience needed to be built around that perspective to work properly. Just do 1st or 3rd person if you won’t let me choose. Don’t play both sides, you’ll fall.</p>
 <h3 class="text-2xl font-bold mt-8 mb-4">What did it cost?</h3>
 <p class="mb-6">So here’s what happened after it’s decision in 2016:</p>
-<ol class="list-decimal list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1"><strong>Development reset:</strong> Features, animations, and gameplay systems built for third-person had to be scrapped or rebuilt</li>
-  <li class="mb-1"><strong>Character customization paradox:</strong> Players spent hours customizing characters they'd barely see</li>
-  <li class="mb-1"><strong>Cut features:</strong> Wall-running, flying cars, and other mechanics that would have showcased the third-person perspective were abandoned</li>
-  <li class="mb-1"><strong>Technical challenges:</strong> The game's character models weren't even fully designed for third-person viewing. (modders discovered V is missing a head and has a strange elongated body when viewed externally. at least it wasn’t just a grey pill)</li>
-</ol><h3 class="text-2xl font-bold mt-8 mb-4">The Invisible Character Problem</h3>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
+<h3 class="text-2xl font-bold mt-8 mb-4">The Invisible Character Problem</h3>
 <p class="mb-6">Here&#39;s something that didn&#39;t hit players until they were hours into the game: all that time you spent in character creation? Wasted. Not because the system was bad, but because you literally never see your character outside of:</p>
-<ol class="list-decimal list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Looking in mirrors (which you do maybe 3 times)</li>
-  <li class="mb-1">The inventory/upgrade screen</li>
-  <li class="mb-1">Photo mode (if you remember it exists)</li>
-  <li class="mb-1">Looking down at your feet like a weirdo</li>
-</ol>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">Compare this to The Witcher 3, where you see Geralt constantly. Every cutscene, every combat encounter, every moment of gameplay—you&#39;re looking at your character. Players formed attachments to Geralt&#39;s appearance, his animations, the way he moved through the world.</p>
 <p class="mb-6">In Cyberpunk? V is essentially a ghost you occasionally glimpse. Some players reported feeling disconnected from their character despite spending 30+ minutes perfecting their look. One Reddit user said: &quot;I made the most badass looking corpo V, gave her scars and everything. Then I played 60 hours and realized I forgot what she looked like.&quot;</p>
 <p class="mb-6">The tragic irony? The character customization system is genuinely detailed—cyberware, tattoos, scars, piercings, multiple body types. CDPR put significant development time into a feature that became functionally cosmetic. That&#39;s dev time that could have gone toward fixing bugs, improving AI, or building out promised features.</p>
@@ -159,78 +220,36 @@
 <div class="bg-gray-800 p-6 rounded-lg my-8 border-l-4 border-kawaii-pink"><p class="text-xl italic">Rush perfection, and you don’t get perfection. You get catastrophe.</p></div>
 <h3 class="text-2xl font-bold mt-8 mb-4">The Breaking Point</h3>
 <p class="mb-6">This October delay broke something in the community. Because &quot;going gold&quot; is supposed to mean the game is done. Delaying after going gold means either:</p>
-<ol class="list-decimal list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">The game was never finished and they lied</li>
-  <li class="mb-1">Management realized too late that it was broken and lied anyways</li>
-</ol><p class="mb-6">But it got ✨ worse ✨.</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
+<p class="mb-6">But it got ✨ worse ✨.</p>
 <p class="mb-6">Because once the delays kept piling up, the discourse shifted. It wasn&#39;t just impatience anymore—it was rage. And that&#39;s when the &#39;since 2012&#39; bullshit started.”</p>
 <h3 class="text-2xl font-bold mt-8 mb-4">The pattern</h3>
 <p class="mb-6">Noticed something? All these game studios had massive teams, long development times and enormous budgets. Not to mention these were all talented classes, not your regulary Joe. These teams had a <em>passion</em> for games and wanted to produce something from their hearts. </p>
 <p class="mb-6">Yet people will STILL complain. They always do. But why did CD Projekt Red go through so much backlash while the rest didn’t?</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Didn’t announce the game 8 years prior.</li>
-  <li class="mb-1">Set realistic expectations.</li>
-  <li class="mb-1">Had the backing of massive parent companies.</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">This wasn’t entirely their fault. This was only their second major title ever made under the CD Projekt Red title. But <strong>that doesn&#39;t excuse the fans who sent death threats to developers.</strong> Ffs. </p>
 <h3 class="text-2xl font-bold mt-8 mb-4">So What&#39;s The Actual Problem Here?</h3>
 <p class="mb-6">Let&#39;s be clear about what the &quot;since 2012&quot; complaint misses:</p>
 <p class="mb-6"><strong>The Real Timeline</strong>: 4-5 years of full production with 400 people is <em>completely normal</em> for a game of this scope. The problem wasn&#39;t the development time—it was:</p>
-<ol class="list-decimal list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1"><strong>Announcing 4+ years before production started</strong> - This set a clock in people's heads that didn't match reality</li>
-  <li class="mb-1"><strong>Team size vs. ambition mismatch</strong> - They tried to match games made by 2,000-3,000 person teams with 400 people</li>
-  <li class="mb-1"><strong>Management refusing to acknowledge they needed more time or more people</strong> - Pride? Investor pressure? Stupidity? All three?</li>
-</ol>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">Red Dead Redemption 2 had 5x the people and took longer. Nobody complained because Rockstar announced it 2 years before release, not 8.</p>
 <p class="mb-6">The Last of Us Part II had 2,169 developers across 14 studios. Nobody complained because Naughty Dog didn&#39;t announce it until they knew what they were building.</p>
 <p class="mb-6">Elden Ring succeeded with a smaller team because FromSoftware:</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Didn't announce until 2 years into development</li>
-  <li class="mb-1">Didn't reboot perspective mid-production</li>
-  <li class="mb-1">Didn't promise features they couldn't deliver</li>
-  <li class="mb-1">Actually knew what they were making</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6"><strong>The Lesson</strong>: The development time wasn&#39;t the crime. The crime was announcing too early with a team too small for the scope, then refusing to adjust when reality hit. CDPR management created their own pressure cooker and then blamed fans for turning up the heat.</p>
 <p class="mb-6">But fuck those fans who sent death threats. Seriously. The developers were doing their best with impossible conditions. Harassing individual devs because management fucked up is peak gamer entitlement bullshit.</p>
 <h3 class="text-2xl font-bold mt-8 mb-4">The outlier</h3>
 <p class="mb-6">Elden Ring? Why are we talking about this absolute fucking masterpiece? (Best game in the world btw). The difference in culture. Let me explain.</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Development time: ~5 years (2017-2022)</li>
-  <li class="mb-1">Team size: <strong>200-230 people at peak</strong> (from a pool of 300 development staff at FromSoftware)</li>
-  <li class="mb-1">Total FromSoftware employees: ~400 people</li>
-  <li class="mb-1">Budget: ~$200 million</li>
-  <li class="mb-1">Sold over 30 million copies</li>
-  <li class="mb-1">Note: FromSoftware was <strong>simultaneously developing Armored Core 6</strong> with the same team pool, shuffling developers between projects as needed</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">So why did <em>this</em> game get over 30 million copies sold and GotY 2022, with a 96 Metacritic score?</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1"><strong>Asset reuse mastery</strong>: FromSoftware is legendary at reusing and refining animations, systems, and design patterns from previous games</li>
-  <li class="mb-1"><strong>Focused scope</strong>: They knew exactly what they were making and didn't chase every trendy feature</li>
-  <li class="mb-1"><strong>Experience</strong>: By the time they made Elden Ring, FromSoftware had refined their formula across Demon's Souls, Dark Souls 1-3, Bloodborne, and Sekiro. Some of the most widely critically acclaimed games of all fucking time.</li>
-  <li class="mb-1"><strong>No feature creep</strong>: They didn't reboot development halfway through or completely change perspective</li>
-  <li class="mb-1"><strong>Realistic ambitions</strong>: The scope matched the team size and timeline</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">There was also one more factor that these other production didn’t suffer from. The Japanese work culture. FROMSOFTWARE being a Japanese company, the work ethic of working overtime with no pay and expected 80 hour workweek. Sometimes expect pregnant employees to leave the company for new hire. So yes, they were really fucking efficient and made, what I think, the best game to have ever made by one of my favourite company of all time. But with the expense of human ethics is challenging to bare. However, the Japanese work ethic is actively improving. So keep your hopes up. </p>
 <h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-pink">Act IV: “It’s Almost Dry” feat. Pharrell Williams and Kanye West</h2>
 <p class="mb-6">The game finally releases on December 10, 2020. And it’s not good.</p>
 <p class="mb-6">A hot buggy mess even on high-end gaming PCs, especially on consoles like the PS5 and the Xbox Series X having it super rough. And if you didn’t have the best GPU and CPU available? Good luck.</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">NPCs T-posing in cutscenes</li>
-  <li class="mb-1">Cars falling from the sky</li>
-  <li class="mb-1">Game-breaking quest bugs</li>
-  <li class="mb-1">Constant crashes (every 30-60 minutes on base consoles)</li>
-  <li class="mb-1">Frame rates dropping to single digits</li>
-  <li class="mb-1">Textures not loading</li>
-  <li class="mb-1">Physics going haywire</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">What’s worse is that features that were promised or shown in demos were a mirage.</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Meaningful lifepath choices (basically cosmetic)</li>
-  <li class="mb-1">Deep NPC AI and routines (NPCs were dumb as rocks)</li>
-  <li class="mb-1">Vehicle customization</li>
-  <li class="mb-1">Metro system that actually worked</li>
-  <li class="mb-1">Proper police chase mechanics (cops just spawned behind you. sounds like a poorly made FiveM server)</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <h3 class="text-2xl font-bold mt-8 mb-4">The Reception</h3>
 <p class="mb-6">The internet had a field day. Reddit megathreads documented a billion issues. YouTubers made <em>career</em> out of bug compilations. Review sites that had initially praised the game start to issue warnings in it. </p>
 <div class="bg-gray-800 p-6 rounded-lg my-8 border-l-4 border-kawaii-pink"><p class="text-xl italic">This game is promising. Update: Don’t buy it.</p></div>
@@ -252,63 +271,23 @@
 <h3 class="text-2xl font-bold mt-8 mb-4">The Long Road Back</h3>
 <p class="mb-6">For the next <strong>four years</strong>, CDPR released:</p>
 <p class="mb-6"><strong>2021</strong>: The Year of Damage Control</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Patches 1.1 through 1.3: Literally hundreds of bug fixes</li>
-  <li class="mb-1">Performance optimizations for last-gen consoles (though they never ran *great*)</li>
-  <li class="mb-1">Sony re-lists the game on PlayStation Store in June 2021</li>
-  <li class="mb-1">Free DLC started trickling in—cosmetics, weapons, apartments</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6"><strong>2022</strong>: The Stability Year</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Patch 1.5: Next-gen console optimization (finally ran properly on PS5/Xbox Series X)</li>
-  <li class="mb-1">More gameplay improvements, UI fixes, better AI</li>
-  <li class="mb-1">The game became *playable* across all platforms</li>
-  <li class="mb-1">Player count started climbing back up on Steam</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6"><strong>2023</strong>: The Redemption</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1"><strong>Cyberpunk 2077: Phantom Liberty</strong> drops—a massive expansion</li>
-  <li class="mb-1">Update 2.0: Complete overhaul of police system, skill trees, vehicle combat</li>
-  <li class="mb-1">Idris Elba joins the cast</li>
-  <li class="mb-1">Critics actually praise it: "This is what Cyberpunk should have been"</li>
-  <li class="mb-1">The expansion sold millions of copies</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6"><strong>2024-2025</strong>: The Victory Lap</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">Continued patches and improvements</li>
-  <li class="mb-1">Community modding scene thrives</li>
-  <li class="mb-1">Player sentiment shifts from "broken mess" to "hidden gem"</li>
-  <li class="mb-1">Total sales exceed 30 million copies</li>
-  <li class="mb-1">Netflix anime *Cyberpunk: Edgerunners* (2022) brings new players</li>
-  <li class="mb-1">Reviews shift from "Mixed" to "Mostly Positive" on Steam</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <h3 class="text-2xl font-bold mt-8 mb-4">Did They Deserve Redemption?</h3>
 <p class="mb-6">Here&#39;s the uncomfortable question: Does fixing your fuck-up erase the fuck-up?</p>
 <p class="mb-6"><strong>Arguments for forgiveness:</strong></p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">They didn't abandon the game (many studios would have)</li>
-  <li class="mb-1">They supported it for 4+ years post-launch</li>
-  <li class="mb-1">They delivered on promises, eventually</li>
-  <li class="mb-1">Phantom Liberty was genuinely excellent</li>
-  <li class="mb-1">The game I played in 2025 is legitimately great</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6"><strong>Arguments against:</strong></p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">They only fixed it after lawsuits and financial disaster forced their hand</li>
-  <li class="mb-1">The launch scammed millions of console players who paid full price</li>
-  <li class="mb-1">Developer crunch and burnout can't be undone by patches</li>
-  <li class="mb-1">Lost trust doesn't magically return with bug fixes</li>
-  <li class="mb-1">Some players will never come back after getting burned</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">The truth? It&#39;s both. They redeemed the <em>game</em> but not the <em>launch</em>. The product became what it should have been, but the process that created it—and destroyed it—remains a permanent stain.</p>
 <h3 class="text-2xl font-bold mt-8 mb-4">The Current State (2025)</h3>
 <p class="mb-6">Today, Cyberpunk 2077 is:</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">A critical success (finally)</li>
-  <li class="mb-1">Commercially successful (30M+ copies)</li>
-  <li class="mb-1">Genuinely fun to play</li>
-  <li class="mb-1">A cautionary tale that will follow CDPR forever</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">The game is great now. But &quot;now&quot; came four years too late for millions of people who paid $60 for a broken promise. No amount of patches can refund that lost time and trust.</p>
 <h2 class="text-3xl font-bold mt-12 mb-6 text-kawaii-lavender">Epilogue: The Game I Played</h2>
 <p class="mb-6">I played Cyberpunk 2077 in June 2025, mostly because I was bored and had already finished Elden Ring for the third time. And honestly? It was fucking amazing.</p>
@@ -318,24 +297,13 @@
 <p class="mb-6">But here&#39;s what keeps me up at night: <strong>What if they had waited?</strong></p>
 <p class="mb-6">Not just &quot;what if they delayed to 2021?&quot; but what if they had taken the time the game actually needed? What if they&#39;d launched in 2025 instead of 2020?</p>
 <p class="mb-6">Would we have gotten:</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1"><strong>Deeper systems?</strong> More complex NPC routines? A living city with actual AI that reacts to your actions?</li>
-  <li class="mb-1"><strong>More content?</strong> The cut metro system? Flying cars? Wall-running?</li>
-  <li class="mb-1"><strong>Better storytelling?</strong> More meaningful lifepath differences that actually affect the narrative?</li>
-  <li class="mb-1"><strong>Technical excellence?</strong> Ray tracing on launch? Stable 60fps on all platforms?</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">Or would we have just gotten the same game, but stable?</p>
 <p class="mb-6"><strong>We&#39;ll never know.</strong> That&#39;s the tragedy.</p>
 <p class="mb-6">The game we got is great. But it&#39;s a salvaged masterpiece—rescued from disaster through years of triage. We&#39;ll never know what it could have been if it had been given the time, resources, and scope management it needed from the start instead of being fixed in post-launch emergency mode.</p>
 <h3 class="text-2xl font-bold mt-8 mb-4">What Cyberpunk Taught Us (That We&#39;ll Ignore)</h3>
 <p class="mb-6">This game should have taught the industry:</p>
-<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">
-  <li class="mb-1">✗ Don't announce games years before production starts</li>
-  <li class="mb-1">✗ Don't crunch developers—it doesn't work</li>
-  <li class="mb-1">✗ Don't overpromise features you can't deliver</li>
-  <li class="mb-1">✗ Don't ship broken products to hit arbitrary deadlines</li>
-  <li class="mb-1">✗ Don't let investors dictate creative timelines</li>
-</ul>
+<ul class="list-disc list-inside mb-6 space-y-2 text-lg leading-relaxed">[object Object]</ul>
 <p class="mb-6">But let&#39;s be real: nobody learned shit. The industry continues making the same mistakes. Games are still announced too early. Developers are still crunched. Products are still shipped broken with &quot;we&#39;ll patch it later&quot; excuses.</p>
 <p class="mb-6">Cyberpunk 2077 changed nothing. It&#39;ll happen again. It&#39;s probably happening right now at some studio while you read this.</p>
 <h3 class="text-2xl font-bold mt-8 mb-4">Final Thoughts</h3>
@@ -355,9 +323,17 @@
         <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-500">
+        <p>&copy; 2025 kawaii-san.org. All wrongs reserved.</p>
+        <p class="mt-2 text-sm">
+            The code for this site is licensed under the
+            <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="underline hover:text-gray-300">GPLv3</a>.
+            Blog content is licensed under a
+            <a href="http://creativecommons.org/licenses/by-sa/4.0/" class="underline hover:text-gray-300">CC BY-SA 4.0</a>.
+            Don't be a bitch.
+        </p>
+    </footer>
 
     <script src="/assets/js/script.js"></script>
 </body>
 </html>
-

@@ -1,4 +1,10 @@
-# Clanker Might Be the New N Word
+---
+id: 'clanker'
+title: 'Clanker Might Be the New N Word'
+date: '2025-10-20'
+category: 'commentary'
+excerpt: "Economic anxiety is real, and people bond over shared fears. But we don't have to normalize slurs to do it."
+---
 
 Look, I'm not here to be the fun police. I get it. But we should probably talk about this before it becomes a whole thing.
 

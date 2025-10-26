@@ -1,4 +1,10 @@
-# Why I'm Breaking Up With Microsoft (And You Should Too)
+---
+id: 'windows10'
+title: "Why I'm Breaking Up With Microsoft (And You Should Too)"
+date: '2025-10-19'
+category: 'tech'
+excerpt: "Microsoft's data collection is intrusive, Windows 11 sucks, and MacOS is for losers. But there is an alternative..."
+---
 
 Look, just use Linux. You don't even need terminal. It's not big scary any more.
 

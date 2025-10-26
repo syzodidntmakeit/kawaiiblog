@@ -1,4 +1,10 @@
-# Amazon; Our Overlords Have Failed Us
+---
+id: 'aws-sucks'
+title: 'Amazon; Our Overlords Have Failed Us'
+date: '2025-10-21'
+category: 'tech'
+excerpt: "AWS went down for three hours and broke the internet. And I think it's entirely our fault."
+---
 
 Look, I hate Amazon as much as the next Twitter user, but maybe we do need them after all.
 
