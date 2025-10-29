@@ -7,7 +7,6 @@ main {
 }
 
 body {
-    /* Use Nunito as the default font */
     font-family: 'Nunito', sans-serif;
     display: flex;
     flex-direction: column;
@@ -16,14 +15,12 @@ body {
     color: #e5e7eb; /* Default text-gray-200 */
 }
 
-/* Specific rule for h1 elements */
-h1, .blog-content h1 { /* Target header h1 and blog content h1 */
+.blog-content h1 { /* Target header h1 and blog content h1 */
     font-family: 'VT323', monospace; /* Use VT323 for h1 */
     /* Adjust font weight/size/letter spacing for VT323 if needed */
     font-weight: 400; /* VT323 is often best at normal weight */
     /* You might need to adjust line-height or margins for VT323 */
 }
-
 
 body.bg-custom-dark {
     background-color: #0d011f;
@@ -43,7 +40,6 @@ body.bg-custom-dark {
     -webkit-text-fill-color: transparent;
 }
 
-/* Ensure blog content h2/h3 use Nunito if not overridden by Tailwind */
 .blog-content h2, .blog-content h3 {
     font-family: 'Nunito', sans-serif; /* Explicitly set Nunito for other headings */
     font-weight: 900; /* Keep your bold weight */
@@ -87,6 +83,7 @@ body.bg-custom-dark {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
+
 .modal-content {
     background-color: #1f2937;
     padding: 2rem;
@@ -161,6 +158,7 @@ body.bg-custom-dark {
     border-color: #000000;
     color: #000000;
 }
+
 .post-card-container:hover .share-btn:hover {
     background-color: rgba(0, 0, 0, 0.1);
     color: #000000;
@@ -171,6 +169,7 @@ body.bg-custom-dark {
     color: #000000;
     border-color: var(--kawaii-mint);
 }
+
 .post-card-container:hover .share-btn.copied {
     background-color: rgba(0, 0, 0, 0.8);
     color: #ffffff;

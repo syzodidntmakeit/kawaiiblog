@@ -1,9 +1,9 @@
 ---
 id: 'from-its-so-over-to-we-are-so-back'
-title: 'Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption.'
+title: 'Cyberpunk 2077: From corporate greed to redemption.'
 date: '2025-10-22'
 category: 'games'
-excerpt: "Cyberpunk 2077: From corporate greed to redemption."
+excerpt: "Cyberpunk 2077: A game that once anticipated, fall short and suffered public execution. Just to be revamped 5 years later."
 ---
 
 Look. Cyberpunk 2077 is a masterpiece born from disaster. Here’s how CD Projekt Red went from “This is ass!” to “This is gas”
