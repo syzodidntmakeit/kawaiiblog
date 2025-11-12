@@ -1,164 +1,143 @@
-# **👾 KawaiiBlog**
+# 👾 KawaiiBlog
 
-Welcome to the repo for [kawaii-san.org](https://kawaii-san.org), my personal corner of the internet. This is where I write about tech, self-hosting, Linux, anime, music, and whatever else is rattling around my brain.  
-This whole thing is basically built the Arch Way: minimal, efficient, and completely over-engineered for what it is. It's part-personal documentation, part-soapbox for rants against user-hostile tech, and fully built with a healthy disrespect for bloated, corporate software.
+Repo for [blog.kawaii-san.org](https://blog.kawaii-san.org) — a no-framework, over-engineered static blog about tech, self-hosting, anime, music, and whatever else I'm yelling about this week. Everything lives in git, gets generated locally, and ships to GitHub Pages with a custom domain.
 
-## **⚙️ Tech Stack & Philosophy**
+## ⚡ Project at a glance
 
-This is a "hybrid" static site built with vanilla HTML, CSS, and JavaScript, but powered by a few slick Node.js scripts. No frameworks, no bullshit.
+- Markdown-first workflow: every post starts as `posts/DD-MM-YYYY/blog.md` with YAML front matter.
+- `blog-to-site/generate.js` turns Markdown into static HTML, updates `posts/all-posts.json`, and rewrites both `rss.xml` and `sitemap.xml` so feeds stay synced.
+- Homepage (`index.html`) and archive (`assets/archive.html`) fetch `posts/all-posts.json` client-side for live lists; individual posts are 100% static HTML.
+- Styling relies on Tailwind via CDN for dev convenience plus a compiled `assets/css/style.css` generated from `source/css/input.css`.
+- `assets/js/sw.js` handles lightweight offline caching; `assets/js/script.js`, `homepage.js`, and `archive.js` wire up UI, filtering, and sharing.
+- Deploys to GitHub Pages straight from `main`, with the `CNAME` pinning `blog.kawaii-san.org`.
 
-* **Content Source**: Simple Markdown files (blog.md) with front-matter.  
-* **Styling**: [Tailwind CSS](https://tailwindcss.com/) (using the CDN for live JIT compilation in dev, and a local style.css build for prod).  
-* **Static Generation**: A custom Node.js script (blog-to-site/generate.js) converts Markdown to static HTML pages.  
-* **Content "Database"**: A single posts/all-posts.json file is automatically updated and acts as the central source of truth for all post metadata.  
-* **Dynamic Pages**: The Homepage and Archive pages fetch all-posts.json client-side to render post lists dynamically.  
-* **Automation**: Helper scripts (new-post.js) to scaffold new posts, update metadata, and regenerate feeds.  
-* **Offline Support**: A basic Service Worker (sw.js) for caching and offline access.  
-* **Feeds**: Automatically generated rss.xml and sitemap.xml on every build.
+## 🗂️ Repository layout
 
-The goal is a lightweight, fast, and fully transparent stack that I have 100% control over. Headers and footers are baked into each static HTML page during generation—no client-side fetching required.
+```
+.
+├── assets/
+│   ├── about.html · archive.html · contact.html
+│   ├── css/style.css              # Tailwind build output
+│   ├── js/
+│   │   ├── homepage.js            # Renders latest 20 posts on landing page
+│   │   ├── archive.js             # Search + sort UI for the archive view
+│   │   ├── script.js              # Nav, share, and back-to-top helpers
+│   │   ├── site-config.js         # Centralized metadata + helper funcs
+│   │   └── sw.js                  # Service worker cache list
+│   └── images/, favicon/, etc.
+├── blog-to-site/
+│   ├── new-post.js                # Interactive post scaffolder
+│   ├── generate.js                # Markdown → HTML + JSON + feeds
+│   ├── template.html/.md          # Layout + front-matter stencil
+│   └── package*.json              # marked, inquirer, fast-xml-parser, etc.
+├── posts/
+│   ├── DD-MM-YYYY/                # blog.md source + generated index.html
+│   └── all-posts.json             # Single source of truth for listings
+├── source/css/input.css           # Tailwind entrypoint
+├── index.html · 404.html · rss.xml · sitemap.xml
+├── package.json                   # Tailwind build script
+├── tailwind.config.js             # Purge paths + custom palette
+└── LICENSE                        # AGPL-3.0 for code
+```
 
-## **🚀 How It Works: The Architecture**
+## 🧰 Requirements
 
-The site operates in two modes:
+- Node.js 18+ (for ESM modules and the latest Tailwind CLI).
+- npm (or pnpm/yarn if you tweak the scripts).
+- A simple static file server for previewing (Python 3’s `http.server` is fine).
+- Image editor if you care about banners (`assets/images/banners/*.webp`, 1200×630) and thumbnails (`assets/images/thumbnails/*.webp`, 384×384).
 
-1. **Static Pages (Posts)**: Every individual blog post (posts/DD-MM-YYYY/index.html) is a pre-rendered, static HTML file. They are generated from Markdown and have zero client-side dependencies to load content. Fast as hell.  
-2. **Dynamic Pages (Lists)**: The Homepage (index.html) and Archive (assets/archive.html) are lightweight HTML shells. They use client-side JavaScript (homepage.js, archive.js) to fetch all-posts.json and render the post lists on the fly. This means the homepage is always up-to-date without needing to be rebuilt.
+## 📦 Install & build
 
-## **🛠️ Local Development**
+```bash
+# Root dependencies (Tailwind CLI)
+npm install
 
-To preview changes locally or run the site:
+# Builder dependencies (run once)
+cd blog-to-site
+npm install
+cd ..
+```
 
-1. Navigate to the project's root directory:  
-   cd /path/to/kawaiiblog
+Build or refresh the compiled stylesheet anytime Tailwind classes change:
 
-2. Start any simple web server. Python's built-in one works great:  
-   python \-m http.server 8000
-
-3. Open your browser and go to http://localhost:8000.
-
-To build the production Tailwind CSS file (optional, as pages use the CDN by default):  
-npm install \# Only needed once (installs tailwindcss)  
+```bash
 npm run build:css
+# Generates ./assets/css/style.css from ./source/css/input.css
+```
 
-## **✍️ Content Workflow: Adding a New Post**
+> Tip: Tailwind also loads via CDN inside the HTML templates, so rebuilding `style.css` is primarily for production/Pages and for any custom CSS you keep outside of the CDN script.
 
-This is the important part. Don't just write Markdown and push. Follow this process:
+## 📝 Daily workflow (new post → deploy)
 
-### **0\. Prep Work (Only Once)**
+1. **Sync main**  
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+2. **Scaffold the post** (from repo root or run `npm run new` inside `blog-to-site`):  
+   ```bash
+   node blog-to-site/new-post.js
+   ```  
+   Answer the title, category (`tech`, `commentary`, `anime`, `music`, `games`, `cars`, `lifting`, `other`), and excerpt prompts. This creates `posts/DD-MM-YYYY/blog.md` from `template.md`.
+3. **Write** inside the newly created `blog.md`. Keep the YAML front matter intact; the generator expects `id`, `title`, `date`, `category`, and `excerpt`.
+4. **Add media** (optional but recommended):  
+   - Banner → `assets/images/banners/DD-MM-YYYY.webp` (1200×630).  
+   - Thumbnail → `assets/images/thumbnails/DD-MM-YYYY.webp` (384×384).  
+   - Extra figures can live alongside the post folder.
+5. **Generate HTML + metadata**  
+   ```bash
+   node blog-to-site/generate.js posts/DD-MM-YYYY/blog.md
+   ```  
+   This command:
+   - Produces `posts/DD-MM-YYYY/index.html` using `template.html`.
+   - Rewrites `posts/all-posts.json` (latest post is unshifted to the top).
+   - Updates `rss.xml` and `sitemap.xml` via `fast-xml-parser`.
+6. **CSS (if needed)** — run `npm run build:css` after touching classes or `tailwind.config.js`.
+7. **Preview locally**  
+   ```bash
+   python -m http.server 8000
+   # open http://localhost:8000
+   ```  
+   Smoke test the homepage, archive filters/search, and the new `/posts/DD-MM-YYYY/` page. The homepage only renders the latest 20 posts, so make sure your new one shows up there.
+8. **Commit & push**  
+   ```bash
+   git checkout -b new-post/my-slug   # optional but polite
+   git add .
+   git commit -m "feat: add <post title>"
+   git push origin new-post/my-slug
+   ```  
+   Merge or push straight to `main`; GitHub Pages auto-publishes and respects the `CNAME`.
 
-You need to install the Node.js dependencies for the build scripts.  
-git clone \[your-github-repo-url\]  
-cd kawaiiblog  
-cd blog-to-site  \# \<-- Go into the script directory  
-npm install      \# Installs marked, inquirer, chalk, etc.  
-cd ..            \# Go back to the root
+## 🧠 Runtime details
 
-### **1\. Sync Your main Branch**
+- `posts/all-posts.json` is the single data file both `homepage.js` (shows the latest 20 posts + category filters) and `archive.js` (full list with search + newest/oldest toggle) read via `fetch`.
+- `assets/js/script.js` handles nav toggles, share buttons (Web Share API + clipboard fallback), and the “back to top” control.
+- `assets/js/site-config.js` centralizes metadata used by the front end (site name, author info, meta description helpers) and exposes helper functions other scripts can call.
+- `assets/js/sw.js` is registered in every HTML shell and caches the core routes (home, archive, about, contact, CSS, JS bundle, and `posts/all-posts.json`) for basic offline resilience.
+- `blog-to-site/template.html` bakes in Schema.org JSON-LD, Open Graph tags, service-worker registration, and the global header/footer. The Markdown renderer in `generate.js` customizes headings, lists, blockquotes, and image wrappers so the posts inherit the site’s Tailwind styles.
 
-Always start by pulling the latest changes.  
-git checkout main  
-git pull origin main
+## 🚢 Deployment
 
-### **2\. Create the New Post Files**
+- Hosting: GitHub Pages (static).  
+- Branch: `main` → Pages.  
+- Domain: `blog.kawaii-san.org` via `CNAME`.  
+- Because list pages fetch JSON at runtime, adding a post only requires the generator to touch the post folder + JSON + feeds; there’s no global rebuild step beyond committing those files.
 
-Run the interactive script from the **root directory**:  
-node blog-to-site/new-post.js
+## 🧭 Roadmap / nice-to-haves
 
-Follow the prompts. It will ask for a **Title**, **Category**, and **Excerpt**. This script automatically:
+- [ ] CSS: add a purge/minify step so `assets/css/style.css` only ships used utilities.
+- [ ] JS: bundle/minify `assets/js/*.js` (esbuild/terser) before deploy.
+- [ ] Images: generate responsive `<picture>`/`srcset` variants for banners and thumbnails.
+- [ ] Search: upgrade archive search to full-text (Pagefind/Lunr/etc.).
+- [ ] Comments: experiment with Giscus or a lightweight alternative inside `template.html`.
+- [ ] Accessibility: add “skip to content”, audit contrast, and ensure focus states everywhere.
 
-* Creates the new directory (posts/DD-MM-YYYY).  
-* Creates the blog.md file inside it, pre-filled with the front-matter from template.md.
+## 🔒 Privacy & licensing
 
-### **3\. Write Your Fucking Post**
+- **Code**: [AGPL-3.0](LICENSE) — share alike, even when running it as a service.  
+- **Blog content**: [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).  
+- **Telemetry**: none. No analytics, no trackers, no cookies beyond what your browser needs to exist.  
+- **Feeds**: `/rss.xml` and `/sitemap.xml` stay in the repo so you can diff every change.
 
-Go edit the new posts/DD-MM-YYYY/blog.md file. Write your masterpiece.
-
-### **4\. Create Images (Optional)**
-
-Place any images for the post in its directory (posts/DD-MM-YYYY/) or in the global assets (/assets/images/). Create your banner and thumbnail (WebP format is best) and put them in:
-
-* **Banner**: /assets/images/banners/DD-MM-YYYY.webp (1200x630px)  
-* **Thumbnail**: /assets/images/thumbnails/DD-MM-YYYY.webp (384x384px)
-
-### **5\. Generate HTML & Update Site Files**
-
-This is the magic step. From the **root directory**, run the generation script and point it to your new blog.md:  
-node blog-to-site/generate.js posts/DD-MM-YYYY/blog.md
-
-This single command does all the heavy lifting:
-
-1. Reads blog.md and its front-matter.  
-2. Converts the Markdown to HTML using template.html.  
-3. Saves the final index.html in the post's directory.  
-4. **Updates posts/all-posts.json** with the new post's metadata.  
-5. **Regenerates rss.xml** with the new post.  
-6. **Regenerates sitemap.xml** to include the new post.
-
-### **6\. Test Locally**
-
-Fire up your local server (python \-m http.server 8000\) and check:
-
-* Does the new post show up on the homepage?  
-* Does it show up on the archive page?  
-* Does the post page itself (http://localhost:8000/posts/DD-MM-YYYY/) look correct? (Check those lists\!)  
-* Do all the images load?
-
-### **7\. Commit & Push That Shit**
-
-If it all looks good, send it. Using a branch is good practice.  
-\# Optional, but a good habit  
-git checkout \-b new-post/your-post-slug
-
-\# Add everything  
-git add .
-
-\# Commit with a clear message  
-git commit \-m "feat: Add new post 'Your Badass Post Title'"
-
-\# Push it  
-git push origin new-post/your-post-slug
-
-\# Then go to GitHub and merge the Pull Request.  
-\# Or just push to main if you're feeling spicy:  
-\# git checkout main  
-\# git merge new-post/your-post-slug  
-\# git push origin main
-
-GitHub Pages will automatically pick up the changes and deploy. Because the homepage fetches all-posts.json live, it'll show up immediately once the JSON file is updated.
-
-## **🗺️ Known Issues & Roadmap**
-
-### **Current Features**
-
-* ✅ Simple Node.js build scripts (generate.js, new-post.js)  
-* ✅ Markdown to HTML conversion (marked)  
-* ✅ Front-matter parsing (front-matter)  
-* ✅ Automatic all-posts.json metadata generation  
-* ✅ Automatic rss.xml and sitemap.xml generation  
-* ✅ Tailwind CSS for styling  
-* ✅ Header/Footer baked into static HTML (no client-side fetching)  
-* ✅ Service Worker for basic offline support  
-* ✅ Full SEO meta tags & Schema.org JSON-LD  
-* ✅ Native lazy loading for images (loading="lazy")  
-* ✅ Canonical URLs for all pages  
-* ✅ Basic client-side search/filter/sort on Archive page
-
-### **Planned Improvements**
-
-* \[ \] **CSS:** Implement a PurgeCSS step in npm run build:css to create a minimal production style.css file.  
-* \[ \] **JS:** Add a minification step (e.g., using terser) for the client-side .js files.  
-* \[ \] **Images:** Implement responsive images with srcset or \<picture\> for banners to save bandwidth on mobile.  
-* \[ \] **Search:** The current archive search is basic. Upgrade to a real client-side search library like [Pagefind](https://pagefind.app/) for full-text search.  
-* \[ \] **Comments:** Add a comment system (e.g., [Giscus](https://giscus.app/)) to post templates.  
-* \[ \] **Accessibility:** Add a "Skip to Content" link for keyboard navigation.
-
-## **🔒 Privacy & Licensing**
-
-* **Code**: Licensed under [GPLv3](https://www.google.com/search?q=LICENSE).  
-* **Content**: Licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).  
-* **Analytics/Tracking/Cookies**: **None.** Fuck all that. This site respects your privacy.
-
-## **🚢 Deployment**
-
-Hosted on **GitHub Pages** and deployed automatically on push to the main branch. The custom domain kawaii-san.org is configured via the CNAME file.
+Go build, rant, repeat. 💀

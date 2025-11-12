@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
   <title>KawaiiBlog</title>
-  <link>https://kawaii-san.org</link>
+  <link>https://blog.kawaii-san.org</link>
   <description>A personal blog about tech, lifting, self-hosting, anime, and whatever else is occupying my brain space.</description>
   <language>en-us</language>
   <lastBuildDate>Wed, 22 Oct 2025 09:00:00 +0800</lastBuildDate>
@@ -10,46 +10,46 @@
 
   <item>
     <title>Cyberpunk 2077: A story of corporate greed, gamer rage, and ending in gaming redemption.</title>
-    <link>https://kawaii-san.org/posts/22-10-2025/</link>
-    <guid isPermaLink="true">https://kawaii-san.org/posts/22-10-2025/</guid>
+    <link>https://blog.kawaii-san.org/posts/22-10-2025/</link>
+    <guid isPermaLink="true">https://blog.kawaii-san.org/posts/22-10-2025/</guid>
     <pubDate>Wed, 22 Oct 2025 09:00:00 +0800</pubDate>
     <category>games</category>
     <content:encoded><![CDATA[Cyberpunk 2077: A story of corporate greed, gamer rage, and the rarest ending in gaming — redemption.]]></content:encoded>
     <description><![CDATA[Cyberpunk 2077: A story of corporate greed, gamer rage, and the rarest ending in gaming — redemption.]]></description>
-    <media:content url="https://kawaii-san.org/assets/images/banners/22-10-2025.webp" medium="image"/>
+    <media:content url="https://blog.kawaii-san.org/assets/images/banners/22-10-2025.webp" medium="image"/>
   </item>
 
   <item>
     <title>Amazon; Our Overlords Had Failed Us.</title>
-    <link>https://kawaii-san.org/posts/21-10-2025/</link>
-    <guid isPermaLink="true">https://kawaii-san.org/posts/21-10-2025/</guid>
+    <link>https://blog.kawaii-san.org/posts/21-10-2025/</link>
+    <guid isPermaLink="true">https://blog.kawaii-san.org/posts/21-10-2025/</guid>
     <pubDate>Wed, 21 Oct 2025 09:00:00 +0800</pubDate>
     <category>tech</category>
     <content:encoded><![CDATA[AWS went down for three hours and broke the internet. And I think it's entirely our fault.]]></content:encoded>
     <description><![CDATA[AWS went down for three hours and broke the internet. And I think it's entirely our fault.]]></description>
-    <media:content url="https://kawaii-san.org/assets/images/banners/21-10-2025.webp" medium="image"/>
+    <media:content url="https://blog.kawaii-san.org/assets/images/banners/21-10-2025.webp" medium="image"/>
   </item>
 
   <item>
     <title>Clanker Might Be the New N Word.</title>
-    <link>https://kawaii-san.org/posts/20-10-2025/</link>
-    <guid isPermaLink="true">https://kawaii-san.org/posts/20-10-2025/</guid>
+    <link>https://blog.kawaii-san.org/posts/20-10-2025/</link>
+    <guid isPermaLink="true">https://blog.kawaii-san.org/posts/20-10-2025/</guid>
     <pubDate>Wed, 20 Oct 2025 09:00:00 +0800</pubDate>
     <category>commentary</category>
     <content:encoded><![CDATA[Economic anxiety is real, and people bond over shared fears. But we don't have to normalize slurs to do it—even if we totally get why people are reaching for them.]]></content:encoded>
     <description><![CDATA[Economic anxiety is real, and people bond over shared fears. But we don't have to normalize slurs to do it—even if we totally get why people are reaching for them.]]></description>
-    <media:content url="https://kawaii-san.org/assets/images/banners/20-10-2025.webp" medium="image"/>
+    <media:content url="https://blog.kawaii-san.org/assets/images/banners/20-10-2025.webp" medium="image"/>
   </item>
 
   <item>
     <title>Why I'm Breaking Up With Microsoft (And You Should Too)</title>
-    <link>https://kawaii-san.org/posts/19-10-2025/</link>
-    <guid isPermaLink="true">https://kawaii-san.org/posts/19-10-2025/</guid>
+    <link>https://blog.kawaii-san.org/posts/19-10-2025/</link>
+    <guid isPermaLink="true">https://blog.kawaii-san.org/posts/19-10-2025/</guid>
     <pubDate>Wed, 19 Oct 2025 09:00:00 +0800</pubDate>
     <category>tech</category>
     <content:encoded><![CDATA[Microsoft's data collection is intrusive, Windows 11's requirements are arbitrary, and the ecosystem lock-in is real. It's time to talk about the open-source rebellion: Linux.]]></content:encoded>
     <description><![CDATA[Microsoft's data collection is intrusive, Windows 11's requirements are arbitrary, and the ecosystem lock-in is real. It's time to talk about the open-source rebellion: Linux.]]></description>
-    <media:content url="https://kawaii-san.org/assets/images/banners/19-10-2025.webp" medium="image"/>
+    <media:content url="https://blog.kawaii-san.org/assets/images/banners/19-10-2025.webp" medium="image"/>
   </item>
 
 </channel>

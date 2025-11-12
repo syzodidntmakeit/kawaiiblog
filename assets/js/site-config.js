@@ -3,7 +3,7 @@ const SITE_CONFIG = {
   // Site Identity
   siteName: "KawaiiBlog",
   siteTitle: "blog.kawaii-san.org",
-  domain: "https://kawaii-san.org",
+  domain: "https://blog.kawaii-san.org",
   
   // Author
   author: {
@@ -32,8 +32,8 @@ const SITE_CONFIG = {
 
   // Image paths (organized by category for future use)
   images: {
-    defaultOG: "https://kawaii-san.org/assets/images/og-default.png",
-    favicon: "https://kawaii-san.org/assets/favicon/favicon-32x32.png"
+    defaultOG: "https://blog.kawaii-san.org/assets/images/og-default.png",
+    favicon: "https://blog.kawaii-san.org/assets/favicon/favicon-32x32.png"
   },
 
   // Meta description generator

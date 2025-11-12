@@ -108,7 +108,7 @@ const updateAllPosts = (chalk, postData) => {
 // Updates rss.xml
 const updateRssFeed = (chalk, metadata, postUrl, htmlContent, bannerUrl) => {
     const rssPath = path.resolve(__dirname, '..', 'rss.xml');
-    const siteUrl = 'https://kawaii-san.org';
+    const siteUrl = 'https://blog.kawaii-san.org';
     try {
         const parser = new XMLParser({ ignoreAttributes: false, preserveOrder: true });
         const builder = new XMLBuilder({ format: true, ignoreAttributes: false, preserveOrder: true, suppressEmptyNode: true });
@@ -177,7 +177,7 @@ const updateRssFeed = (chalk, metadata, postUrl, htmlContent, bannerUrl) => {
 // Updates sitemap.xml
 const updateSitemap = (chalk, metadata, postUrl) => {
     const sitemapPath = path.resolve(__dirname, '..', 'sitemap.xml');
-    const siteUrl = 'https://kawaii-san.org';
+    const siteUrl = 'https://blog.kawaii-san.org';
     try {
         const parser = new XMLParser({ ignoreAttributes: false, preserveOrder: true });
         const builder = new XMLBuilder({ format: true, ignoreAttributes: false, preserveOrder: true });
