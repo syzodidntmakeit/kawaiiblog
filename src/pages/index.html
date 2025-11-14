@@ -21,7 +21,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="alternate" type="application/rss+xml" title="kawaii-san.org" href="/rss.xml">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <script src="/assets/js/site-config.js"></script>
 </head>
 <body class="bg-custom-dark text-gray-200 antialiased" data-page="home">
 
@@ -41,9 +40,7 @@
             </div>
 
             <div id="posts-container" class="space-y-6">
-                <div class="flex justify-center items-center py-12">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-kawaii-pink"></div>
-                </div>
+                {{PRE_RENDERED_POSTS}}
             </div>
         </div>
     </main>
@@ -51,6 +48,7 @@
     <button id="back-to-top" class="fixed bottom-8 right-8 hidden px-4 py-2 bg-kawaii-pink text-gray-900 rounded-lg font-bold hover:bg-kawaii-blue transition-colors z-50">↑ Back to Top</button>
 
     {{> footer}}
+    <script id="preloaded-posts" type="application/json">{{PRELOADED_POSTS}}</script>
     <script src="/assets/js/homepage.js"></script>
 </body>
 </html>

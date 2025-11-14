@@ -5,21 +5,49 @@ document.addEventListener('DOMContentLoaded', () => {
     let allPosts = [];
     let dataLoaded = false;
 
-    fetch('/posts/all-posts.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch posts');
-            }
-            return response.json();
-        })
-        .then(posts => {
-            dataLoaded = true;
-            allPosts = posts;
-            renderPosts(allPosts);
-        })
-        .catch(() => {
-            showStatus('Unable to load posts right now. Please refresh in a moment.', 'text-kawaii-pink');
-        });
+    function loadFromInlineScript() {
+        const script = document.getElementById('preloaded-posts');
+        if (!script) {
+            return null;
+        }
+        const payload = script.textContent.trim();
+        if (!payload) {
+            return null;
+        }
+        try {
+            return JSON.parse(payload);
+        } catch (error) {
+            console.error('Failed to parse inline posts payload', error);
+            return null;
+        }
+    }
+
+    function fetchPostsFromNetwork() {
+        fetch('/posts/all-posts.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch posts');
+                }
+                return response.json();
+            })
+            .then(posts => {
+                dataLoaded = true;
+                allPosts = posts;
+                renderPosts(allPosts);
+            })
+            .catch(() => {
+                showStatus('Unable to load posts right now. Please refresh in a moment.', 'text-kawaii-pink');
+            });
+    }
+
+    const inlinePosts = loadFromInlineScript();
+    if (Array.isArray(inlinePosts)) {
+        dataLoaded = true;
+        allPosts = inlinePosts;
+        renderPosts(allPosts);
+    } else {
+        fetchPostsFromNetwork();
+    }
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {

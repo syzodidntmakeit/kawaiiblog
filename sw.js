@@ -13,7 +13,6 @@ const ASSETS_TO_CACHE = [
     '/assets/js/archive.js',
     '/assets/js/search.js',
     '/posts/all-posts.json',
-    '/posts/search-index.json',
 ];
 
 self.addEventListener('install', event => {
