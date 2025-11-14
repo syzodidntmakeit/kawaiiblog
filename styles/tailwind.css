@@ -17,6 +17,10 @@
     main {
         flex: 1;
     }
+
+    .prose img {
+        @apply block mx-auto my-8 rounded-2xl border border-kawaii-pink;
+    }
 }
 
 @layer components {
