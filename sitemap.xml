@@ -3,38 +3,38 @@
 
     <url>
         <loc>http://localhost:3001</loc>
-        <lastmod>2025-11-14T10:15:20.988Z</lastmod>
-        <priority>1</priority>
+        <lastmod>2025-11-14T10:53:26.508Z</lastmod>
+        <priority>1.0</priority>
     </url>
 
     <url>
         <loc>http://localhost:3001/pages/archive.html</loc>
-        <lastmod>2025-11-14T10:15:20.988Z</lastmod>
+        <lastmod>2025-11-14T10:53:26.508Z</lastmod>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://localhost:3001/pages/search.html</loc>
+        <lastmod>2025-11-14T10:53:26.508Z</lastmod>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>http://localhost:3001/pages/about.html</loc>
-        <lastmod>2025-11-14T10:15:20.988Z</lastmod>
+        <lastmod>2025-11-14T10:53:26.508Z</lastmod>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>http://localhost:3001/pages/contact.html</loc>
-        <lastmod>2025-11-14T10:15:20.988Z</lastmod>
+        <lastmod>2025-11-14T10:53:26.508Z</lastmod>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>http://localhost:3001/pages/uses.html</loc>
-        <lastmod>2025-11-14T10:15:20.988Z</lastmod>
+        <lastmod>2025-11-14T10:53:26.508Z</lastmod>
         <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>http://localhost:3001/pages/search.html</loc>
-        <lastmod>2025-11-14T10:15:20.988Z</lastmod>
-        <priority>0.7</priority>
     </url>
 
     <url>

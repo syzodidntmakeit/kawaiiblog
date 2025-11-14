@@ -56,7 +56,15 @@ KawaiiBlog is designed for personal blogging with a minimalist approach. It feat
     ---
     ```
 
-3.  **Regenerate after edits**
+3.  **Add images (optional)**
+
+    Drop `.png`, `.jpg`, `.jpeg`, or `.webp` files into the same `posts/YYYY-MM-DD/` folder as your Markdown and reference them relatively:
+    ```markdown
+    ![Desk setup](./desk-setup.jpg)
+    ```
+    The build automatically compresses those images in place using Sharp, so you get smaller payloads without changing your Markdown links.
+
+4.  **Regenerate after edits**
 
     Anytime you change `blog.md`, rerun:
     ```bash
@@ -73,11 +81,12 @@ npm run build
 ```
 
 This executes:
+- `npm run build:pages` (assembles `src/pages/**/*.html` with the shared partials into `index.html`, `404.html`, and `pages/**/*.html`)
 - `npm run build:css` (Tailwind/PostCSS → `assets/css/style.css`)
 - `npm run build:js` (Terser minification → `assets/js/*.js`)
-- `npm run generate` (renders posts + JSON feeds + SEO artifacts)
+- `npm run generate` (optimizes per-post images, renders HTML, and regenerates JSON feeds/RSS/sitemap/robots)
 
-Commit the resulting artifacts (`assets/css`, `assets/js`, `posts/*.json`, `rss.xml`, `sitemap.xml`, `robots.txt`) so GitHub Pages can serve them without running Node.
+Commit the resulting artifacts (`index.html`, `404.html`, `pages/**/*.html`, `assets/css`, `assets/js`, `posts/*.json`, `rss.xml`, `sitemap.xml`, `robots.txt`) so GitHub Pages can serve them without running Node.
 
 ### 4. File Structure Overview
 
@@ -86,10 +95,10 @@ Here's a brief overview of the key directories and files:
 *   `assets/`: Build output for CSS/JS and static images.
     *   `assets/css/style.css`: Compiled Tailwind stylesheet.
     *   `assets/js/`: Minified browser scripts (built from `src/js/`).
-    *   `assets/images/`: Image files.
-*   `index.html`: Homepage served at `/`.
-*   `404.html`: Custom not-found page used locally and by GitHub Pages.
-*   `pages/`: Contains the rest of the HTML pages of the website (e.g., `about.html`, `archive.html`, `contact.html`, `uses.html`, `search.html`).
+    *   `assets/images/`: Optimized images (site-wide plus per-post assets).
+*   `index.html`: Homepage served at `/` (generated from `src/pages/index.html`).
+*   `404.html`: Custom not-found page (generated from `src/pages/404.html`).
+*   `pages/`: Compiled HTML pages (archive, about, contact, uses, search). Edit the source versions under `src/pages/pages/`.
 *   `posts/`: This directory stores all your blog posts.
     *   `posts/YYYY-MM-DD/`: Each subdirectory represents a single blog post, named by its creation date (ISO format).
         *   `blog.md`: The Markdown file containing the post's content and YAML frontmatter.
@@ -98,15 +107,17 @@ Here's a brief overview of the key directories and files:
     *   `posts/search-index.json`: Full-text index consumed by the search page.
 *   `styles/tailwind.css`: Tailwind entry point (source) used by the build pipeline.
 *   `src/js/`: Source JavaScript (human friendly, pre-minified).
-*   `templates/`: Contains HTML templates used by the server for dynamic content (e.g., `post.html` for rendering individual blog posts dynamically if `index.html` is not found).
+*   `src/pages/`: All authored HTML pages, organized just like the final output.
+*   `src/partials/`: Shared header/footer partials you can embed with `{{> header}}` and `{{> footer}}`.
+*   `templates/`: Contains HTML templates used by the server for dynamic content (e.g., `post.html`).
 *   `server.js`: The custom Node.js server that serves the website.
-*   `render-posts.js`: Script that converts each `blog.md` into an `index.html` using the shared template.
-*   `generate-posts-json.js`: Script to generate `posts/all-posts.json`.
-*   `generate-rss.js`: Script to generate `rss.xml`.
-*   `generate-search-index.js`: Script to build the search index JSON file.
-*   `generate-site-metadata.js`: Script to create `sitemap.xml` and `robots.txt`.
-*   `new-post.js`: Script used by `post-create` to create new post files.
-*   `post-create-run.js`: Wrapper script for `new-post.js` and `npm run generate`.
+*   `scripts/`: Node helpers and build orchestration.
+    *   `scripts/build-pages.js`: Copies `src/pages` + partials into the deployable HTML files.
+    *   `scripts/build-content.js`: Loads every Markdown post once, optimizes local images, renders HTML, and writes JSON/RSS/sitemap/search data.
+    *   `scripts/new-post.js`: CLI that creates a new dated post folder with starter frontmatter.
+    *   `scripts/post-create-run.js`: Wrapper that runs `new-post` and immediately regenerates the site.
+    *   `scripts/build-js.js`: Minifies JavaScript from `src/js/` into `assets/js/`.
+    *   `scripts/tasks/*`: Granular build steps (render posts, build feeds, compress images, etc.).
 *   `package.json`: Project metadata and scripts.
 *   `rss.xml`: The RSS feed generated from your posts.
 *   `sitemap.xml` & `robots.txt`: Generated files to help search engines discover your pages/posts.

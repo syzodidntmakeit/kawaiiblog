@@ -5,21 +5,23 @@
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
-        "new-post": "node new-post.js",
-        "post-create": "node post-create-run.js",
-        "render-posts": "node render-posts.js",
+        "new-post": "node scripts/new-post.js",
+        "post-create": "node scripts/post-create-run.js",
         "build:css": "cross-env NODE_ENV=production tailwindcss -i styles/tailwind.css -o assets/css/style.css --postcss --minify",
         "build:js": "node scripts/build-js.js",
+        "build:pages": "node scripts/build-pages.js",
         "build:assets": "npm-run-all build:css build:js",
-        "generate": "node render-posts.js && node generate-posts-json.js && node generate-rss.js && node generate-search-index.js && node generate-site-metadata.js",
-        "build": "npm-run-all build:assets generate"
+        "generate": "node scripts/build-content.js",
+        "build": "npm-run-all build:pages build:assets generate"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "dotenv": "^16.4.7",
         "gray-matter": "^4.0.3",
-        "marked": "^17.0.0"
+        "marked": "^17.0.0",
+        "sharp": "^0.34.5",
+        "zod": "^4.1.12"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.10",

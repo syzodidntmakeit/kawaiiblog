@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const currentPage = document.body.dataset.page;
+    if (currentPage) {
+        document.querySelectorAll(`[data-nav="${currentPage}"]`).forEach(link => {
+            link.classList.add('text-kawaii-pink');
+        });
+    }
+
     const backToTopButton = document.getElementById('back-to-top');
 
     if (backToTopButton) {
