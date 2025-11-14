@@ -1,70 +1,10 @@
-{
-  "posts": [
-    {
-      "id": "stop-being-nonchalant-fucks-cringe-is-more-interesting",
-      "date": "Oct 31, 2025",
-      "title": "Stop being nonchalant fucks; Cringe is more interesting.",
-      "excerpt": "You traded your humanity for safety and social credits. The fucked up part? You're not even getting real safety.",
-      "category": "commentary",
-      "url": "/posts/31-10-2025/",
-      "thumbnailUrl": "/assets/images/thumbnails/31-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/31-10-2025.webp",
-      "readingTime": 39
-    },
-    {
-      "id": "the-greatest-rapper-mf-doom",
-      "date": "Oct 25, 2025",
-      "title": "The Greatest Rapper: MF DOOM",
-      "excerpt": "A deep dive into the villain's origins, the making of Madvillainy, and why MF DOOM is the G.O.A.T.",
-      "category": "music",
-      "url": "/posts/25-10-2025/",
-      "thumbnailUrl": "/assets/images/thumbnails/25-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/25-10-2025.webp",
-      "readingTime": 20
-    },
-    {
-      "id": "from-its-so-over-to-we-are-so-back",
-      "date": "Oct 22, 2025",
-      "title": "Cyberpunk 2077: From corporate greed to redemption.",
-      "excerpt": "Cyberpunk 2077: A game that once anticipated, fall short and suffered public execution. Just to be revamped 5 years later.",
-      "category": "games",
-      "url": "/posts/22-10-2025/",
-      "thumbnailUrl": "/assets/images/thumbnails/22-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/22-10-2025.webp",
-      "readingTime": 23
-    },
-    {
-      "id": "amazon-failed-us",
-      "date": "Oct 21, 2025",
-      "title": "Amazon; Our Overlord Has Failed Us",
-      "excerpt": "AWS went down for three hours and broke the internet. And I think it's entirely our fault.",
-      "category": "tech",
-      "url": "/posts/21-10-2025/",
-      "thumbnailUrl": "/assets/images/thumbnails/21-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/21-10-2025.webp",
-      "readingTime": 9
-    },
-    {
-      "id": "clanker-new-nword",
-      "date": "Oct 20, 2025",
-      "title": "Clanker Might Be the New N Word",
-      "excerpt": "Economic anxiety is real, and people bond over shared fears. But we don't have to normalize slurs to do it—even if we totally get why people are reaching for them.",
-      "category": "commentary",
-      "url": "/posts/20-10-2025/",
-      "thumbnailUrl": "/assets/images/thumbnails/20-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/20-10-2025.webp",
-      "readingTime": 5
-    },
-    {
-      "id": "breaking-up-with-microsoft",
-      "date": "Oct 19, 2025",
-      "title": "Why I'm Breaking Up With Microsoft (And You Should Too)",
-      "excerpt": "Microsoft's data collection is intrusive, Windows 11's requirements are arbitrary, and the ecosystem lock-in is real. It's time to talk about the open-source rebellion: Linux.",
-      "category": "tech",
-      "url": "/posts/19-10-2025/",
-      "thumbnailUrl": "/assets/images/thumbnails/19-10-2025.webp",
-      "bannerUrl": "/assets/images/banners/19-10-2025.webp",
-      "readingTime": 7
-    }
-  ]
-}
+[
+  {
+    "id": "windows10",
+    "title": "Why I'm Breaking Up With Microsoft (And You Should Too)",
+    "url": "/posts/2025-10-19/",
+    "date": "2025-10-19T00:00:00.000Z",
+    "category": "tech",
+    "excerpt": "Microsoft's data collection is intrusive, Windows 11 sucks, and MacOS is for losers. But there is an alternative..."
+  }
+]

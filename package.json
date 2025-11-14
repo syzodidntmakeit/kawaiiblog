@@ -1,8 +1,23 @@
 {
-  "scripts": {
-    "build:css": "npx tailwindcss -i ./source/css/input.css -o ./assets/css/style.css --minify"
-  },
-  "devDependencies": {
-    "tailwindcss": "^4.1.16"
-  }
+    "name": "kawaiiblog",
+    "version": "1.0.0",
+    "description": "A simple and lightweight blogging website.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "new-post": "node new-post.js",
+        "post-create": "node post-create-run.js",
+        "render-posts": "node render-posts.js",
+        "generate": "node render-posts.js && node generate-posts-json.js && node generate-rss.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "gray-matter": "^4.0.3",
+        "marked": "^17.0.0"
+    },
+    "devDependencies": {
+        "clean-css-cli": "^5.6.3",
+        "terser": "^5.44.1"
+    }
 }

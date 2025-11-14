@@ -1,17 +1,76 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-<title>KawaiiBlog</title>
-<link>http://localhost:3001</link>
-<description>A simple and lightweight blogging website.</description>
-
-<item>
-<title><![CDATA[Why I'm Breaking Up With Microsoft (And You Should Too)]]></title>
-<link>http://localhost:3001/posts/2025-10-19/</link>
-<guid>http://localhost:3001/posts/2025-10-19/</guid>
-<pubDate>Sun, 19 Oct 2025 00:00:00 GMT</pubDate>
-<category><![CDATA[tech]]></category>
-<description><![CDATA[<p>Look, just use Linux. You don&#39;t even need terminal. It&#39;s not big scary any more.</p>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I&#39;m Breaking Up With Microsoft (And You Should Too) | KawaiiBlog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
+    <meta name="description" content="Microsoft&#39;s data collection is intrusive, Windows 11 sucks, and MacOS is for losers. But there is an alternative...">
+    <meta property="og:title" content="Why I&#39;m Breaking Up With Microsoft (And You Should Too)">
+    <meta property="og:description" content="Microsoft&#39;s data collection is intrusive, Windows 11 sucks, and MacOS is for losers. But there is an alternative...">
+    <meta property="og:url" content="http://localhost:3001/posts/2025-10-19/">
+    <link rel="canonical" href="http://localhost:3001/posts/2025-10-19/">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+        extend: {
+            colors: {
+              'kawaii-pink': '#FFC0CB',
+              'kawaii-blue': '#A7C7E7',
+              'kawaii-mint': '#B2F2BB',
+              'kawaii-lavender': '#E6E6FA',
+              'social-email': '#8B55CC',
+              'social-github': '#FFFFFF',
+              'social-linkedin': '#0A66C2',
+              'social-twitter': '#FFFFFF',
+              'social-instagram': '#E4405F',
+              'social-mastodon': '#6364FF',
+              'social-twitch': '#9146FF',
+              'social-telegram': '#26A5E4',
+              'social-patreon': '#FF424D',
+              'social-threads': '#FFFFFF',
+            }
+        }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/site-config.js"></script>
+</head>
+<body class="bg-custom-dark text-gray-200 antialiased">
+    <header class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-black tracking-tighter">
+                <a href="/" class="gradient-text">KawaiiBlog</a>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-lg font-bold items-center">
+                <a href="/" class="hover:text-kawaii-pink transition-colors">Home</a>
+                <a href="/pages/archive.html" class="hover:text-kawaii-blue transition-colors">Archive</a>
+                <a href="/pages/about.html" class="hover:text-kawaii-mint transition-colors">About</a>
+                <a href="/pages/contact.html" class="hover:text-kawaii-lavender transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+         <div id="mobile-menu" class="hidden md:hidden mt-4">
+            <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Home</a>
+            <a href="/pages/archive.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Archive</a>
+            <a href="/pages/about.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">About</a>
+            <a href="/pages/contact.html" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Contact</a>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-12">
+        <article class="prose prose-invert lg:prose-xl mx-auto">
+            <p class="text-sm uppercase tracking-[0.3em] text-kawaii-pink mb-2">tech</p>
+            <p class="text-gray-400 text-sm mb-8">2025-10-19</p>
+            <p>Look, just use Linux. You don&#39;t even need terminal. It&#39;s not big scary any more.</p>
 <h2>Microsoft: The Partner Who Won&#39;t Stop Tracking You</h2>
 <p>Microsoft; purveyors of intrusive bloated. Popular for it&#39;s Windows Operating System. Proprietary, intrusive and extremely babys the user.</p>
 <blockquote>
@@ -66,7 +125,27 @@
 <p>Windows had a strong hand on the operating system industry. There was no asking what OS you use. It&#39;s always Microsoft&#39;s Windows, or you&#39;re a snob. And if you use Linux, you don&#39;t interact with other people. But not anymore. Linux continues to be widely adopted and support for Linux only continues to grow. No subscriptions, no inflation (pyrocynical ahh), no &quot;Ah. Need an update. Sowwy.&quot; Take control of your device. It belongs to you. Even if you don&#39;t know how to use it. There&#39;s no Windows 10 for a blender. Why is a computer any different? It serves a purpose. Let it serve you. Don&#39;t become the product. Not anymore.</p>
 <hr>
 <p><em>Disclaimer: This blog post was written by a penguin.</em></p>
-]]></description>
-</item>
-</channel>
-</rss>
+
+        </article>
+    </main>
+    <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-500">
+        <p>&copy; 2025 kawaii-san.org. All wrongs reserved.</p>
+        <p class="mt-2 text-sm">
+            The code for this site is licensed under the
+            <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="underline hover:text-gray-300">GPLv3</a>.
+            Blog content is licensed under a
+            <a href="http://creativecommons.org/licenses/by-sa/4.0/" class="underline hover:text-gray-300">CC BY-SA 4.0</a>.
+            Don't be a bitch.
+        </p>
+    </footer>
+    <script src="/assets/js/script.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .catch(err => console.error('Service Worker registration failed:', err));
+        });
+    }
+    </script>
+</body>
+</html>
