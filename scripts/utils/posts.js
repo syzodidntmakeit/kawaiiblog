@@ -59,6 +59,31 @@ function loadTemplate() {
     return renderPartials(template);
 }
 
+function decorateHeadings(html) {
+    const accentClasses = [
+        'text-kawaii-pink',
+        'text-kawaii-blue',
+        'text-kawaii-mint',
+        'text-kawaii-lavender',
+        'text-kawaii-coral',
+        'text-kawaii-gold',
+        'text-kawaii-sky',
+        'text-kawaii-peach',
+        'text-kawaii-lilac',
+        'text-kawaii-cream',
+    ];
+    let index = 0;
+    return html.replace(/<(h[23])([^>]*)>/g, (match, tag, attrs = '') => {
+        const accent = accentClasses[index % accentClasses.length];
+        index += 1;
+        if (attrs.includes('class=')) {
+            const updated = attrs.replace(/class="([^"]*)"/, (_, classes) => ` class="${classes} ${accent} font-semibold tracking-tight"`);
+            return `<${tag}${updated}>`;
+        }
+        return `<${tag} class="${accent} font-semibold tracking-tight"${attrs}>`;
+    });
+}
+
 function loadPosts() {
 const folders = listPostFolders();
 
@@ -83,6 +108,7 @@ const posts = folders
             const excerpt = parsed.data.excerpt?.trim() || plainText.slice(0, 200).trim();
             const isoDate = normalizeDate(parsed.data.date, folder);
             const html = marked.parse(content);
+            const decoratedHtml = decorateHeadings(html);
 
             const assets = fs
                 .readdirSync(directory)
@@ -98,7 +124,7 @@ const posts = folders
                 folder,
                 directory,
                 markdownPath,
-                html,
+                html: decoratedHtml,
                 plainText,
                 rawContent: content,
                 frontmatter: parsed.data,
