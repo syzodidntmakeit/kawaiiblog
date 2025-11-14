@@ -81,10 +81,10 @@ npm run build
 ```
 
 This executes:
-- `npm run build:pages` (assembles `src/pages/**/*.html` with the shared partials into `index.html`, `404.html`, and `pages/**/*.html`)
-- `npm run build:css` (Tailwind/PostCSS → `assets/css/style.css`)
-- `npm run build:js` (Terser minification → `assets/js/*.js`)
-- `npm run generate` (optimizes per-post images, renders HTML, and regenerates JSON feeds/RSS/sitemap/robots)
+- `npm run build:pages` – assembles `src/pages/**/*.html` with the shared header/footer partials into the deployable `/index.html`, `/404.html`, and `/pages/**/*.html`.
+- `npm run build:css` – runs Tailwind+PostCSS from `styles/tailwind.css` into `assets/css/style.css`.
+- `npm run build:js` – minifies everything under `src/js/` into `assets/js/`.
+- `npm run generate` – optimizes any images that live next to your Markdown posts, renders each `blog.md` to HTML, and refreshes `posts/all-posts.json`, `posts/search-index.json`, `rss.xml`, `sitemap.xml`, and `robots.txt`.
 
 Commit the resulting artifacts (`index.html`, `404.html`, `pages/**/*.html`, `assets/css`, `assets/js`, `posts/*.json`, `rss.xml`, `sitemap.xml`, `robots.txt`) so GitHub Pages can serve them without running Node.
 
@@ -121,6 +121,35 @@ Here's a brief overview of the key directories and files:
 *   `package.json`: Project metadata and scripts.
 *   `rss.xml`: The RSS feed generated from your posts.
 *   `sitemap.xml` & `robots.txt`: Generated files to help search engines discover your pages/posts.
+
+### 6. Testing & Optimization Checklist
+
+Use this quick list before publishing a new batch of posts or styling changes:
+
+1. **Build everything locally**
+    ```bash
+    npm run build
+    ```
+    Verify `assets/css/style.css`, `assets/js/*.js`, `posts/*.json`, `rss.xml`, `sitemap.xml`, and `robots.txt` are updated.
+2. **Spot-check pages**
+    ```bash
+    npm start
+    ```
+    Browse `http://localhost:3001` (home, archive, search, a few posts) to ensure nav state, reading times, and newly uploaded images render correctly.
+3. **Validate generated data**
+    - Open `posts/all-posts.json` and `posts/search-index.json` to ensure the latest post metadata is present (correct category, excerpt, readingMinutes).
+    - Confirm `rss.xml` links point to the proper `SITE_URL`.
+4. **Run Lighthouse / performance tests**
+    - In Chrome dev tools, run Lighthouse against the local build (desktop + mobile). Pay attention to bundle size, unused JS/CSS, and accessibility hints.
+5. **Optional: test a static export**
+    ```bash
+    npx serve .
+    ```
+    Serve the folder as static files to mimic GitHub Pages and validate service worker caching plus routing.
+
+## Licensing
+
+This project is open-sourced under the MIT License (see `LICENSE`). Update the copyright line with your preferred name or handle if needed.
 
 ## Optimization Notes
 
