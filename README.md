@@ -79,7 +79,9 @@ Here's a brief overview of the key directories and files:
     *   `assets/css/style.css`: Main stylesheet for custom CSS.
     *   `assets/js/`: JavaScript files for client-side functionality (e.g., `homepage.js`, `archive.js`).
     *   `assets/images/`: Image files.
-*   `pages/`: Contains the main HTML pages of the website (e.g., `index.html`, `about.html`, `archive.html`, `contact.html`, `uses.html`, `404.html`).
+*   `index.html`: Homepage served at `/`.
+*   `404.html`: Custom not-found page used locally and by GitHub Pages.
+*   `pages/`: Contains the rest of the HTML pages of the website (e.g., `about.html`, `archive.html`, `contact.html`, `uses.html`).
 *   `posts/`: This directory stores all your blog posts.
     *   `posts/YYYY-MM-DD/`: Each subdirectory represents a single blog post, named by its creation date (ISO format).
         *   `blog.md`: The Markdown file containing the post's content and YAML frontmatter.

@@ -4,8 +4,8 @@ const path = require('path');
 
 const PORT = 3001;
 const ROOT_DIR = __dirname;
-const HOME_PAGE = path.join(ROOT_DIR, 'pages', 'index.html');
-const NOT_FOUND_PAGE = path.join(ROOT_DIR, 'pages', '404.html');
+const HOME_PAGE = path.join(ROOT_DIR, 'index.html');
+const NOT_FOUND_PAGE = path.join(ROOT_DIR, '404.html');
 
 const MIME_TYPES = {
     '.html': 'text/html',
