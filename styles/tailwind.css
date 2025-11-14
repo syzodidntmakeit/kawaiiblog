@@ -9,6 +9,13 @@
         font-family: 'Nunito', sans-serif;
         background: #0d011f;
         color: #e5e7eb;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
     }
 }
 
