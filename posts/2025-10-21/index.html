@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon; Our Overlords Have Failed Us | KawaiiBlog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
+    <meta name="description" content="AWS went down for three hours and broke the internet. And I think it&#39;s entirely our fault.">
+    <meta property="og:title" content="Amazon; Our Overlords Have Failed Us">
+    <meta property="og:description" content="AWS went down for three hours and broke the internet. And I think it&#39;s entirely our fault.">
+    <meta property="og:url" content="http://localhost:3001/posts/2025-10-21/">
+    <link rel="canonical" href="http://localhost:3001/posts/2025-10-21/">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/site-config.js"></script>
+</head>
+<body class="bg-custom-dark text-gray-200 antialiased" data-page="post">
+    <header class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-black tracking-tighter">
+            <a href="/" class="gradient-text">KawaiiBlog</a>
+        </h1>
+        <nav class="hidden md:flex space-x-6 text-lg font-bold items-center">
+            <a href="/" data-nav="home" class="hover:text-kawaii-pink transition-colors">Home</a>
+            <a href="/pages/archive.html" data-nav="archive" class="hover:text-kawaii-blue transition-colors">Archive</a>
+            <a href="/pages/search.html" data-nav="search" class="hover:text-kawaii-mint transition-colors">Search</a>
+            <a href="/pages/about.html" data-nav="about" class="hover:text-kawaii-mint transition-colors">About</a>
+            <a href="/pages/contact.html" data-nav="contact" class="hover:text-kawaii-lavender transition-colors">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </div>
+     <div id="mobile-menu" class="hidden md:hidden mt-4">
+        <a href="/" data-nav="home" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Home</a>
+        <a href="/pages/archive.html" data-nav="archive" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Archive</a>
+        <a href="/pages/search.html" data-nav="search" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Search</a>
+        <a href="/pages/about.html" data-nav="about" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">About</a>
+        <a href="/pages/contact.html" data-nav="contact" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Contact</a>
+    </div>
+</header>
+
+    <main class="container mx-auto px-4 py-12">
+        <article class="prose prose-invert lg:prose-xl mx-auto">
+            <h1 class="text-4xl font-black tracking-tight mb-4 text-white">Amazon; Our Overlords Have Failed Us</h1>
+            <p class="text-sm uppercase tracking-[0.3em] text-kawaii-pink mb-2">tech</p>
+            <p class="text-gray-400 text-sm mb-8 flex flex-col md:flex-row md:items-center md:gap-4">
+                <span>2025-10-21</span>
+                <span class="text-kawaii-pink/80">6 min read</span>
+            </p>
+            <p>Look, I hate Amazon as much as the next Twitter user, but maybe we do need them after all.</p>
+<h2 class="text-kawaii-pink font-semibold tracking-tight">What happened?</h2>
+<p>Around 11:49 PM PDT on October 19th (that&#39;s 3 AM ET for you East Coasters), AWS&#39;s US-EAST-1 region in Northern Virginia, like where a huge portion of the fucking internet lives, experienced what they&#39;re calling &quot;DNS resolution issues for the regional DynamoDB service endpoints.&quot; It&#39;s always the fucking DNS.</p>
+<p>What does that mean? The computers tried to ask &quot;How do I get to the DynamoDB database?&quot; and the internet responded with &quot;I have no fucking clue what you&#39;re talking about.&quot; And then just… full face of fuckery lmao.</p>
+<h2 class="text-kawaii-blue font-semibold tracking-tight">The Cascade of Incompetence</h2>
+<p>They fixed the DynamoDB DNS problem by 2:24 AM PDT. Victory, right? WRONG. Because then EC2 (Amazon&#39;s Elastic Compute Cloud) started having a meltdown since it depended on DynamoDB to launch instances. And THEN the Network Load Balancer health checks got impaired, which triggered network connectivity issues in Lambda, DynamoDB (again!), and CloudWatch.</p>
+<p>The fuckery got even fucking worse lmao.</p>
+<h2 class="text-kawaii-mint font-semibold tracking-tight">The Carnage (Venom reference?)</h2>
+<p>Over 50,000 people rage-filed reports on Downdetector around 7:50 AM. Unfortunately, I wasn&#39;t one of them. I was busy enjoying my self hosted stack 🖕. Snapchat, Ring doorbells, Roblox, Fortnite, Signal, WhatsApp, Coinbase, Robinhood, Zoom, Delta, United Airlines, T-Mobile, Starbucks, McDonald&#39;s, Medicare&#39;s enrollment site, UK banks like Lloyds, UK government tax websites, United Healthcare, PlayStation Network, Prime Video, Alexa, Duolingo, Venmo, Canva, and even parts of ChatGPT all went woopsy. And that&#39;s all we know of. Imagine the niche that entirely depend on AWS.</p>
+<p>Probably lost hundreds of billions but I&#39;m not in the finance industry. I only know computers.</p>
+<h2 class="text-kawaii-lavender font-semibold tracking-tight">The Recovery (not feat. M&amp;M)</h2>
+<p>AWS declared the DNS issue &quot;fully mitigated&quot; by 6:35 AM ET, then had to backtrack at 10:14 AM admitting there were still &quot;significant API errors and connectivity issues.&quot; Full recovery wasn&#39;t until around 12:28 PM PDT, with some lingering issues into the evening.</p>
+<p>Ouchie.</p>
+<p>So… A major centralized cloud computing service provider decided to take a nap because it was eepy time, and basically half the internet fucking died. That&#39;s not scary at all.</p>
+<p>The worse part is that this wasn&#39;t a planned cyberattack or counts of terrorism, it&#39;s a fundamental error within the infrastructure itself. Totally not scawy at all.</p>
+<p>AWS engineers checked the error logs. They found this sent by the server:</p>
+<p><img src="/posts/21-10-2025/green-mile-quote.webp" alt="green-mile-quote"></p>
+<p>Oh, and while the internet was burning? Elon Musk was on X gloating that his platform didn&#39;t go down and posting memes dunking on Jeff Bezos. Cool, Elon. It didn&#39;t go down because you&#39;re so incompetent, you somehow saved yourself. Fucking armadillo.</p>
+<h2 class="text-kawaii-coral font-semibold tracking-tight">Just go vegan lmao</h2>
+<p>Here&#39;s the thing, dumbfuck. You can&#39;t just &quot;Make Your Own datacenters&quot;</p>
+<p>It is basically financial suicide and I think the majority of the employees at big tech companies aren&#39;t emo (i think).</p>
+<p>Building a data center would cost around $10-15 million USD just to facilitate small business. Billions for bigger infrastructure like Reddit or LinkedIn. Land, construction, power infrastructure, cooling systems, security, servers, networking equipment, storage hardware, engineers all costs mani bro.</p>
+<p>The power bills go as much as I do with my 5090. Cooling contributes to global warming, physical security to prevent from terrorist attacks on physical infrastructure, network engineers, sys admins (ew), on-call teams, hardware replacement because some WILL fail and you WILL have to change it, redundancy systems for backup. All are just too much money to &quot;just do-it-yourself, forehead&quot;</p>
+<h2 class="text-kawaii-gold font-semibold tracking-tight">Maybe big bad ain&#39;t so big bad</h2>
+<p>You know who can? Amazon (ew). Google (blegh). Microsoft (grr). Apple (booo!). Meta (yuck). We all hate them. But they&#39;re the ones with pockets deeper than I am in your mother last night, air&#39; night. Papa been smooth since days of Underoo&#39;s). These &quot;companies&quot; sink billions, trillions total, to build these giant data centers and then sell it to smaller business in bite sizes to use. Some even offer to use small regular people. They take on the heavy lifting and turn a profit by charging their services to us. WE don&#39;t have to pay for GPUs and security, I can focus on my business while having reliable computing. Until it fails…</p>
+<p>Having these giants eat the .45 just for us to play with Nerf darts is the reason the internet even exists today, let alone strive. Only because they made enough money selling your data to advertisers (and China) to be able to afford. They also probably blew the president for rebate taxes…</p>
+<h2 class="text-kawaii-sky font-semibold tracking-tight">Wait a minute bucko… You&#39;re hosting this on GitHub</h2>
+<p>Yes. I&#39;m not fucking hiding it. I open source this blogging website because I am a mini Chad. I am dependent on GitHub, which is owned by Microsoft (grr). And, if for whatever reason, GitHub goes down, so does my website. I regularly keep backups locally if it gets lost but still. Because I can&#39;t afford to host it on my own hardware. For now anyways. I am actively working on hosting my own future proof web server. I&#39;m planning on scalability and redundancy)</p>
+<p>Just like how Reddit depends on AWS for their website to work. Because they can&#39;t afford hosting it on their own hardware.</p>
+<h2 class="text-kawaii-peach font-semibold tracking-tight">Dutch Van Der Lin&#39;s &quot;I have a plan&quot;</h2>
+<p>Run critical services simultaneously on AWS, Azure, and Google Cloud. If one fails, traffic automatically routes to the others. Redundancy, redundancy, redundancy is the name of the game. Have multiple copies just in case one dies. You have 3 servers storing the same piece of data—if one dies, you still have 2 backups. But this is really expensive. I have 3 data centers for a planet that only supports 1. Only for important shit that CANNOT be destroyed. Like government documents, medical files…</p>
+<p>Active-Passive Setup: Primary on AWS, backup on Azure that activates during outages. So basically plan A but cheaper. Still sucks because it takes time to migrate to the backup which means users will still be in the dark for a period of time. Which could be costly. But better than nothing.</p>
+<p>Keep essential functions on local servers. Being implemented in government offices, hospitals, education and media centres. Having saved the important files locally AND on the cloud, so if their provider goes down, internal officers can still operate though significantly limited. Like battery saver. Better than nothing.</p>
+<h2 class="text-kawaii-lilac font-semibold tracking-tight">Give it to me straight, doc.</h2>
+<p>Nothing will change. It&#39;s either too expensive or too much hassle to implement any changes. Oct 20 is not a one-off, but happens too infrequent to suggests changes immediately. Hell, it took us only 3 years to bounce back from COVID 19. So we COULD change. But it isn&#39;t cost effective. It&#39;s just not worth it.</p>
+<p>So yes, I&#39;ll keep complaining about it on GitHub, fully aware that I&#39;m lecturing from inside the cage about how much I hate cages. I spit in the face of incompetence. (being fully incompetent).</p>
+<p>Welcome to the future. It&#39;s centralized, it&#39;s fragile, and your favorite blog host could disappear tomorrow. (probably for good)</p>
+<p>Sweet dreams, pussy.</p>
+<hr>
+<p><em>Still clinging on to the idea that the same thing happens to Twitter. Hopefully forever.</em></p>
+
+        </article>
+    </main>
+    <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-500">
+    <p>&copy; 2025 kawaii-san.org. All wrongs reserved.</p>
+    <p class="mt-2 text-sm">
+        Licensed under the
+        <a href="/LICENSE" class="underline hover:text-gray-300">MIT License</a>.
+        Don't be a bitch.
+    </p>
+</footer>
+<script src="/assets/js/script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .catch(err => console.error('Service Worker registration failed:', err));
+    });
+}
+</script>
+
+</body>
+</html>
