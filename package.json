@@ -8,16 +8,28 @@
         "new-post": "node new-post.js",
         "post-create": "node post-create-run.js",
         "render-posts": "node render-posts.js",
-        "generate": "node render-posts.js && node generate-posts-json.js && node generate-rss.js"
+        "build:css": "cross-env NODE_ENV=production tailwindcss -i styles/tailwind.css -o assets/css/style.css --postcss --minify",
+        "build:js": "node scripts/build-js.js",
+        "build:assets": "npm-run-all build:css build:js",
+        "generate": "node render-posts.js && node generate-posts-json.js && node generate-rss.js && node generate-search-index.js && node generate-site-metadata.js",
+        "build": "npm-run-all build:assets generate"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "dotenv": "^16.4.7",
         "gray-matter": "^4.0.3",
         "marked": "^17.0.0"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.10",
+        "@tailwindcss/typography": "^0.5.19",
+        "autoprefixer": "^10.4.22",
         "clean-css-cli": "^5.6.3",
+        "cross-env": "^10.1.0",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^3.4.14",
         "terser": "^5.44.1"
     }
 }

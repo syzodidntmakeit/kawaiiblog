@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const marked = require('marked');
 const { ROOT_DIR, listPostFolders, loadPost } = require('./lib/postUtils');
+const { SITE_URL } = require('./lib/config');
 
 const TEMPLATE_PATH = path.join(ROOT_DIR, 'templates', 'post.html');
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
-const SITE_URL = process.env.SITE_URL || 'http://localhost:3001';
 
 function escapeHtml(value = '') {
     return value

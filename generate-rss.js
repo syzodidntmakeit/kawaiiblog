@@ -2,8 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const marked = require('marked');
 const { ROOT_DIR, listPostFolders, loadPost } = require('./lib/postUtils');
-
-const SITE_URL = process.env.SITE_URL || 'http://localhost:3001';
+const { SITE_URL } = require('./lib/config');
 const RSS_PATH = path.join(ROOT_DIR, 'rss.xml');
 
 function buildItem({ folder, meta, content }) {

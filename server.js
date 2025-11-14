@@ -33,6 +33,8 @@ const STATIC_PREFIXES = {
 const ROOT_FILES = {
     '/rss.xml': path.join(ROOT_DIR, 'rss.xml'),
     '/sw.js': path.join(ROOT_DIR, 'sw.js'),
+    '/sitemap.xml': path.join(ROOT_DIR, 'sitemap.xml'),
+    '/robots.txt': path.join(ROOT_DIR, 'robots.txt'),
 };
 
 function resolvePath(pathname) {
