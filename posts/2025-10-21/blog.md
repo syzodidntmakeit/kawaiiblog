@@ -38,7 +38,7 @@ The worse part is that this wasn't a planned cyberattack or counts of terrorism,
 
 AWS engineers checked the error logs. They found this sent by the server:
 
-![green-mile-quote](/posts/21-10-2025/green-mile-quote.webp)
+![green-mile-quote](./green-mile-quote.webp)
 
 Oh, and while the internet was burning? Elon Musk was on X gloating that his platform didn't go down and posting memes dunking on Jeff Bezos. Cool, Elon. It didn't go down because you're so incompetent, you somehow saved yourself. Fucking armadillo.
 

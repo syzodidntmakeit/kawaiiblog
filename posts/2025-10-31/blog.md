@@ -20,7 +20,7 @@ And the worse part is, this isn’t just about impressing the baddies and huzz. 
 
 In 2022, Kendrick Lamar released what I consider to be his best project, Mr. Morale and the Big Steppers. The album is a therapy session spread across 18 tracks, but it's the second track—N95—that cuts straight to the throat of what I'm talking about. A literal fucking dissection of this dichotomy. 
 
-![mr-morale-and-the-big-steppers-cover](/posts/<date>/mmatbs.webp)
+![mr-morale-and-the-big-steppers-cover](./mmatbs.webp)
 
 Let’s start with the title itself, N95. It’s a face mask we all wore during COVID-19. At least the most of us did. But Kendrick Lamar isn’t directly intricate about the mask we physically wear. he’s talking about the mask we emotionally wear, ourselves. The metaphor works on multiple levels, we wear a mask to protect others from ourselves, we wear a mask to protect ourselves from others. From being hurt, from being *seen*. 
 
