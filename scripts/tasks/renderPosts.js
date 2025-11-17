@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { loadTemplate } = require('../utils/posts');
+const { loadBuildCache, saveBuildCache } = require('../utils/buildCache');
 const { SITE_URL } = require('../../lib/config');
 
 const POST_HTML = loadTemplate();
@@ -15,8 +16,21 @@ function escapeHtml(value = '') {
 }
 
 function renderPosts(posts) {
+    const cache = loadBuildCache();
+    const nextCache = { posts: {} };
+
     posts.forEach(post => {
         const postUrl = `/posts/${post.folder}/`;
+        const cached = cache.posts?.[post.folder];
+        const destination = path.join(post.directory, 'index.html');
+        const outputExists = fs.existsSync(destination);
+        const needsRender = !cached || cached.markdownMtime !== post.markdownMtime || !outputExists;
+
+        if (!needsRender) {
+            nextCache.posts[post.folder] = cached;
+            return;
+        }
+
         const replacements = {
             '{{POST_TITLE}}': escapeHtml(post.frontmatter.title),
             '{{POST_EXCERPT}}': escapeHtml(post.excerpt),
@@ -31,10 +45,12 @@ function renderPosts(posts) {
             return acc.split(token).join(value);
         }, POST_HTML);
 
-        const destination = path.join(post.directory, 'index.html');
         fs.writeFileSync(destination, rendered);
+        nextCache.posts[post.folder] = { markdownMtime: post.markdownMtime };
         console.log(`Rendered ${post.frontmatter.title} -> ${destination}`);
     });
+
+    saveBuildCache(nextCache);
 }
 
 module.exports = renderPosts;

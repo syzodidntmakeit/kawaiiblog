@@ -190,7 +190,14 @@ function serveFile(req, res, filePath, stats) {
 
 const server = http.createServer((req, res) => {
     const requestUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    const pathname = decodeURIComponent(requestUrl.pathname);
+    let pathname;
+    try {
+        pathname = decodeURIComponent(requestUrl.pathname);
+    } catch (error) {
+        console.warn(`Failed to decode pathname "${requestUrl.pathname}":`, error.message);
+        serveNotFound(res);
+        return;
+    }
     console.log('Request URL:', pathname);
 
     const resolvedPath = resolvePath(pathname);

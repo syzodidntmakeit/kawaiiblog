@@ -16,17 +16,24 @@ KawaiiBlog is a handcrafted static(ish) blog that keeps authoring fun: write Mar
 - macOS/Linux/WSL shell with `bash`
 - Optional: `.env` file with `SITE_URL=https://your-domain.example` (defaults to `http://localhost:3001`)
 
-## Quick Start
+## Local Setup
 
-```bash
-git clone https://github.com/<you>/kawaiiblog.git
-cd kawaiiblog
-npm install
-cp .env.example .env   # optional – set SITE_URL
-npm start              # serves http://localhost:3001
-```
-
-`npm start` runs `node server.js`, which serves everything from the repo root, including the generated `posts/*.json` files. For a purely static preview (closer to GitHub Pages), run `npx serve .` after `npm run build`.
+1. **Clone + install**
+   ```bash
+   git clone https://github.com/<you>/kawaiiblog.git
+   cd kawaiiblog
+   npm install
+   ```
+2. **Configure (optional)**
+   - Copy `.env.example` to `.env`.
+   - Set `SITE_URL=https://your-domain.example` to control RSS/Sitemap links.
+3. **Preview**
+   ```bash
+   npm start         # dev server with compression & caching headers
+   # or
+   npm run preview   # npm run build + node server.js
+   ```
+   For a pure static preview (closer to GitHub Pages), run `npm run build` followed by `npx serve .` or any static HTTP server.
 
 ## Project Scripts
 
@@ -37,12 +44,24 @@ npm start              # serves http://localhost:3001
 | `npm run build:pages` | Renders `src/pages/**/*.html` through the partial system into the root `index.html`, `404.html`, and `pages/*.html`. |
 | `npm run build:js` | Bundles/minifies each file in `src/js/` into `assets/js/`. |
 | `npm run generate` | Executes `scripts/build-content.js`: optimizes per-post images, renders Markdown to HTML, rebuilds `posts/all-posts.json`, `posts/search-index.json`, `rss.xml`, `sitemap.xml`, and `robots.txt`. |
-| `npm run build` | Convenience script that runs `build:css`, `build:pages`, `build:js`, and `generate` (use this before deploying). |
+| `npm run build` | Runs `build:pages`, `build:assets` (css+js), `generate`, and `rev-assets` (use this before deploying). |
+| `npm run rev-assets` | Computes content hashes for CSS/JS bundles, writes `assets/asset-manifest.json`, and updates every HTML/`sw.js` reference with cache-busting query strings. |
+| `npm run preview` | Builds the site and starts the production server so you can spot-check the hashed output locally. |
 | `npm run post-create -- "Title"` | Calls `scripts/post-create-run.js`: scaffolds a dated folder in `posts/`, writes starter frontmatter, and reruns `npm run generate`. |
 
-> Tip: if you change Markdown content or assets only, `npm run generate` is enough. If you tweak CSS/JS/pages, re-run `npm run build`.
+> Tip: if you change Markdown content or assets only, `npm run generate` is enough. If CSS/JS/pages change, run `npm run build` (which refreshes the hashed bundle references).
 
-## Writing Posts
+## Running Tests
+
+```bash
+npm test
+```
+
+- Uses Node’s built-in test runner (`node --test`).
+- Suites live in `tests/*.test.js` and cover the content loader, sitemap/RSS writers, homepage prerender, and build cache helpers.
+- Extend this folder with new tests whenever you add scripts—CI runs `npm test` automatically.
+
+## Writing a Blog Post
 
 1. **Create a post folder**
    ```bash
@@ -82,7 +101,7 @@ npm start              # serves http://localhost:3001
 1. **Page rendering** (`npm run build:pages`)
    - `scripts/build-pages.js` copies `src/pages/**/*.html`.
    - Before writing, it passes each file through `scripts/utils/partials.js`, replacing `{{> header}}`/`{{> footer}}` with the actual partial HTML in `src/partials/`.
-   - Output mirrors the repo root (e.g. `src/pages/pages/about.html` → `pages/about.html`).
+   - Output mirrors the repo root (e.g. `src/pages/pages/uses.html` → `pages/uses.html`).
 
 2. **CSS** (`npm run build:css`)
    - Tailwind scans `content` globs in `tailwind.config.js` for class usage (HTML, Markdown output, JS templates).
@@ -101,7 +120,12 @@ npm start              # serves http://localhost:3001
    - `scripts/tasks/writeRss.js` and `writeSiteMetadata.js` emit the feed + sitemap/robots using `SITE_URL`.
    - `scripts/tasks/optimizeImages.js` compresses local images with Sharp (lossless for PNG, quality-controlled for JPEG/WebP).
 
-5. **Deployment**
+5. **Asset revision** (`npm run rev-assets`)
+   - `scripts/tasks/revisionAssets.js` hashes `assets/css/style.css` and every JS bundle.
+   - It writes `assets/asset-manifest.json` for reference and rewrites every HTML page plus `sw.js` so URLs become `/assets/css/style.css?v=<hash>`.
+   - Browsers can now cache assets for a long time without risking stale content, because any change updates the query string.
+
+6. **Deployment**
    - Everything needed for hosting lives in the repo: commit `index.html`, `404.html`, `pages/`, `assets/`, `posts/`, `rss.xml`, `sitemap.xml`, `robots.txt`.
    - On GitHub Pages, the repo root is served as static files (no Node needed).
 
@@ -130,6 +154,15 @@ npm start              # serves http://localhost:3001
 ├── tailwind.config.js
 ├── server.js              # Local dev server
 └── package.json
+
+## Code Walkthrough
+
+- **server.js** – Thin HTTP server that serves everything in the repo with sane cache headers, ETags, and optional Brotli/gzip compression. Perfect for local previews or deploying to a simple VPS.
+- **scripts/build-content.js** – Main orchestrator. Loads posts, optimizes their media, renders HTML via `templates/post.html`, writes JSON/search/RSS/sitemap artifacts, and injects prerendered cards into `index.html`.
+- **scripts/tasks/** – Decomposed helpers: `renderPosts` handles incremental post rendering with `.build-cache.json`, `writePostsJson`/`writeSearchIndex` handle homepage/search data, `writeRss`/`writeSiteMetadata` emit syndication metadata, `optimizeImages` uses Sharp, and `revisionAssets` adds cache-busting query strings.
+- **src/js/** – Browser behavior for the homepage filters, archive sorting, search UI, and shared nav/back-to-top logic. Each file is bundled/minified into `assets/js/*.js` via `scripts/build-js.js`.
+- **sw.js** – Service worker that precaches the shell and uses a network-first strategy for the JSON feeds so repeated visits get fresh posts but still work offline.
+- **tests/** – Node test suites verifying core generators (posts loader, sitemap/RSS builders, homepage prerender, build cache state). Add new tests alongside any new scripts.
 ```
 
 ## Configuration Notes

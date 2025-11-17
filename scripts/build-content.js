@@ -3,8 +3,8 @@ const optimizeImages = require('./tasks/optimizeImages');
 const renderPosts = require('./tasks/renderPosts');
 const { writePostsJson } = require('./tasks/writePostsJson');
 const writeSearchIndex = require('./tasks/writeSearchIndex');
-const writeRss = require('./tasks/writeRss');
-const writeSiteMetadata = require('./tasks/writeSiteMetadata');
+const { writeRss } = require('./tasks/writeRss');
+const { writeSiteMetadata } = require('./tasks/writeSiteMetadata');
 const injectHomepageData = require('./tasks/injectHomepageData');
 
 async function buildContent() {

@@ -1,2 +1,5 @@
 node_modules
 .env
+.build-cache.json
+.image-optimization-cache.json
+assets/asset-manifest.json

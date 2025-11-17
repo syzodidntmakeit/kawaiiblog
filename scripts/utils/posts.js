@@ -95,6 +95,7 @@ const posts = folders
                 return null;
             }
 
+            const markdownStats = fs.statSync(markdownPath);
             const rawMarkdown = fs.readFileSync(markdownPath, 'utf8');
             const { data, content } = matter(rawMarkdown);
             const parsed = frontmatterSchema.safeParse(data);
@@ -134,6 +135,7 @@ const posts = folders
                 readingMinutes,
                 wordCount: plainText.split(/\s+/).filter(Boolean).length,
                 assets,
+                markdownMtime: Math.floor(markdownStats.mtimeMs),
             };
         })
         .filter(Boolean)

@@ -12,7 +12,10 @@
         "build:pages": "node scripts/build-pages.js",
         "build:assets": "npm-run-all build:css build:js",
         "generate": "node scripts/build-content.js",
-        "build": "npm-run-all build:pages build:assets generate"
+        "build": "npm-run-all build:pages build:assets generate rev-assets",
+        "rev-assets": "node scripts/tasks/revisionAssets.js",
+        "preview": "npm run build && node server.js",
+        "test": "node --test"
     },
     "author": "",
     "license": "ISC",

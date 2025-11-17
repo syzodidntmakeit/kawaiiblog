@@ -8,7 +8,6 @@ const STATIC_PAGES = [
     { path: '/', priority: 1 },
     { path: '/pages/archive.html', priority: 0.8 },
     { path: '/pages/search.html', priority: 0.8 },
-    { path: '/pages/about.html', priority: 0.6 },
     { path: '/pages/contact.html', priority: 0.6 },
     { path: '/pages/uses.html', priority: 0.6 },
 ];
@@ -22,32 +21,43 @@ function buildUrlEntry(loc, lastmod, priority) {
     </url>`;
 }
 
-function writeSitemap(posts) {
-    const staticEntries = STATIC_PAGES.map(page =>
-        buildUrlEntry(`${SITE_URL}${page.path === '/' ? '' : page.path}`, new Date().toISOString(), page.priority)
-    ).join('\n');
+function buildSitemapXml(posts, options = {}) {
+    const siteUrl = options.siteUrl || SITE_URL;
+    const staticPages = options.staticPages || STATIC_PAGES;
+    const now = new Date().toISOString();
 
-    const postEntries = posts
-        .map(post => buildUrlEntry(`${SITE_URL}/posts/${post.folder}/`, post.date, 0.7))
+    const staticEntries = staticPages
+        .map(page => buildUrlEntry(`${siteUrl}${page.path === '/' ? '' : page.path}`, now, page.priority))
         .join('\n');
 
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    const postEntries = posts
+        .map(post => buildUrlEntry(`${siteUrl}/posts/${post.folder}/`, post.date, 0.7))
+        .join('\n');
+
+    return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${staticEntries}
 ${postEntries}
 </urlset>`;
+}
 
+function writeSitemap(posts) {
+    const sitemap = buildSitemapXml(posts);
     const destination = path.join(ROOT_DIR, 'sitemap.xml');
     fs.writeFileSync(destination, sitemap);
     console.log(`Wrote ${destination}`);
 }
 
-function writeRobots() {
-    const robots = `User-agent: *
+function buildRobotsTxt(siteUrl = SITE_URL) {
+    return `User-agent: *
 Allow: /
 
-Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${siteUrl}/sitemap.xml
 `;
+}
+
+function writeRobots(siteUrl = SITE_URL) {
+    const robots = buildRobotsTxt(siteUrl);
     const destination = path.join(ROOT_DIR, 'robots.txt');
     fs.writeFileSync(destination, robots);
     console.log(`Wrote ${destination}`);
@@ -58,4 +68,12 @@ function writeSiteMetadata(posts) {
     writeRobots();
 }
 
-module.exports = writeSiteMetadata;
+module.exports = {
+    writeSiteMetadata,
+    writeSitemap,
+    writeRobots,
+    buildUrlEntry,
+    buildSitemapXml,
+    buildRobotsTxt,
+    STATIC_PAGES,
+};

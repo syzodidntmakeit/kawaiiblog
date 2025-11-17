@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const { buildPostSummaries } = require('./writePostsJson');
+const { renderPartials } = require('../utils/partials');
 
-const INDEX_PATH = path.join(__dirname, '..', '..', 'index.html');
+const INDEX_TEMPLATE_PATH = path.join(__dirname, '..', '..', 'src', 'pages', 'index.html');
+const OUTPUT_INDEX_PATH = path.join(__dirname, '..', '..', 'index.html');
 const POSTS_PLACEHOLDER = '{{PRE_RENDERED_POSTS}}';
 const DATA_PLACEHOLDER = '{{PRELOADED_POSTS}}';
 
@@ -43,15 +45,16 @@ function renderPostCard(post) {
 }
 
 function injectHomepageData(posts) {
-    if (!fs.existsSync(INDEX_PATH)) {
+    if (!fs.existsSync(INDEX_TEMPLATE_PATH)) {
+        console.warn('Homepage template missing; skipping prerender injection.');
         return;
     }
 
     const summaries = buildPostSummaries(posts);
-    let html = fs.readFileSync(INDEX_PATH, 'utf8');
+    let html = renderPartials(fs.readFileSync(INDEX_TEMPLATE_PATH, 'utf8'));
 
     if (!html.includes(POSTS_PLACEHOLDER) || !html.includes(DATA_PLACEHOLDER)) {
-        console.warn('Homepage placeholders missing; skipping prerender injection.');
+        console.warn('Homepage placeholders missing in template; skipping prerender injection.');
         return;
     }
 
@@ -62,8 +65,11 @@ function injectHomepageData(posts) {
 
     html = html.replace(POSTS_PLACEHOLDER, renderedContent);
     html = html.replace(DATA_PLACEHOLDER, inlineJson);
-    fs.writeFileSync(INDEX_PATH, html);
+    fs.writeFileSync(OUTPUT_INDEX_PATH, html);
     console.log('Injected homepage prerendered posts and inline JSON.');
 }
 
 module.exports = injectHomepageData;
+module.exports.renderPostCard = renderPostCard;
+module.exports.escapeHtml = escapeHtml;
+module.exports.formatDate = formatDate;
