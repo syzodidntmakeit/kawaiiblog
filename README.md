@@ -153,6 +153,7 @@ The homepage, archive, search, RSS, and sitemap automatically pick up the new po
 ## Future Planning
 1. **Template-aware rebuilds** – `scripts/tasks/renderPosts.js` currently caches renders solely on the Markdown mtime, so editing `templates/post.html` or any partial requires manually deleting `.build-cache.json`. Capturing the template/partial hash (or the files’ mtimes) in the cache would make `npm run generate` automatically re-render every post whenever shared layout changes.
 2. **Improve nav accessibility** – `src/partials/navigation.html` toggles the hamburger menu visually, but the button never updates `aria-expanded`/`aria-controls`, and the hidden menu isn’t announced to screen readers. Adding those attributes plus focus-trap/escape handlers in `src/js/script.js` would make the new navigation UX friendlier for keyboard and assistive tech users.
+3. **Back To Top** - Readers could easily navigate back to the top of the page with a single button that only appears after a scroll. QoL
 
 ## Troubleshooting
 - **RSS/Sitemap show `http://localhost`** – Set `SITE_URL` in `.env`, rerun `npm run build`, and commit the regenerated files.
