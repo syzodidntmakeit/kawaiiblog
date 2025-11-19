@@ -3,7 +3,13 @@ const assert = require('node:assert/strict');
 
 const injectHomepageData = require('../scripts/tasks/injectHomepageData');
 
-const { renderPostCard, formatDate, escapeHtml } = injectHomepageData;
+const {
+    renderPostCard,
+    formatDate,
+    escapeHtml,
+    renderFilterButtons,
+    humanizeCategory,
+} = injectHomepageData;
 
 function stripWhitespace(value) {
     return value.replace(/\s+/g, ' ').trim();
@@ -32,4 +38,22 @@ test('formatDate falls back gracefully', () => {
 test('escapeHtml handles quotes', () => {
     const escaped = escapeHtml('"hello" & <<>>');
     assert.equal(escaped, '&quot;hello&quot; &amp; &lt;&lt;&gt;&gt;');
+});
+
+test('renderFilterButtons derives unique categories and keeps All active', () => {
+    const html = renderFilterButtons([
+        { category: 'commentary' },
+        { category: 'music' },
+        { category: 'commentary' },
+    ]);
+
+    assert.match(html, /data-category="all"[\s\S]*?active/);
+    const commentaryMatches = html.match(/data-category="commentary"/g) || [];
+    assert.equal(commentaryMatches.length, 1);
+    assert.match(html, />Music</);
+});
+
+test('humanizeCategory formats dashed names', () => {
+    assert.equal(humanizeCategory('self-hosting'), 'Self Hosting');
+    assert.equal(humanizeCategory('games'), 'Games');
 });

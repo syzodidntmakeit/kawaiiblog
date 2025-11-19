@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KawaiiBlog</title>
-    <meta name="description" content="A personal blog about tech, lifting, self-hosting, anime, and whatever else is occupying my brain space. Built the Arch Way.">
+    <meta name="description" content="A personal blog about tech, commentary, self-hosting, games, music, and whatever else is occupying my brain space. Built the Arch Way.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,52 +15,50 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
     <meta property="og:title" content="KawaiiBlog">
-    <meta property="og:description" content="A personal blog about tech, lifting, self-hosting, anime, and whatever else is occupying my brain space.">
+    <meta property="og:description" content="A personal blog about tech, commentary, self-hosting, games, music, and whatever else is occupying my brain space.">
     <meta property="og:image" content="https://kawaii-san.org/assets/images/og-default.png">
     <meta property="og:url" content="https://kawaii-san.org">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="alternate" type="application/rss+xml" title="kawaii-san.org" href="/rss.xml">
-    <link rel="stylesheet" href="/assets/css/style.css?v=9708b8219fa0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=0208b007514f">
 </head>
 <body class="bg-custom-dark text-gray-200 antialiased" data-page="home">
 
-    <header class="container mx-auto px-4 py-[1.2rem] sticky top-0 z-50 bg-custom-dark/95 backdrop-blur supports-[backdrop-filter]:bg-custom-dark/75 border-b border-white/5">
+    <nav class="container mx-auto px-4 py-[1.2rem] sticky top-0 z-50 bg-custom-dark/95 backdrop-blur supports-[backdrop-filter]:bg-custom-dark/75 border-b border-white/5" aria-label="Primary">
     <div class="flex justify-between items-center">
         <h1 class="text-3xl font-black tracking-tighter">
             <a href="/" class="gradient-text">KawaiiBlog</a>
         </h1>
-        <nav class="hidden md:flex space-x-6 text-lg font-bold items-center">
+        <div class="hidden md:flex space-x-6 text-lg font-bold items-center" role="navigation">
             <a href="/" data-nav="home" class="hover:text-kawaii-pink transition-colors">Home</a>
             <a href="/pages/archive.html" data-nav="archive" class="hover:text-kawaii-blue transition-colors">Archive</a>
             <a href="/pages/search.html" data-nav="search" class="hover:text-kawaii-mint transition-colors">Search</a>
             <a href="/pages/contact.html" data-nav="contact" class="hover:text-kawaii-lavender transition-colors">Contact</a>
-        </nav>
-        <button id="mobile-menu-button" class="md:hidden p-2">
+        </div>
+        <button id="mobile-menu-button" class="md:hidden p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
     </div>
-     <div id="mobile-menu" class="hidden md:hidden mt-4">
-        <a href="/" data-nav="home" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Home</a>
-        <a href="/pages/archive.html" data-nav="archive" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Archive</a>
-        <a href="/pages/search.html" data-nav="search" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Search</a>
-        <a href="/pages/contact.html" data-nav="contact" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">Contact</a>
+     <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2" role="navigation">
+        <a href="/" data-nav="home" class="block py-3 px-5 text-base font-semibold hover:bg-gray-700 rounded-lg">Home</a>
+        <a href="/pages/archive.html" data-nav="archive" class="block py-3 px-5 text-base font-semibold hover:bg-gray-700 rounded-lg">Archive</a>
+        <a href="/pages/search.html" data-nav="search" class="block py-3 px-5 text-base font-semibold hover:bg-gray-700 rounded-lg">Search</a>
+        <a href="/pages/contact.html" data-nav="contact" class="block py-3 px-5 text-base font-semibold hover:bg-gray-700 rounded-lg">Contact</a>
     </div>
-</header>
+</nav>
 
 
     <main class="container mx-auto px-4 py-12">
         <div class="space-y-12">
 
             <div class="flex gap-2 mb-12 flex-wrap">
-                <button data-category="all" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg text-kawaii-pink bg-transparent hover:bg-kawaii-pink hover:text-custom-dark transition-colors active:bg-kawaii-pink active:text-custom-dark">All Posts</button>
-                <button data-category="tech" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg text-kawaii-pink bg-transparent hover:bg-kawaii-pink hover:text-custom-dark transition-colors">Tech</button>
-                <button data-category="commentary" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg text-kawaii-pink bg-transparent hover:bg-kawaii-pink hover:text-custom-dark transition-colors">Commentary</button>
-                <button data-category="powerlifting" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg text-kawaii-pink bg-transparent hover:bg-kawaii-pink hover:text-custom-dark transition-colors">Powerlifting</button>
-                <button data-category="games" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg text-kawaii-pink bg-transparent hover:bg-kawaii-pink hover:text-custom-dark transition-colors">Games</button>
-                <button data-category="music" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg text-kawaii-pink bg-transparent hover:bg-kawaii-pink hover:text-custom-dark transition-colors">Music</button>
-                <button data-category="anime" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg text-kawaii-pink bg-transparent hover:bg-kawaii-pink hover:text-custom-dark transition-colors">Anime</button>
+                <button data-category="all" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg transition-colors hover:bg-kawaii-pink hover:text-custom-dark active:bg-kawaii-pink active:text-custom-dark text-custom-dark bg-kawaii-pink active">All Posts</button>
+                <button data-category="commentary" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg transition-colors hover:bg-kawaii-pink hover:text-custom-dark active:bg-kawaii-pink active:text-custom-dark text-kawaii-pink bg-transparent">Commentary</button>
+                <button data-category="music" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg transition-colors hover:bg-kawaii-pink hover:text-custom-dark active:bg-kawaii-pink active:text-custom-dark text-kawaii-pink bg-transparent">Music</button>
+                <button data-category="games" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg transition-colors hover:bg-kawaii-pink hover:text-custom-dark active:bg-kawaii-pink active:text-custom-dark text-kawaii-pink bg-transparent">Games</button>
+                <button data-category="tech" class="filter-button px-4 py-2 border border-kawaii-pink rounded-lg transition-colors hover:bg-kawaii-pink hover:text-custom-dark active:bg-kawaii-pink active:text-custom-dark text-kawaii-pink bg-transparent">Tech</button>
             </div>
 
             <div id="posts-container" class="space-y-6">

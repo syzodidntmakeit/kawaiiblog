@@ -6,7 +6,7 @@ const ASSETS_TO_CACHE = [
     '/pages/uses.html',
     '/pages/search.html',
     '/404.html',
-    '/assets/css/style.css?v=9708b8219fa0',
+    '/assets/css/style.css?v=0208b007514f',
     '/assets/js/script.js?v=b12af89566b0',
     '/assets/js/homepage.js?v=a0cc61146d02',
     '/assets/js/archive.js?v=1a10e039dbee',
