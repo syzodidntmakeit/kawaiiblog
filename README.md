@@ -18,7 +18,7 @@ KawaiiBlog is a static-first publishing stack: write Markdown, run one build, an
 ## Quick Start
 1. **Clone & install**
    ```bash
-   git clone https://github.com/<you>/kawaiiblog.git
+   git clone https://github.com/syzodidntmakeit/kawaiiblog.git
    cd kawaiiblog
    npm install
    ```
