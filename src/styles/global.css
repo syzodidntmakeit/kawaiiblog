@@ -1,0 +1,133 @@
+/* src/styles/global.css */
+:root {
+  /* Colors */
+  --bg: #0d011f;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --card: rgba(31, 41, 55, 0.6);
+  --pink: #ffc0cb;
+  --blue: #a7c7e7;
+  --mint: #b2f2bb;
+  --gold: #ffd166;
+
+  /* Typography */
+  --font-primary: 'Nunito', sans-serif;
+  --font-mono: 'VT323', monospace;
+
+  /* Spacing */
+  --container-max: 1200px;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Effects */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --blur: blur(10px);
+  --transition: 0.18s ease;
+
+  /* Kawaii Palette for H2 Cycling */
+  --k-1: #ffc0cb;
+  /* Pink */
+  --k-2: #a7c7e7;
+  /* Blue */
+  --k-3: #b2f2bb;
+  /* Mint */
+  --k-4: #ffd166;
+  /* Gold */
+  --k-5: #c7ceea;
+  /* Lavender */
+  --k-6: #ffdac1;
+  /* Peach */
+  --k-7: #e2f0cb;
+  /* Lime-ish */
+  --k-8: #ff9aa2;
+  /* Salmon */
+}
+
+/* Light Mode Theme */
+[data-theme="light"] {
+  --bg: #fef3f2;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --card: rgba(255, 255, 255, 0.8);
+  --pink: #db2777;
+  --blue: #3b82f6;
+  --mint: #10b981;
+  --gold: #f59e0b;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-primary);
+  margin: 0;
+  line-height: 1.6;
+  scrollbar-color: var(--pink) transparent;
+  scrollbar-width: thin;
+  transition: background 0.3s, color 0.3s;
+
+  /* Sticky Footer Setup */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--pink);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  box-sizing: border-box;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255, 192, 203, 0.28);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition);
+  padding: var(--spacing-md);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pink);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35), 0 10px 30px rgba(255, 192, 203, 0.12);
+}
+
+/* Mobile First Padding */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}

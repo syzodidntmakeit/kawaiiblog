@@ -1,0 +1,98 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+const filteredHeadings = headings.filter((h) => h.depth <= 3);
+---
+
+<nav class="toc">
+  <h3 class="toc-title">On this page</h3>
+  <ul class="toc-list">
+    {filteredHeadings.map((heading) => (
+      <li class={`toc-item depth-${heading.depth}`}>
+        <a href={`#${heading.slug}`}>{heading.text}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  // Smooth scroll behavior
+  document.querySelectorAll('.toc a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href) {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Update URL without jump
+          history.pushState(null, '', href);
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .toc {
+    position: sticky;
+    top: 6rem; /* Adjust based on nav height */
+    padding: var(--spacing-md);
+    border-left: 1px solid rgba(255, 192, 203, 0.1);
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+  }
+
+  .toc-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .toc-item a {
+    color: var(--text);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    display: block;
+    line-height: 1.4;
+  }
+
+  .toc-item a:hover {
+    color: var(--pink);
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .depth-3 {
+    padding-left: 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Hide TOC on mobile */
+  @media (max-width: 1024px) {
+    .toc {
+      display: none;
+    }
+  }
+</style>

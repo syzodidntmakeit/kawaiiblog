@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+const randomPost = posts[Math.floor(Math.random() * posts.length)];
+
+const title = "404 - Page Not Found";
+const description = "Oops! This page doesn't exist.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="not-found">
+    <div class="emoji">💔</div>
+    <h1>404 - Page Not Found</h1>
+    <p class="message">Oops! Looks like this page took a wrong turn into the void.</p>
+    
+    <div class="search-section">
+      <p class="helper-text">Try searching for what you're looking for:</p>
+      <SearchBar />
+    </div>
+
+    <div class="suggestions">
+      <p class="helper-text">Or check out a random post:</p>
+      <a href={`/posts/${randomPost.slug}`} class="random-post">
+        <span class="icon">🎲</span>
+        {randomPost.data.title}
+      </a>
+    </div>
+
+    <div class="links">
+      <a href="/" class="btn">← Back to Home</a>
+      <a href="/archive" class="btn">Browse All Posts</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+  }
+
+  .emoji {
+    font-size: 5rem;
+    margin-bottom: var(--spacing-md);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(120deg, var(--pink), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .message {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .search-section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .helper-text {
+    color: var(--muted);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+  }
+
+  .suggestions {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .random-post {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--card);
+    border: 1px solid rgba(255, 192, 203, 0.28);
+    border-radius: var(--radius-md);
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 700;
+  }
+
+  .random-post:hover {
+    transform: translateY(-2px);
+    border-color: var(--pink);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--pink);
+    border-radius: var(--radius-sm);
+    color: var(--pink);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+  }
+
+  .btn:hover {
+    background: var(--pink);
+    color: var(--bg);
+  }
+</style>

@@ -1,0 +1,89 @@
+---
+import PostCard from './PostCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  currentPost: CollectionEntry<'posts'>;
+  allPosts: CollectionEntry<'posts'>[];
+}
+
+const { currentPost, allPosts } = Astro.props;
+
+// Calculate related posts based on tags and category
+function getRelatedPosts(current: CollectionEntry<'posts'>, all: CollectionEntry<'posts'>[], limit = 3) {
+  const scored = all
+    .filter(post => post.slug !== current.slug) // Exclude current post
+    .map(post => {
+      let score = 0;
+      
+      // Boost for same category
+      if (post.data.category === current.data.category) {
+        score += 10;
+      }
+      
+      // Boost for matching tags
+      const matchingTags = post.data.tags.filter(tag => 
+        current.data.tags.includes(tag)
+      );
+      score += matchingTags.length * 5;
+      
+      // Slight boost for recency (within last 30 days)
+      const daysDiff = Math.abs(
+        current.data.date.getTime() - post.data.date.getTime()
+      ) / (1000 * 60 * 60 * 24);
+      if (daysDiff < 30) score += 2;
+      
+      return { post, score };
+    })
+    .filter(item => item.score > 0) // Only posts with some relation
+    .sort((a, b) => b.score - a.score) // Highest score first
+    .slice(0, limit)
+    .map(item => item.post);
+    
+  return scored;
+}
+
+const relatedPosts = getRelatedPosts(currentPost, allPosts);
+---
+
+{relatedPosts.length > 0 && (
+  <section class="related-posts">
+    <h2>You Might Also Like</h2>
+    <div class="related-grid">
+      {relatedPosts.map(post => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .related-posts {
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-xl) 0;
+    border-top: 2px solid rgba(255, 192, 203, 0.2);
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    background: linear-gradient(120deg, var(--pink), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  @media (min-width: 768px) {
+    .related-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, date, excerpt, category } = post.data;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Calculate reading time (simple approximation)
+const wordsPerMinute = 225;
+const wordCount = post.body.trim().split(/\s+/).length;
+const readingTime = Math.ceil(wordCount / wordsPerMinute);
+---
+
+<a href={`/posts/${post.slug}`} class="card post-card">
+  <div class="meta-top">
+    <span class="category">{category}</span>
+    <span class="date">{formattedDate}</span>
+  </div>
+  
+  <h3 class="title">{title}</h3>
+  <p class="excerpt">{excerpt}</p>
+  
+  <div class="meta-bottom">
+    <span class="read-time">{readingTime} min read</span>
+  </div>
+</a>
+
+<style>
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .post-card:hover {
+    text-decoration: none;
+  }
+
+  .meta-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .category {
+    color: var(--pink);
+    font-weight: 700;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin: 0 0 var(--spacing-sm) 0;
+    line-height: 1.3;
+    color: var(--text);
+  }
+
+  .excerpt {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .read-time {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+</style>

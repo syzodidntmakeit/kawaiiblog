@@ -1,0 +1,68 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/archive', label: 'Archive' },
+  { href: '/about', label: 'About' },
+];
+---
+
+<nav class="nav-header">
+  <div class="container nav-container">
+    <a href="/" class="logo">
+      Kawaii<span class="highlight">Blog</span>
+    </a>
+    <div class="nav-controls">
+      <div class="links">
+        {links.map(link => (
+          <a href={link.href} class={Astro.url.pathname === link.href ? 'active' : ''}>
+            {link.label}
+          </a>
+        ))}
+      </div>
+      <ThemeToggle />
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .highlight {
+    color: var(--pink);
+  }
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .links {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .links a {
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .links a:hover, .links a.active {
+    color: var(--pink);
+    text-decoration: none;
+  }
+</style>

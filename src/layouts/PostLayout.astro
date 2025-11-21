@@ -1,0 +1,196 @@
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import CodeCopyButton from '../components/CodeCopyButton.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import SeriesNav from '../components/SeriesNav.astro';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  allPosts: CollectionEntry<'posts'>[];
+}
+
+const { post, allPosts } = Astro.props;
+const { title, description, date, category } = post.data;
+const { headings } = await post.render();
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Calculate reading time
+const wordsPerMinute = 225;
+const wordCount = post.body.trim().split(/\s+/).length;
+const readingTime = Math.ceil(wordCount / wordsPerMinute);
+
+// Get full URL for sharing
+const postUrl = `${Astro.site}posts/${post.slug}/`;
+---
+
+<BaseLayout title={title} description={description || post.data.excerpt}>
+  <SeriesNav currentPost={post} allPosts={allPosts} />
+  
+  <article class="post-container">
+    <header class="post-header">
+      <div class="meta">
+        <span class="category">{category}</span>
+        <span class="sep">•</span>
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        <span class="sep">•</span>
+        <span class="read-time">{readingTime} min read</span>
+      </div>
+      
+      <h1 class="post-title">{title}</h1>
+    </header>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <slot />
+        
+        <ShareButtons title={title} url={postUrl} />
+      </div>
+      
+      <aside class="sidebar">
+        <TableOfContents headings={headings} />
+      </aside>
+    </div>
+  </article>
+  
+  <RelatedPosts currentPost={post} allPosts={allPosts} />
+  
+  <CodeCopyButton />
+</BaseLayout>
+
+<style>
+  .post-container {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .post-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .category {
+    color: var(--pink);
+    font-weight: 700;
+  }
+
+  .post-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  /* Markdown Content Styles */
+  .content :global(h2) {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    /* Default fallback */
+    color: var(--pink);
+  }
+
+  /* Cycling H2 Colors */
+  .content :global(h2:nth-of-type(8n+1)) { color: var(--k-1); }
+  .content :global(h2:nth-of-type(8n+2)) { color: var(--k-2); }
+  .content :global(h2:nth-of-type(8n+3)) { color: var(--k-3); }
+  .content :global(h2:nth-of-type(8n+4)) { color: var(--k-4); }
+  .content :global(h2:nth-of-type(8n+5)) { color: var(--k-5); }
+  .content :global(h2:nth-of-type(8n+6)) { color: var(--k-6); }
+  .content :global(h2:nth-of-type(8n+7)) { color: var(--k-7); }
+  .content :global(h2:nth-of-type(8n+8)) { color: var(--k-8); }
+
+  .content :global(h3) {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--blue);
+  }
+
+  .content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .content :global(ul), .content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .content :global(blockquote) {
+    border-left: 4px solid var(--pink);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--muted);
+    background: rgba(255, 192, 203, 0.05);
+    padding: 1rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  
+  .content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+  }
+
+  .content :global(pre) {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    background: #1a1b26 !important; /* Override theme if needed */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Desktop Layout */
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      grid-template-columns: 1fr 250px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .content {
+      margin: 0; /* Reset auto margin */
+    }
+  }
+</style>

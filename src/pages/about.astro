@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "About KawaiiBlog";
+const description = "Learn about this kawaii-themed blogging platform and its mission.";
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="about-page">
+    <header class="about-header">
+      <h1>About <span class="highlight">KawaiiBlog</span></h1>
+      <p class="subtitle">A lightweight blog with a kawaii twist 💖</p>
+    </header>
+
+    <div class="about-content">
+      <section>
+        <h2>What is KawaiiBlog?</h2>
+        <p>
+          KawaiiBlog is a modern, lightweight blogging platform that combines the power of 
+          <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> with a 
+          beautiful dark pastel aesthetic. It's designed to be fast, accessible, and a joy to use.
+        </p>
+      </section>
+
+      <section>
+        <h2>The Philosophy</h2>
+        <p>
+          This blog is built on three core principles:
+        </p>
+        <ul>
+          <li><strong>Lightweight:</strong> No bloat, no unnecessary JavaScript. Just fast, static pages.</li>
+          <li><strong>Accessible:</strong> Works for 99.9% of users, with semantic HTML and keyboard navigation.</li>
+          <li><strong>Beautiful:</strong> Dark pastel kawaii aesthetics that don't sacrifice readability.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What You'll Find Here</h2>
+        <p>
+          This blog covers a mix of topics including:
+        </p>
+        <ul>
+          <li><strong>Tech:</strong> Programming tutorials, web development, and tech commentary</li>
+          <li><strong>Music:</strong> Album reviews, playlists, and music discussions</li>
+          <li><strong>Games:</strong> Game reviews and gaming culture</li>
+          <li><strong>Commentary:</strong> Thoughts on various topics and life experiences</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>The Tech Stack</h2>
+        <p>
+          KawaiiBlog is built with modern web technologies:
+        </p>
+        <ul>
+          <li><strong>Astro 5.16:</strong> Static site generation for optimal performance</li>
+          <li><strong>Vanilla CSS:</strong> Custom properties and no framework bloat</li>
+          <li><strong>Fuse.js:</strong> Client-side fuzzy search</li>
+          <li><strong>TypeScript:</strong> Type-safe CLI tooling</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Open Source</h2>
+        <p>
+          This project is open source! Feel free to check out the 
+          <a href="https://github.com/yourusername/kawaiiblog" target="_blank" rel="noopener">GitHub repository</a> 
+          and use it as a template for your own blog.
+        </p>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .about-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) 0;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .highlight {
+    background: linear-gradient(120deg, var(--pink), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--muted);
+  }
+
+  .about-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .about-content section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .about-content h2 {
+    color: var(--pink);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-content p {
+    margin-bottom: 1rem;
+  }
+
+  .about-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .about-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .about-content a {
+    color: var(--pink);
+    text-decoration: underline;
+  }
+
+  .about-content a:hover {
+    color: var(--blue);
+  }
+</style>

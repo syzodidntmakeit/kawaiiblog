@@ -1,0 +1,113 @@
+---
+interface Props {
+  placeholder?: string;
+}
+
+const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
+---
+
+<div class="search-container">
+  <input 
+    type="text" 
+    id="search-input" 
+    placeholder={placeholder}
+    aria-label="Search blog posts"
+  />
+  <div class="search-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+  </div>
+</div>
+
+<script>
+  import Fuse from 'fuse.js';
+
+  let fuse;
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const resultsContainer = document.getElementById('search-results');
+
+  // Fetch index on focus/hover to save bandwidth
+  const loadIndex = async () => {
+    if (fuse) return;
+    
+    try {
+      const res = await fetch('/search-index.json');
+      const index = await res.json();
+      
+      fuse = new Fuse(index, {
+        keys: [
+          { name: 'title', weight: 0.7 },
+          { name: 'excerpt', weight: 0.2 },
+          { name: 'tags', weight: 0.1 },
+          { name: 'content', weight: 0.1 }
+        ],
+        threshold: 0.4,
+        includeScore: true
+      });
+      
+      // Trigger search if input has value
+      if (searchInput.value) handleSearch();
+    } catch (e) {
+      console.error('Error loading search index:', e);
+    }
+  };
+
+  const handleSearch = () => {
+    if (!fuse || !searchInput) return;
+    
+    const query = searchInput.value;
+    const event = new CustomEvent('search-query', { detail: { query, results: fuse.search(query) } });
+    document.dispatchEvent(event);
+  };
+
+  if (searchInput) {
+    searchInput.addEventListener('focus', loadIndex);
+    searchInput.addEventListener('mouseover', loadIndex);
+    searchInput.addEventListener('input', handleSearch);
+  }
+  
+  // Keyboard shortcut: Press / to focus search
+  document.addEventListener('keydown', (e) => {
+    // Only trigger if not already in an input/textarea
+    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) {
+      e.preventDefault();
+      searchInput?.focus();
+    }
+  });
+</script>
+
+<style>
+  .search-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 192, 203, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--text);
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    transition: var(--transition);
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--pink);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 192, 203, 0.1);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+  }
+</style>

@@ -1,0 +1,116 @@
+import inquirer from 'inquirer';
+import path from 'path';
+import fs from 'fs/promises';
+import chalk from 'chalk';
+import matter from 'gray-matter';
+
+export async function editPost() {
+    console.log(chalk.bold.magenta('\n✏️  Edit a Blog Post\n'));
+
+    const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
+
+    try {
+        // Get all post directories
+        const postDirs = await fs.readdir(postsDir);
+        const posts = [];
+
+        for (const dir of postDirs) {
+            const postPath = path.join(postsDir, dir, 'index.md');
+            try {
+                const content = await fs.readFile(postPath, 'utf-8');
+                const { data } = matter(content);
+                posts.push({
+                    name: `${data.title} (${dir})`,
+                    value: dir,
+                    data,
+                });
+            } catch (e) {
+                // Skip if not a valid post
+                continue;
+            }
+        }
+
+        if (posts.length === 0) {
+            console.log(chalk.yellow('No posts found.'));
+            return;
+        }
+
+        // Select post to edit
+        const { selectedPost } = await inquirer.prompt([
+            {
+                type: 'list',
+                name: 'selectedPost',
+                message: 'Select a post to edit:',
+                choices: posts,
+            },
+        ]);
+
+        const post = posts.find(p => p.value === selectedPost);
+        const postPath = path.join(postsDir, selectedPost, 'index.md');
+        const fileContent = await fs.readFile(postPath, 'utf-8');
+        const { data: currentData, content: currentContent } = matter(fileContent);
+
+        console.log(chalk.dim('\nCurrent metadata:'));
+        console.log(chalk.dim(JSON.stringify(currentData, null, 2)));
+
+        // Edit metadata
+        const answers = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'title',
+                message: 'Title:',
+                default: currentData.title,
+            },
+            {
+                type: 'input',
+                name: 'date',
+                message: 'Date (YYYY-MM-DD):',
+                default: currentData.date instanceof Date
+                    ? currentData.date.toISOString().split('T')[0]
+                    : currentData.date,
+                validate: (input) => {
+                    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+                    return dateRegex.test(input) || 'Please enter a valid date (YYYY-MM-DD)';
+                },
+            },
+            {
+                type: 'list',
+                name: 'category',
+                message: 'Category:',
+                choices: ['tech', 'music', 'games', 'commentary'],
+                default: currentData.category,
+            },
+            {
+                type: 'input',
+                name: 'excerpt',
+                message: 'Excerpt:',
+                default: currentData.excerpt,
+            },
+            {
+                type: 'input',
+                name: 'tags',
+                message: 'Tags (comma separated):',
+                default: Array.isArray(currentData.tags) ? currentData.tags.join(', ') : '',
+                filter: (input: string) => input.split(',').map((t: string) => t.trim().toLowerCase()).filter((t: string) => t.length > 0),
+            },
+        ]);
+
+        // Update frontmatter
+        const updatedData = {
+            title: answers.title,
+            date: answers.date,
+            category: answers.category,
+            excerpt: answers.excerpt,
+            tags: answers.tags,
+        };
+
+        const updatedContent = matter.stringify(currentContent, updatedData);
+        await fs.writeFile(postPath, updatedContent);
+
+        console.log(chalk.green('\n✓ Post updated successfully!'));
+        console.log(chalk.dim(`Location: ${postPath}`));
+
+    } catch (error) {
+        console.error(chalk.red('Failed to edit post:'), error);
+    }
+}

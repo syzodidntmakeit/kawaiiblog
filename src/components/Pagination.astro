@@ -1,0 +1,200 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl?: string;
+}
+
+const { currentPage, totalPages, baseUrl = '/archive' } = Astro.props;
+
+// Generate page numbers with ellipsis
+function generatePageNumbers(current: number, total: number) {
+  const pages: (number | string)[] = [];
+  
+  if (total <= 7) {
+    // Show all pages if 7 or fewer
+    for (let i = 1; i <= total; i++) {
+      pages.push(i);
+    }
+  } else {
+    // Always show first page
+    pages.push(1);
+    
+    if (current > 3) {
+      pages.push('...');
+    }
+    
+    // Show pages around current
+    const start = Math.max(2, current - 1);
+    const end = Math.min(total - 1, current + 1);
+    
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+    
+    if (current < total - 2) {
+      pages.push('...');
+    }
+    
+    // Always show last page
+    pages.push(total);
+  }
+  
+  return pages;
+}
+
+const pages = generatePageNumbers(currentPage, totalPages);
+const prevPage = currentPage > 1 ? currentPage - 1 : null;
+const nextPage = currentPage < totalPages ? currentPage + 1 : null;
+---
+
+{totalPages > 1 && (
+  <nav class="pagination" aria-label="Pagination">
+    <div class="pagination-container">
+      {prevPage ? (
+        <a href={`${baseUrl}?page=${prevPage}`} class="page-btn prev" aria-label="Previous page">
+          <span class="arrow">←</span>
+          <span class="label">Previous</span>
+        </a>
+      ) : (
+        <div class="page-btn disabled"></div>
+      )}
+
+      <div class="page-numbers">
+        {pages.map(page => (
+          typeof page === 'number' ? (
+            page === currentPage ? (
+              <span class="page-number current" aria-current="page">{page}</span>
+            ) : (
+              <a href={`${baseUrl}?page=${page}`} class="page-number">{page}</a>
+            )
+          ) : (
+            <span class="ellipsis">{page}</span>
+          )
+        ))}
+      </div>
+
+      {nextPage ? (
+        <a href={`${baseUrl}?page=${nextPage}`} class="page-btn next" aria-label="Next page">
+          <span class="label">Next</span>
+          <span class="arrow">→</span>
+        </a>
+      ) : (
+        <div class="page-btn disabled"></div>
+      )}
+    </div>
+
+    <p class="pagination-info">
+      Page {currentPage} of {totalPages}
+    </p>
+  </nav>
+)}
+
+<style>
+  .pagination {
+    margin: var(--spacing-xl) 0;
+  }
+
+  .pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+  }
+
+  .page-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--card);
+    border: 1px solid rgba(255, 192, 203, 0.3);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+    min-width: 120px;
+    justify-content: center;
+  }
+
+  .page-btn:not(.disabled):hover {
+    background: rgba(255, 192, 203, 0.1);
+    border-color: var(--pink);
+    transform: translateY(-2px);
+  }
+
+  .page-btn.disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .page-btn .arrow {
+    font-size: 1.2rem;
+  }
+
+  .page-numbers {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .page-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 700;
+    transition: var(--transition);
+    border: 1px solid transparent;
+  }
+
+  .page-number:not(.current):hover {
+    background: rgba(255, 192, 203, 0.1);
+    border-color: var(--pink);
+  }
+
+  .page-number.current {
+    background: var(--pink);
+    color: var(--bg);
+    border-color: var(--pink);
+  }
+
+  .ellipsis {
+    color: var(--muted);
+    padding: 0 0.5rem;
+  }
+
+  .pagination-info {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+  }
+
+  @media (max-width: 768px) {
+    .pagination-container {
+      flex-direction: column;
+    }
+
+    .page-btn {
+      width: 100%;
+    }
+
+    .page-numbers {
+      order: -1;
+    }
+
+    .page-btn.prev {
+      order: 1;
+    }
+
+    .page-btn.next {
+      order: 2;
+    }
+  }
+</style>
