@@ -18,21 +18,20 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
   </div>
 </div>
 
-<script>
+<script type="module">
   import Fuse from 'fuse.js';
 
   let fuse;
-  const searchInput = document.getElementById('search-input') as HTMLInputElement;
-  const resultsContainer = document.getElementById('search-results');
+  const searchInput = document.getElementById('search-input');
 
   // Fetch index on focus/hover to save bandwidth
   const loadIndex = async () => {
     if (fuse) return;
-    
+
     try {
       const res = await fetch('/search-index.json');
       const index = await res.json();
-      
+
       fuse = new Fuse(index, {
         keys: [
           { name: 'title', weight: 0.7 },
@@ -43,9 +42,9 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
         threshold: 0.4,
         includeScore: true
       });
-      
+
       // Trigger search if input has value
-      if (searchInput.value) handleSearch();
+      if (searchInput && searchInput.value) handleSearch();
     } catch (e) {
       console.error('Error loading search index:', e);
     }
@@ -53,7 +52,7 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
 
   const handleSearch = () => {
     if (!fuse || !searchInput) return;
-    
+
     const query = searchInput.value;
     const event = new CustomEvent('search-query', { detail: { query, results: fuse.search(query) } });
     document.dispatchEvent(event);
@@ -64,11 +63,16 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
     searchInput.addEventListener('mouseover', loadIndex);
     searchInput.addEventListener('input', handleSearch);
   }
-  
+
   // Keyboard shortcut: Press / to focus search
   document.addEventListener('keydown', (e) => {
     // Only trigger if not already in an input/textarea
-    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) {
+    const target = e.target;
+    let tagName = null;
+    if (target && target instanceof Element && 'tagName' in target) {
+      tagName = target.tagName;
+    }
+    if (e.key === '/' && tagName && !['INPUT', 'TEXTAREA'].includes(tagName)) {
       e.preventDefault();
       searchInput?.focus();
     }

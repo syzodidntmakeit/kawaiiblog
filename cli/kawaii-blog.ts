@@ -23,9 +23,9 @@ program
     .action(listPosts);
 
 program
-    .command('search')
+    .command('search [query]')
     .description('Search blog posts')
-    .action(searchPosts);
+    .action((query?: string) => searchPosts(query));
 
 program
     .command('edit')

@@ -1,10 +1,12 @@
+
 import fs from 'fs/promises';
 import path from 'path';
 import chalk from 'chalk';
 import matter from 'gray-matter';
 import Fuse from 'fuse.js';
+import inquirer from 'inquirer';
 
-export async function searchPosts(query: string) {
+export async function searchPosts(query?: string) {
     const postsDir = path.join(process.cwd(), 'src', 'content', 'posts');
     const posts = [];
 
@@ -28,7 +30,13 @@ export async function searchPosts(query: string) {
             includeScore: true,
         });
 
-        const results = fuse.search(query);
+        const q = query ?? (await inquirer.prompt([{ type: 'input', name: 'q', message: 'Enter search query:' }])).q;
+        if (!q) {
+            console.log(chalk.yellow('No query provided.'));
+            return;
+        }
+
+        const results = fuse.search(q);
 
         console.log(chalk.bold.magenta(`\n🔍 Search results for "${query}":\n`));
 

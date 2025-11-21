@@ -10,6 +10,7 @@
     "cli": "tsx cli/kawaii-blog.ts"
   },
   "dependencies": {
+    "@astrojs/compiler": "^2.13.0",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.0",
