@@ -215,7 +215,7 @@ kawaiiblog/
 ├── astro.config.mjs      # Astro configuration
 ├── package.json          # Dependencies & scripts
 ├── tsconfig.json         # TypeScript config
-└── README.md            # You are here!
+└── README.md             # You are here!
 ```
 
 ## 🎨 Customization
