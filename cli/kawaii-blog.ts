@@ -4,6 +4,7 @@ import { newPost } from './commands/new.js';
 import { listPosts } from './commands/list.js';
 import { searchPosts } from './commands/search.js';
 import { editPost } from './commands/edit.js';
+import { deletePost } from './commands/delete.js';
 
 const program = new Command();
 
@@ -31,5 +32,10 @@ program
     .command('edit')
     .description('Edit an existing blog post')
     .action(editPost);
+
+program
+    .command('delete')
+    .description('Delete an existing blog post')
+    .action(deletePost);
 
 program.parse();

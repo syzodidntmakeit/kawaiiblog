@@ -1,9 +1,15 @@
 ---
-title: "Why I am breaking up with Windows (and you should too)"
-date: 2025-11-21
+title: Why I am breaking up with Windows (and you should too)
+date: '2025-10-19'
 category: tech
-excerpt: "Windows is being very invasive in their actions, choosing to be an AI agent first operating system, and macOS is a sin against humainty. But there is an alternative..."
-tags: ["windows","linux","OS"]
+excerpt: >-
+  Windows is being very invasive in their actions, choosing to be an AI agent
+  first operating system, and macOS is a sin against humainty. But there is an
+  alternative...
+tags:
+  - windows
+  - linux
+  - os
 ---
 
 ## Introduction

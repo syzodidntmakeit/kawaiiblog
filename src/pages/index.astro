@@ -1,35 +1,48 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import { getCollection } from "astro:content";
 
 // Get all posts and filter out drafts in production
-const allPosts = await getCollection('posts', ({ data }) => {
+const allPosts = await getCollection("posts", ({ data }) => {
   return import.meta.env.PROD ? !data.draft : true;
 });
 
-// Get featured posts
-const featuredPosts = allPosts
-  .filter(post => post.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+// Sort all posts by date (newest first)
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+// Get the absolute latest post
+const latestPost = sortedPosts[0];
+
+// Get featured posts (exclude the latest post if it happens to be featured, to avoid duplication)
+const featuredPosts = sortedPosts
+  .slice(1) // Skip the first one (latest)
+  .filter((post) => post.data.featured)
   .slice(0, 3);
 
-// Get recent posts (exclude featured to avoid duplicates)
-const recentPosts = allPosts
-  .filter(post => !post.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+// Get recent posts (exclude latest and featured)
+const recentPosts = sortedPosts
+  .slice(1) // Skip the first one (latest)
+  .filter((post) => !post.data.featured)
   .slice(0, 6);
 
 // Get Singapore time and determine time of day
-const sgTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Singapore' });
+const sgTime = new Date().toLocaleString("en-US", {
+  timeZone: "Asia/Singapore",
+});
 const hour = new Date(sgTime).getHours();
 
 // Time-based title (5am-11am: morning, 11am-5pm: afternoon, 5pm-9pm: evening, 9pm-5am: night)
-const timeBasedTitle = 
-  hour >= 5 && hour < 11 ? "KawaiiBlog up for coffee" :
-  hour >= 11 && hour < 17 ? "KawaiiBlog down to work" :
-  hour >= 17 && hour < 21 ? "KawaiiBlog chilling in the sunset" :
-  "KawaiiBlog up at night";
+const timeBasedTitle =
+  hour >= 5 && hour < 11
+    ? "KawaiiBlog up for coffee"
+    : hour >= 11 && hour < 17
+      ? "KawaiiBlog down to work"
+      : hour >= 17 && hour < 21
+        ? "KawaiiBlog chilling in the sunset"
+        : "KawaiiBlog up at night";
 
 // Snarky subtitles (rotate based on day of month for consistency)
 const snarkySubtitles = [
@@ -39,7 +52,7 @@ const snarkySubtitles = [
   "Anti-corpo like my name Pop Smoke",
   "Tech. Music. Commentary. No bloat.",
   "Peak procrastination energy",
-  "Just vibes and semicolons"
+  "Just vibes and semicolons",
 ];
 const dayOfMonth = new Date(sgTime).getDate();
 const snarkySubtitle = snarkySubtitles[dayOfMonth % snarkySubtitles.length];
@@ -49,27 +62,41 @@ const description = "A lightweight blog about tech, music, and commentary.";
 
 <BaseLayout title={title} description={description}>
   <section class="hero">
-    <h1><span class="highlight">KawaiiBlog</span> {timeBasedTitle.replace('KawaiiBlog ', '')}</h1>
+    <h1>
+      <span class="highlight">KawaiiBlog</span>
+      {timeBasedTitle.replace("KawaiiBlog ", "")}
+    </h1>
     <p class="subtitle">{snarkySubtitle}</p>
   </section>
 
-  {featuredPosts.length > 0 && (
-    <section class="featured-section">
-      <h2 class="section-title">⭐ Featured Posts</h2>
-      <div class="featured-grid">
-        {featuredPosts.map(post => (
-          <PostCard post={post} />
-        ))}
-      </div>
-    </section>
-  )}
+  {
+    latestPost && (
+      <section class="latest-section">
+        <h2 class="section-title">Recent</h2>
+        <div class="latest-grid">
+          <PostCard post={latestPost} />
+        </div>
+      </section>
+    )
+  }
+
+  {
+    featuredPosts.length > 0 && (
+      <section class="featured-section">
+        <h2 class="section-title">⭐ Featured Posts</h2>
+        <div class="featured-grid">
+          {featuredPosts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   <section class="recent-section">
-    <h2 class="section-title">Recent Posts</h2>
+    <h2 class="section-title">More</h2>
     <div class="posts-grid">
-      {recentPosts.map(post => (
-        <PostCard post={post} />
-      ))}
+      {recentPosts.map((post) => <PostCard post={post} />)}
     </div>
   </section>
 </BaseLayout>
@@ -105,6 +132,17 @@ const description = "A lightweight blog about tech, music, and commentary.";
     font-weight: 900;
     margin-bottom: var(--spacing-lg);
     color: var(--pink);
+  }
+
+  .latest-section {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid rgba(255, 192, 203, 0.1);
+  }
+
+  .latest-grid {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .featured-section {
