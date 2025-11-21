@@ -38,7 +38,7 @@ export async function searchPosts(query?: string) {
 
         const results = fuse.search(q);
 
-        console.log(chalk.bold.magenta(`\n🔍 Search results for "${query}":\n`));
+        console.log(chalk.bold.magenta(`\n🔍 Search results for "${q}":\n`));
 
         if (results.length === 0) {
             console.log(chalk.yellow('No posts found.'));

@@ -7,6 +7,7 @@ const postsCollection = defineCollection({
         date: z.date(),
         category: z.enum(['tech', 'music', 'games', 'commentary']),
         excerpt: z.string(),
+        tags: z.array(z.string()).default([]),
         draft: z.boolean().optional(),
         featured: z.boolean().optional(),
         series: z.object({

@@ -7,7 +7,7 @@ interface Props {
 const { title, url } = Astro.props;
 ---
 
-<div class="share-buttons">
+<div class="share-buttons" data-title={title} data-url={url}>
   <button id="share-button" class="share-btn" aria-label="Share this post">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="18" cy="5" r="3"></circle>
@@ -30,7 +30,10 @@ const { title, url } = Astro.props;
 
 <div id="toast" class="toast hidden">Link copied! 📋</div>
 
-<script define:vars={{ title, url }}>
+<script>
+  const wrapper = document.querySelector('.share-buttons');
+  const __title = wrapper?.dataset?.title || '';
+  const __url = wrapper?.dataset?.url || '';
   const shareBtn = document.getElementById('share-button');
   const copyBtn = document.getElementById('copy-link');
   const toast = document.getElementById('toast');
@@ -41,8 +44,8 @@ const { title, url } = Astro.props;
       shareBtn.addEventListener('click', async () => {
         try {
           await navigator.share({
-            title: title,
-            url: url
+            title: __title,
+            url: __url
           });
         } catch (err) {
           if (err.name !== 'AbortError') {
@@ -60,12 +63,12 @@ const { title, url } = Astro.props;
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(url);
+        await navigator.clipboard.writeText(__url);
         showToast();
       } catch (err) {
         // Fallback for older browsers
         const textArea = document.createElement('textarea');
-        textArea.value = url;
+        textArea.value = __url;
         document.body.appendChild(textArea);
         textArea.select();
         try {

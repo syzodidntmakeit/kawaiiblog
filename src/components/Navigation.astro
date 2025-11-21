@@ -1,11 +1,14 @@
 ---
-import ThemeToggle from './ThemeToggle.astro';
+import ThemeToggle from "./ThemeToggle.astro";
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/archive', label: 'Archive' },
-  { href: '/about', label: 'About' },
+  { href: "/", label: "Home" },
+  { href: "/archive", label: "Archive" },
+  { href: "/about", label: "About" },
 ];
+
+// Normalize pathname by removing trailing slash for comparison
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <nav class="nav-header">
@@ -15,11 +18,20 @@ const links = [
     </a>
     <div class="nav-controls">
       <div class="links">
-        {links.map(link => (
-          <a href={link.href} class={Astro.url.pathname === link.href ? 'active' : ''}>
-            {link.label}
-          </a>
-        ))}
+        {
+          links.map((link) => {
+            const linkPath =
+              link.href === "/" ? "/" : link.href.replace(/\/$/, "");
+            return (
+              <a
+                href={link.href}
+                class={currentPath === linkPath ? "active" : ""}
+              >
+                {link.label}
+              </a>
+            );
+          })
+        }
       </div>
       <ThemeToggle />
     </div>
@@ -61,7 +73,8 @@ const links = [
     font-size: 1rem;
   }
 
-  .links a:hover, .links a.active {
+  .links a:hover,
+  .links a.active {
     color: var(--pink);
     text-decoration: none;
   }

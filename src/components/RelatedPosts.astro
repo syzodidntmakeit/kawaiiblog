@@ -1,61 +1,67 @@
 ---
-import PostCard from './PostCard.astro';
-import type { CollectionEntry } from 'astro:content';
+import PostCard from "./PostCard.astro";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  currentPost: CollectionEntry<'posts'>;
-  allPosts: CollectionEntry<'posts'>[];
+  currentPost: CollectionEntry<"posts">;
+  allPosts: CollectionEntry<"posts">[];
 }
 
 const { currentPost, allPosts } = Astro.props;
 
 // Calculate related posts based on tags and category
-function getRelatedPosts(current: CollectionEntry<'posts'>, all: CollectionEntry<'posts'>[], limit = 3) {
+function getRelatedPosts(
+  current: CollectionEntry<"posts">,
+  all: CollectionEntry<"posts">[],
+  limit = 3,
+) {
   const scored = all
-    .filter(post => post.slug !== current.slug) // Exclude current post
-    .map(post => {
+    .filter((post) => post.slug !== current.slug) // Exclude current post
+    .map((post) => {
       let score = 0;
-      
+
       // Boost for same category
       if (post.data.category === current.data.category) {
         score += 10;
       }
-      
+
       // Boost for matching tags
-      const matchingTags = post.data.tags.filter(tag => 
-        current.data.tags.includes(tag)
+      const matchingTags = post.data.tags.filter((tag) =>
+        current.data.tags.includes(tag),
       );
       score += matchingTags.length * 5;
-      
+
       // Slight boost for recency (within last 30 days)
-      const daysDiff = Math.abs(
-        current.data.date.getTime() - post.data.date.getTime()
-      ) / (1000 * 60 * 60 * 24);
+      const daysDiff =
+        Math.abs(current.data.date.getTime() - post.data.date.getTime()) /
+        (1000 * 60 * 60 * 24);
       if (daysDiff < 30) score += 2;
-      
+
       return { post, score };
     })
-    .filter(item => item.score > 0) // Only posts with some relation
+    .filter((item) => item.score > 0) // Only posts with some relation
     .sort((a, b) => b.score - a.score) // Highest score first
     .slice(0, limit)
-    .map(item => item.post);
-    
+    .map((item) => item.post);
+
   return scored;
 }
 
 const relatedPosts = getRelatedPosts(currentPost, allPosts);
 ---
 
-{relatedPosts.length > 0 && (
-  <section class="related-posts">
-    <h2>You Might Also Like</h2>
-    <div class="related-grid">
-      {relatedPosts.map(post => (
-        <PostCard post={post} />
-      ))}
-    </div>
-  </section>
-)}
+{
+  relatedPosts.length > 0 && (
+    <section class="related-posts">
+      <h2>You Might Also Like</h2>
+      <div class="related-grid">
+        {relatedPosts.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+    </section>
+  )
+}
 
 <style>
   .related-posts {

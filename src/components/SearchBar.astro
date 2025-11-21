@@ -7,46 +7,61 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
 ---
 
 <div class="search-container">
-  <input 
-    type="text" 
-    id="search-input" 
+  <input
+    type="text"
+    id="search-input"
     placeholder={placeholder}
     aria-label="Search blog posts"
   />
   <div class="search-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><circle cx="11" cy="11" r="8"></circle><line
+        x1="21"
+        y1="21"
+        x2="16.65"
+        y2="16.65"></line></svg
+    >
   </div>
 </div>
 
 <script type="module">
-  import Fuse from 'fuse.js';
+  import Fuse from "fuse.js";
 
   let fuse;
-  const searchInput = document.getElementById('search-input');
+  const searchInput = document.getElementById("search-input");
 
   // Fetch index on focus/hover to save bandwidth
   const loadIndex = async () => {
     if (fuse) return;
 
     try {
-      const res = await fetch('/search-index.json');
+      const res = await fetch("/search-index.json");
       const index = await res.json();
 
       fuse = new Fuse(index, {
         keys: [
-          { name: 'title', weight: 0.7 },
-          { name: 'excerpt', weight: 0.2 },
-          { name: 'tags', weight: 0.1 },
-          { name: 'content', weight: 0.1 }
+          { name: "title", weight: 0.7 },
+          { name: "excerpt", weight: 0.2 },
+          { name: "tags", weight: 0.1 },
+          { name: "content", weight: 0.1 },
         ],
         threshold: 0.4,
-        includeScore: true
+        includeScore: true,
       });
 
       // Trigger search if input has value
       if (searchInput && searchInput.value) handleSearch();
     } catch (e) {
-      console.error('Error loading search index:', e);
+      console.error("Error loading search index:", e);
     }
   };
 
@@ -54,25 +69,26 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
     if (!fuse || !searchInput) return;
 
     const query = searchInput.value;
-    const event = new CustomEvent('search-query', { detail: { query, results: fuse.search(query) } });
+    const event = new CustomEvent("search-query", {
+      detail: { query, results: fuse.search(query) },
+    });
     document.dispatchEvent(event);
   };
 
   if (searchInput) {
-    searchInput.addEventListener('focus', loadIndex);
-    searchInput.addEventListener('mouseover', loadIndex);
-    searchInput.addEventListener('input', handleSearch);
+    searchInput.addEventListener("focus", loadIndex);
+    searchInput.addEventListener("mouseover", loadIndex);
+    searchInput.addEventListener("input", handleSearch);
   }
 
   // Keyboard shortcut: Press / to focus search
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener("keydown", (e) => {
     // Only trigger if not already in an input/textarea
-    const target = e.target;
-    let tagName = null;
-    if (target && target instanceof Element && 'tagName' in target) {
-      tagName = target.tagName;
-    }
-    if (e.key === '/' && tagName && !['INPUT', 'TEXTAREA'].includes(tagName)) {
+    if (
+      e.key === "/" &&
+      e.target &&
+      !["INPUT", "TEXTAREA"].includes(e.target.tagName)
+    ) {
       e.preventDefault();
       searchInput?.focus();
     }
