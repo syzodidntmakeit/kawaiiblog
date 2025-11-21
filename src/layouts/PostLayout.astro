@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
+import ReadingProgress from "../components/ReadingProgress.astro";
 import SeriesNav from "../components/SeriesNav.astro";
 import ShareButtons from "../components/ShareButtons.astro";
 import TableOfContents from "../components/TableOfContents.astro";
@@ -41,6 +42,7 @@ const postUrl = `${Astro.site}posts/${post.slug}/`;
 ---
 
 <BaseLayout title={title} description={excerpt}>
+  <ReadingProgress />
   <SeriesNav currentPost={post} allPosts={allPosts} />
 
   <article class="post-container">

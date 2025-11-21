@@ -1,15 +1,17 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import ReadingProgress from '../components/ReadingProgress.astro';
-import BackToTop from '../components/BackToTop.astro';
-import '../styles/global.css';
+import Navigation from "../components/Navigation.astro";
+import BackToTop from "../components/BackToTop.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "A lightweight blog about tech, music, and commentary." } = Astro.props;
+const {
+  title,
+  description = "A lightweight blog about tech, music, and commentary.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,37 +24,45 @@ const { title, description = "A lightweight blog about tech, music, and commenta
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0d011f" />
     <meta name="author" content="KawaiiBlog" />
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:image" content={`${Astro.site}og-image.png`} />
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${Astro.site}og-image.png`} />
-    
+
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title="KawaiiBlog RSS Feed" href="/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="KawaiiBlog RSS Feed"
+      href="/rss.xml"
+    />
     <link rel="canonical" href={Astro.url} />
-    
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=VT323&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+
     <title>{title} | KawaiiBlog</title>
-    
+
     <style is:inline>
       /* Critical CSS */
       body {
         background-color: #0d011f;
         color: #e5e7eb;
-        font-family: 'Nunito', sans-serif;
+        font-family: "Nunito", sans-serif;
       }
       .nav-header {
         position: sticky;
@@ -65,7 +75,6 @@ const { title, description = "A lightweight blog about tech, music, and commenta
     </style>
   </head>
   <body>
-    <ReadingProgress />
     <Navigation />
     <main class="container main-content">
       <slot />
