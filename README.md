@@ -30,7 +30,7 @@ Before you begin, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/kawaiiblog.git
+git clone https://github.com/syzodidntmakeit/kawaiiblog.git
 cd kawaiiblog
 ```
 
