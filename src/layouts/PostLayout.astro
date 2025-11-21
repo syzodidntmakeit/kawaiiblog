@@ -73,3 +73,190 @@ const postUrl = `${Astro.site}posts/${post.slug}/`;
 
   {/* <CodeCopyButton /> */}
 </BaseLayout>
+
+<style>
+  .post-container {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .post-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .category {
+    color: var(--pink);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .sep {
+    color: var(--card);
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin: 0;
+    background: linear-gradient(135deg, var(--k-1), var(--k-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-wrap: balance;
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    position: relative;
+  }
+
+  .content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  /* Typography for content */
+  .content :global(h2) {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content :global(h2):nth-of-type(8n + 1) {
+    color: var(--k-1);
+  }
+  .content :global(h2):nth-of-type(8n + 2) {
+    color: var(--k-2);
+  }
+  .content :global(h2):nth-of-type(8n + 3) {
+    color: var(--k-3);
+  }
+  .content :global(h2):nth-of-type(8n + 4) {
+    color: var(--k-4);
+  }
+  .content :global(h2):nth-of-type(8n + 5) {
+    color: var(--k-5);
+  }
+  .content :global(h2):nth-of-type(8n + 6) {
+    color: var(--k-6);
+  }
+  .content :global(h2):nth-of-type(8n + 7) {
+    color: var(--k-7);
+  }
+  .content :global(h2):nth-of-type(8n + 8) {
+    color: var(--k-8);
+  }
+
+  .content :global(h3) {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .content :global(h3):nth-of-type(8n + 1) {
+    color: var(--k-1);
+  }
+  .content :global(h3):nth-of-type(8n + 2) {
+    color: var(--k-2);
+  }
+  .content :global(h3):nth-of-type(8n + 3) {
+    color: var(--k-3);
+  }
+  .content :global(h3):nth-of-type(8n + 4) {
+    color: var(--k-4);
+  }
+  .content :global(h3):nth-of-type(8n + 5) {
+    color: var(--k-5);
+  }
+  .content :global(h3):nth-of-type(8n + 6) {
+    color: var(--k-6);
+  }
+  .content :global(h3):nth-of-type(8n + 7) {
+    color: var(--k-7);
+  }
+  .content :global(h3):nth-of-type(8n + 8) {
+    color: var(--k-8);
+  }
+
+  .content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .content :global(a) {
+    color: var(--pink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content :global(ul),
+  .content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .content :global(blockquote) {
+    border-left: 4px solid var(--pink);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--muted);
+    background: rgba(255, 192, 203, 0.05);
+    padding: 1rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: 1rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .content :global(pre) {
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1.5rem 0;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      grid-template-columns: minmax(0, 1fr) 280px;
+      align-items: start;
+    }
+
+    .sidebar {
+      display: block;
+      position: sticky;
+      top: 120px; /* Adjust based on header height */
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+    }
+  }
+</style>

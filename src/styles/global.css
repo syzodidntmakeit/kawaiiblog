@@ -27,7 +27,7 @@
   --blur: blur(10px);
   --transition: 0.18s ease;
 
-  /* Kawaii Palette for H2 Cycling */
+  /* Kawaii Palette for Dark Mode - Soft Pastels */
   --k-1: #ffc0cb;
   /* Pink */
   --k-2: #a7c7e7;
@@ -56,6 +56,24 @@
   --blue: #3b82f6;
   --mint: #10b981;
   --gold: #f59e0b;
+
+  /* Kawaii Palette for Light Mode - Deep Vibrant Colors */
+  --k-1: #e91e63;
+  /* Hot Pink */
+  --k-2: #2563eb;
+  /* Royal Blue */
+  --k-3: #059669;
+  /* Emerald */
+  --k-4: #d97706;
+  /* Amber */
+  --k-5: #7c3aed;
+  /* Violet */
+  --k-6: #ea580c;
+  /* Orange */
+  --k-7: #65a30d;
+  /* Lime */
+  --k-8: #dc2626;
+  /* Red */
 }
 
 /* Custom Scrollbar */
