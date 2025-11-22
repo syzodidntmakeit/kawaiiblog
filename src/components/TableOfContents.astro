@@ -1,5 +1,5 @@
 ---
-import type { MarkdownHeading } from 'astro';
+import type { MarkdownHeading } from "astro";
 
 interface Props {
   headings: MarkdownHeading[];
@@ -13,29 +13,31 @@ const filteredHeadings = headings.filter((h) => h.depth <= 3);
 <nav class="toc">
   <h3 class="toc-title">On this page</h3>
   <ul class="toc-list">
-    {filteredHeadings.map((heading) => (
-      <li class={`toc-item depth-${heading.depth}`}>
-        <a href={`#${heading.slug}`}>{heading.text}</a>
-      </li>
-    ))}
+    {
+      filteredHeadings.map((heading) => (
+        <li class={`toc-item depth-${heading.depth}`}>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 
 <script>
   // Smooth scroll behavior
-  document.querySelectorAll('.toc a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+  document.querySelectorAll(".toc a").forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const href = this.getAttribute('href');
+      const href = this.getAttribute("href");
       if (href) {
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            behavior: "smooth",
+            block: "start",
           });
           // Update URL without jump
-          history.pushState(null, '', href);
+          history.pushState(null, "", href);
         }
       }
     });
@@ -44,12 +46,8 @@ const filteredHeadings = headings.filter((h) => h.depth <= 3);
 
 <style>
   .toc {
-    position: sticky;
-    top: 6rem; /* Adjust based on nav height */
     padding: var(--spacing-md);
     border-left: 1px solid rgba(255, 192, 203, 0.1);
-    max-height: calc(100vh - 8rem);
-    overflow-y: auto;
   }
 
   .toc-title {
