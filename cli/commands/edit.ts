@@ -39,8 +39,12 @@ export async function editPost() {
 
         // Search/Select post
         const fuse = new Fuse(posts, {
-            keys: ['name', 'value'],
-            threshold: 0.4,
+            keys: [
+                { name: 'name', weight: 0.7 },
+                { name: 'value', weight: 0.3 },
+            ],
+            threshold: 0.3, // Lower threshold for more lenient matching
+            includeScore: true,
         });
 
         let selectedPost = null;

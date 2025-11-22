@@ -66,11 +66,22 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
   };
 
   const handleSearch = () => {
-    if (!fuse || !searchInput) return;
+    if (!searchInput) return;
 
-    const query = searchInput.value;
+    const query = searchInput.value.trim();
+
+    // If no fuse index yet, just return (will trigger on load)
+    if (!fuse) return;
+
+    const results = query ? fuse.search(query) : [];
     const event = new CustomEvent("search-query", {
-      detail: { query, results: fuse.search(query) },
+      detail: { query, results },
+      bubbles: true,
+    });
+
+    console.log("[SearchBar] Dispatching search event:", {
+      query,
+      resultCount: results.length,
     });
     document.dispatchEvent(event);
   };

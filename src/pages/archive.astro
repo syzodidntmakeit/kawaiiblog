@@ -1,112 +1,127 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
-import SearchBar from '../components/SearchBar.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import SearchBar from "../components/SearchBar.astro";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('posts', ({ data }) => {
-  return import.meta.env.PROD ? !data.draft : true;
-})).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const posts = (
+  await getCollection("posts", ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  })
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const categories = ['all', ...new Set(posts.map(p => p.data.category))];
+const categories = ["all", ...new Set(posts.map((p) => p.data.category))];
 ---
 
 <BaseLayout title="Archive" description="Browse all blog posts.">
   <div class="archive-header">
     <h1>Archive</h1>
     <SearchBar />
-    
+
     <div class="filters">
-      {categories.map(cat => (
-        <button 
-          class={`filter-btn ${cat === 'all' ? 'active' : ''}`}
-          data-category={cat}
-        >
-          {cat}
-        </button>
-      ))}
+      {
+        categories.map((cat) => (
+          <button
+            class={`filter-btn ${cat === "all" ? "active" : ""}`}
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))
+      }
     </div>
   </div>
 
   <div class="posts-grid" id="posts-grid">
-    {posts.map(post => (
-      <div 
-        class="post-wrapper"
-        data-slug={post.slug}
-        data-category={post.data.category}
-      >
-        <PostCard post={post} />
-      </div>
-    ))}
+    {
+      posts.map((post) => (
+        <div
+          class="post-wrapper"
+          data-slug={post.slug}
+          data-category={post.data.category}
+        >
+          <PostCard post={post} />
+        </div>
+      ))
+    }
   </div>
-  
+
   <div id="no-results" class="hidden">
     <p>No posts found matching your search.</p>
   </div>
 </BaseLayout>
 
-<script>
-  const postsGrid = document.getElementById('posts-grid');
-  const postWrappers = document.querySelectorAll('.post-wrapper');
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const noResults = document.getElementById('no-results');
-  
-  let currentCategory = 'all';
-  let currentSearchIds: Set<string> | null = null;
+<script is:inline>
+  const postsGrid = document.getElementById("posts-grid");
+  const postWrappers = document.querySelectorAll(".post-wrapper");
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const noResults = document.getElementById("no-results");
+
+  let currentCategory = "all";
+  let currentSearchIds = null;
 
   // Filter Logic
   function filterPosts() {
     let visibleCount = 0;
-    
-    postWrappers.forEach(wrapper => {
-      const el = wrapper as HTMLElement;
-      const category = el.dataset.category;
-      const slug = el.dataset.slug;
-      
-      const matchesCategory = currentCategory === 'all' || category === currentCategory;
-      const matchesSearch = currentSearchIds === null || (slug && currentSearchIds.has(slug));
-      
+
+    postWrappers.forEach((wrapper) => {
+      const category = wrapper.dataset.category;
+      const slug = wrapper.dataset.slug;
+
+      const matchesCategory =
+        currentCategory === "all" || category === currentCategory;
+      const matchesSearch =
+        currentSearchIds === null || (slug && currentSearchIds.has(slug));
+
       if (matchesCategory && matchesSearch) {
-        el.style.display = 'block';
+        wrapper.style.display = "block";
         visibleCount++;
       } else {
-        el.style.display = 'none';
+        wrapper.style.display = "none";
       }
     });
-    
+
     if (noResults) {
-      noResults.classList.toggle('hidden', visibleCount > 0);
+      noResults.classList.toggle("hidden", visibleCount > 0);
     }
   }
 
   // Category Click Handler
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const target = e.target;
+
       // Update active state
-      filterBtns.forEach(b => b.classList.remove('active'));
-      target.classList.add('active');
-      
-      currentCategory = target.dataset.category || 'all';
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      target.classList.add("active");
+
+      currentCategory = target.dataset.category || "all";
       filterPosts();
     });
   });
 
   // Search Handler
-  document.addEventListener('search-query', ((e: CustomEvent) => {
+  document.addEventListener("search-query", (e) => {
+    console.log("[Archive] Received search event:", e);
     const { query, results } = e.detail;
-    
-    if (!query) {
+
+    console.log("[Archive] Search query:", query);
+    console.log("[Archive] Search results:", results);
+
+    if (!query || query === "") {
       currentSearchIds = null;
+      console.log("[Archive] Cleared search filter");
     } else {
-      currentSearchIds = new Set(results.map((r: any) => r.item.slug));
+      currentSearchIds = new Set(results.map((r) => r.item.slug));
+      console.log(
+        "[Archive] Updated search filter with",
+        currentSearchIds.size,
+        "posts",
+      );
     }
-    
+
     filterPosts();
-  }) as EventListener);
+  });
 </script>
 
 <style>
@@ -142,7 +157,8 @@ const categories = ['all', ...new Set(posts.map(p => p.data.category))];
     transition: var(--transition);
   }
 
-  .filter-btn:hover, .filter-btn.active {
+  .filter-btn:hover,
+  .filter-btn.active {
     background: var(--pink);
     color: var(--bg);
     border-color: var(--pink);
@@ -160,14 +176,14 @@ const categories = ['all', ...new Set(posts.map(p => p.data.category))];
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
   }
-  
+
   #no-results {
     text-align: center;
     color: var(--muted);
     font-size: 1.2rem;
     margin-top: var(--spacing-xl);
   }
-  
+
   .hidden {
     display: none;
   }
