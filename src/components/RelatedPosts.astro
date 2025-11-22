@@ -9,42 +9,38 @@ interface Props {
 
 const { currentPost, allPosts } = Astro.props;
 
-// Calculate related posts based on tags and category
+// Calculate related posts based on category only, fallback to recent
 function getRelatedPosts(
   current: CollectionEntry<"posts">,
   all: CollectionEntry<"posts">[],
   limit = 3,
 ) {
-  const scored = all
-    .filter((post) => post.slug !== current.slug) // Exclude current post
-    .map((post) => {
-      let score = 0;
+  // 1. Get posts in the same category (excluding current)
+  const sameCategoryPosts = all
+    .filter(
+      (post) =>
+        post.slug !== current.slug &&
+        post.data.category === current.data.category,
+    )
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-      // Boost for same category
-      if (post.data.category === current.data.category) {
-        score += 10;
-      }
+  // 2. If we have enough, return them
+  if (sameCategoryPosts.length >= limit) {
+    return sameCategoryPosts.slice(0, limit);
+  }
 
-      // Boost for matching tags
-      const matchingTags = post.data.tags.filter((tag) =>
-        current.data.tags.includes(tag),
-      );
-      score += matchingTags.length * 5;
+  // 3. If not, fill with recent posts
+  const existingSlugs = new Set([
+    current.slug,
+    ...sameCategoryPosts.map((p) => p.slug),
+  ]);
 
-      // Slight boost for recency (within last 30 days)
-      const daysDiff =
-        Math.abs(current.data.date.getTime() - post.data.date.getTime()) /
-        (1000 * 60 * 60 * 24);
-      if (daysDiff < 30) score += 2;
+  const recentPosts = all
+    .filter((post) => !existingSlugs.has(post.slug))
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .slice(0, limit - sameCategoryPosts.length);
 
-      return { post, score };
-    })
-    .filter((item) => item.score > 0) // Only posts with some relation
-    .sort((a, b) => b.score - a.score) // Highest score first
-    .slice(0, limit)
-    .map((item) => item.post);
-
-  return scored;
+  return [...sameCategoryPosts, ...recentPosts];
 }
 
 const relatedPosts = getRelatedPosts(currentPost, allPosts);
