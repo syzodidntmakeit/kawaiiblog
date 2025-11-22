@@ -4,6 +4,7 @@ import fs from 'fs/promises';
 import chalk from 'chalk';
 import matter from 'gray-matter';
 import Fuse from 'fuse.js';
+import { generateSlug } from '../utils/template-generator.js';
 
 export async function editPost() {
     console.log(chalk.bold.magenta('\n✏️  Edit a Blog Post\n'));
@@ -57,36 +58,51 @@ export async function editPost() {
 
             if (results.length === 0) {
                 console.log(chalk.yellow('No posts found matching that query.'));
+                const { tryAgain } = await inquirer.prompt([
+                    {
+                        type: 'confirm',
+                        name: 'tryAgain',
+                        message: 'Try again?',
+                        default: true
+                    }
+                ]);
+
+                if (!tryAgain) {
+                    return;
+                }
                 continue;
             }
 
-            const { selectionName } = await inquirer.prompt([
+            // Add a small delay to ensure stdin is clear
+            await new Promise(resolve => setTimeout(resolve, 100));
+
+            const { selection } = await inquirer.prompt([
                 {
                     type: 'list',
-                    name: 'selectionName',
+                    name: 'selection',
                     message: 'Select a post:',
                     choices: [
-                        ...results.map(p => p.name),
+                        ...results.map(p => ({ name: p.name, value: p.value })),
                         new inquirer.Separator(),
-                        '🔍 Search again',
+                        { name: '🔍 Search again', value: 'SEARCH_AGAIN' }
                     ],
                 },
             ]);
 
-            if (selectionName === '🔍 Search again') {
+            if (selection === 'SEARCH_AGAIN') {
                 continue;
             }
 
-            if (selectionName) {
-                const selected = results.find(p => p.name === selectionName);
-                if (selected) {
-                    selectedPost = selected.value;
-                    break;
-                }
-            }
+            selectedPost = selection;
         }
 
         const post = posts.find(p => p.value === selectedPost);
+
+        if (!post) {
+            console.error(chalk.red(`\nError: Invalid selection '${selectedPost}'. Post not found.`));
+            return;
+        }
+
         const postPath = path.join(postsDir, selectedPost, 'index.md');
         const fileContent = await fs.readFile(postPath, 'utf-8');
         const { data: currentData, content: currentContent } = matter(fileContent);
@@ -107,8 +123,8 @@ export async function editPost() {
                 name: 'date',
                 message: 'Date (YYYY-MM-DD):',
                 default: currentData.date instanceof Date
-                    ? currentData.date.toISOString().split('T')[0]
-                    : currentData.date,
+                    ? new Intl.DateTimeFormat('en-CA').format(currentData.date)
+                    : String(currentData.date).split('T')[0], // Handle string dates or other formats
                 validate: (input) => {
                     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
                     return dateRegex.test(input) || 'Please enter a valid date (YYYY-MM-DD)';
@@ -128,15 +144,48 @@ export async function editPost() {
                 default: currentData.excerpt,
             },
         ]);
+
         // Update frontmatter
         const updatedData = {
             title: answers.title,
             date: answers.date,
             category: answers.category,
             excerpt: answers.excerpt,
+            tags: currentData.tags || [],
         };
 
         const updatedContent = matter.stringify(currentContent, updatedData);
+
+        // Check if title or date changed - might need to rename folder
+        const currentDate = currentData.date instanceof Date
+            ? new Intl.DateTimeFormat('en-CA').format(currentData.date)
+            : String(currentData.date).split('T')[0];
+
+        const titleChanged = currentData.title !== answers.title;
+        const dateChanged = currentDate !== answers.date;
+
+        if (titleChanged || dateChanged) {
+            const newSlug = generateSlug(answers.title);
+            const newFolderName = `${answers.date}-${newSlug}`;
+            const oldFolderPath = path.join(postsDir, selectedPost);
+            const newFolderPath = path.join(postsDir, newFolderName);
+
+            if (oldFolderPath !== newFolderPath) {
+                // Rename folder
+                await fs.rename(oldFolderPath, newFolderPath);
+                console.log(chalk.cyan(`\n📁 Renamed folder: ${selectedPost} → ${newFolderName}`));
+
+                // Write to new location
+                const newPostPath = path.join(newFolderPath, 'index.md');
+                await fs.writeFile(newPostPath, updatedContent);
+
+                console.log(chalk.green('\n✓ Post updated successfully!'));
+                console.log(chalk.dim(`Location: ${newPostPath}`));
+                return;
+            }
+        }
+
+        // No folder rename needed, just update the file
         await fs.writeFile(postPath, updatedContent);
 
         console.log(chalk.green('\n✓ Post updated successfully!'));

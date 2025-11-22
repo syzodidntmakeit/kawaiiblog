@@ -30,13 +30,19 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content={`${Astro.site}og-image.png`} />
+    <meta
+      property="og:image"
+      content={new URL("og-image.png", Astro.site || Astro.url.origin).href}
+    />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${Astro.site}og-image.png`} />
+    <meta
+      name="twitter:image"
+      content={new URL("og-image.png", Astro.site || Astro.url.origin).href}
+    />
 
     <!-- RSS Feed -->
     <link
@@ -57,11 +63,25 @@ const {
 
     <title>{title} | KawaiiBlog</title>
 
+    <script is:inline>
+      // Blocking script to avoid theme flicker
+      (function () {
+        const storedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+        const theme = storedTheme || systemTheme;
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
     <style is:inline>
       /* Critical CSS */
       body {
-        background-color: #0d011f;
-        color: #e5e7eb;
+        /* Use CSS variables defined in global.css */
+        background-color: var(--bg);
+        color: var(--text);
         font-family: "Nunito", sans-serif;
       }
       .nav-header {
@@ -81,8 +101,7 @@ const {
     </main>
 
     <BackToTop />
-
-    <footer class="container footer">
+    <footer class="footer">
       <p>&copy; {new Date().getFullYear()} KawaiiBlog. All wrongs reserved.</p>
       <div class="license-info">
         <p>

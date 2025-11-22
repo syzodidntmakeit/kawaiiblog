@@ -31,7 +31,8 @@ export async function newPost() {
 
     const slug = generateSlug(answers.title);
     const date = new Date();
-    const dateStr = date.toISOString().split('T')[0];
+    // Use local timezone to avoid date shifting issues
+    const dateStr = new Intl.DateTimeFormat('en-CA').format(date); // en-CA uses YYYY-MM-DD
     const folderName = `${dateStr}-${slug}`;
     const postDir = path.join(process.cwd(), 'src', 'content', 'posts', folderName);
 

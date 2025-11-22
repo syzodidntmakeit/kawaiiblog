@@ -9,7 +9,8 @@ interface PostData {
 
 export function generateTemplate(data: PostData): string {
     const { title, date, category, excerpt } = data;
-    const formattedDate = date.toISOString().split('T')[0];
+    // Use local timezone to avoid date shifting issues
+    const formattedDate = new Intl.DateTimeFormat('en-CA').format(date); // en-CA uses YYYY-MM-DD
 
     // Escape double quotes in title and excerpt for YAML
     const escapedTitle = title.replace(/"/g, '\\"');

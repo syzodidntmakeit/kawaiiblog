@@ -48,8 +48,14 @@ const postUrl = `${Astro.site}posts/${post.slug}/`;
   <article class="post-container">
     <header class="post-header">
       <div class="meta">
-        <span class="category">{category}</span>
-        <span class="sep">•</span>
+        {
+          category && (
+            <>
+              <span class="category">{category}</span>
+              <span class="sep">•</span>
+            </>
+          )
+        }
         <time datetime={date.toISOString()}>{formattedDate}</time>
         <span class="sep">•</span>
         <span class="read-time">{readingTime} min read</span>

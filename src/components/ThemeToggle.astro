@@ -117,10 +117,4 @@
 
   // Re-initialize on view transitions
   document.addEventListener("astro:page-load", initThemeToggle);
-
-  // Set theme before page paints to avoid flash
-  (function () {
-    const storedTheme = localStorage.getItem("theme") || "dark";
-    document.documentElement.setAttribute("data-theme", storedTheme);
-  })();
 </script>
