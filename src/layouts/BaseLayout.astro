@@ -84,6 +84,28 @@ const {
 
     <footer class="container footer">
       <p>&copy; {new Date().getFullYear()} KawaiiBlog. All wrongs reserved.</p>
+      <div class="license-info">
+        <p>
+          Content licensed under
+          <a
+            href="https://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Creative Commons Attribution-NonCommercial 4.0"
+          >
+            CC BY-NC 4.0
+          </a>
+          · Code licensed under
+          <a
+            href="https://github.com/kawaiisan/kawaiiblog/blob/main/LICENSE"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="MIT License"
+          >
+            MIT
+          </a>
+        </p>
+      </div>
     </footer>
   </body>
 </html>
@@ -101,5 +123,23 @@ const {
     color: var(--muted);
     font-size: 0.9rem;
     border-top: 1px solid rgba(255, 192, 203, 0.1);
+  }
+
+  .license-info {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .license-info a {
+    color: var(--kawaii-pink);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .license-info a:hover {
+    color: var(--kawaii-lavender);
+    border-bottom-color: var(--kawaii-lavender);
   }
 </style>
