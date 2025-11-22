@@ -5,13 +5,11 @@ interface PostData {
     date: Date;
     category: string;
     excerpt: string;
-    tags: string[];
 }
 
 export function generateTemplate(data: PostData): string {
-    const { title, date, category, excerpt, tags } = data;
+    const { title, date, category, excerpt } = data;
     const formattedDate = date.toISOString().split('T')[0];
-    const tagsString = JSON.stringify(tags);
 
     // Escape double quotes in title and excerpt for YAML
     const escapedTitle = title.replace(/"/g, '\\"');
@@ -22,7 +20,7 @@ title: "${escapedTitle}"
 date: ${formattedDate}
 category: ${category}
 excerpt: "${escapedExcerpt}"
-tags: ${tagsString}
+tags: []
 ---
 
 ## Introduction

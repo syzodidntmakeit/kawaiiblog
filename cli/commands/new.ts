@@ -4,7 +4,6 @@ import fs from 'fs/promises';
 import chalk from 'chalk';
 import ora from 'ora';
 import { generateTemplate, generateSlug } from '../utils/template-generator.js';
-import { optimizeImage } from '../utils/image-optimizer.js';
 
 export async function newPost() {
     console.log(chalk.bold.magenta('\n📝 Create a New Blog Post\n'));
@@ -28,24 +27,6 @@ export async function newPost() {
             message: 'Excerpt:',
             validate: (input) => input.length > 0 || 'Excerpt is required',
         },
-        {
-            type: 'input',
-            name: 'tags',
-            message: 'Tags (comma separated):',
-            filter: (input: string) => input.split(',').map((t: string) => t.trim().toLowerCase()).filter((t: string) => t.length > 0),
-        },
-        {
-            type: 'confirm',
-            name: 'addImages',
-            message: 'Do you want to add images?',
-            default: false,
-        },
-        {
-            type: 'input',
-            name: 'imagePaths',
-            message: 'Enter image paths (comma separated):',
-            when: (answers) => answers.addImages,
-        },
     ]);
 
     const slug = generateSlug(answers.title);
@@ -53,43 +34,20 @@ export async function newPost() {
     const dateStr = date.toISOString().split('T')[0];
     const folderName = `${dateStr}-${slug}`;
     const postDir = path.join(process.cwd(), 'src', 'content', 'posts', folderName);
-    const imagesDir = path.join(postDir, 'images');
 
     const spinner = ora('Creating post...').start();
 
     try {
-        // Create directories
+        // Create directory
         await fs.mkdir(postDir, { recursive: true });
 
-        // Handle images
-        let imageContent = '';
-        if (answers.addImages && answers.imagePaths) {
-            spinner.text = 'Optimizing images...';
-            const paths = answers.imagePaths.split(',').map((p: string) => p.trim());
-
-            for (const imgPath of paths) {
-                try {
-                    const optimizedName = await optimizeImage(imgPath, imagesDir);
-                    imageContent += `\n![Image Description](./images/${optimizedName})\n`;
-                } catch (e) {
-                    console.warn(chalk.yellow(`Could not process image: ${imgPath}`));
-                }
-            }
-        }
-
         // Generate Markdown
-        spinner.text = 'Generating markdown...';
-        let content = generateTemplate({
+        const content = generateTemplate({
             title: answers.title,
             date,
             category: answers.category,
             excerpt: answers.excerpt,
-            tags: answers.tags,
         });
-
-        if (imageContent) {
-            content += `\n## Images\n${imageContent}`;
-        }
 
         await fs.writeFile(path.join(postDir, 'index.md'), content);
 

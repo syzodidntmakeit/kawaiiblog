@@ -25,7 +25,7 @@ export async function searchPosts(query?: string) {
         }
 
         const fuse = new Fuse(posts, {
-            keys: ['title', 'excerpt', 'body', 'category', 'tags'],
+            keys: ['title', 'excerpt', 'body', 'category'],
             threshold: 0.4,
             includeScore: true,
         });

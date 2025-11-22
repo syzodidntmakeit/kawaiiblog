@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs/promises';
 import chalk from 'chalk';
 import matter from 'gray-matter';
+import Fuse from 'fuse.js';
 
 export async function editPost() {
     console.log(chalk.bold.magenta('\n✏️  Edit a Blog Post\n'));
@@ -35,15 +36,55 @@ export async function editPost() {
             return;
         }
 
-        // Select post to edit
-        const { selectedPost } = await inquirer.prompt([
-            {
-                type: 'list',
-                name: 'selectedPost',
-                message: 'Select a post to edit:',
-                choices: posts,
-            },
-        ]);
+        // Search/Select post
+        const fuse = new Fuse(posts, {
+            keys: ['name', 'value'],
+            threshold: 0.4,
+        });
+
+        let selectedPost = null;
+
+        while (!selectedPost) {
+            const { query } = await inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'query',
+                    message: 'Search posts (type to filter, enter for all):',
+                },
+            ]);
+
+            const results = query ? fuse.search(query).map(r => r.item) : posts;
+
+            if (results.length === 0) {
+                console.log(chalk.yellow('No posts found matching that query.'));
+                continue;
+            }
+
+            const { selectionName } = await inquirer.prompt([
+                {
+                    type: 'list',
+                    name: 'selectionName',
+                    message: 'Select a post:',
+                    choices: [
+                        ...results.map(p => p.name),
+                        new inquirer.Separator(),
+                        '🔍 Search again',
+                    ],
+                },
+            ]);
+
+            if (selectionName === '🔍 Search again') {
+                continue;
+            }
+
+            if (selectionName) {
+                const selected = results.find(p => p.name === selectionName);
+                if (selected) {
+                    selectedPost = selected.value;
+                    break;
+                }
+            }
+        }
 
         const post = posts.find(p => p.value === selectedPost);
         const postPath = path.join(postsDir, selectedPost, 'index.md');
@@ -86,22 +127,13 @@ export async function editPost() {
                 message: 'Excerpt:',
                 default: currentData.excerpt,
             },
-            {
-                type: 'input',
-                name: 'tags',
-                message: 'Tags (comma separated):',
-                default: Array.isArray(currentData.tags) ? currentData.tags.join(', ') : '',
-                filter: (input: string) => input.split(',').map((t: string) => t.trim().toLowerCase()).filter((t: string) => t.length > 0),
-            },
         ]);
-
         // Update frontmatter
         const updatedData = {
             title: answers.title,
             date: answers.date,
             category: answers.category,
             excerpt: answers.excerpt,
-            tags: answers.tags,
         };
 
         const updatedContent = matter.stringify(currentContent, updatedData);
