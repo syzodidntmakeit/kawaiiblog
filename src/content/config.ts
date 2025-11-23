@@ -2,7 +2,7 @@ import { defineCollection, z } from "astro:content";
 
 const postsCollection = defineCollection({
   type: "content",
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     date: z.coerce.date(),
     category: z.enum(["tech", "music", "games", "commentary"]),
@@ -15,6 +15,8 @@ const postsCollection = defineCollection({
         order: z.number(),
       })
       .optional(),
+    cover: image().optional(),
+    coverAlt: z.string().optional(),
   }),
 });
 

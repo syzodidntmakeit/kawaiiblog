@@ -21,7 +21,7 @@ export async function listPosts() {
           `  ${chalk.dim(dir)} | ${chalk.yellow(data.category)} | ${chalk.blue(data.date)}`,
         );
         console.log("");
-      } catch (e) {
+      } catch {
         // Skip if not a valid post dir
       }
     }

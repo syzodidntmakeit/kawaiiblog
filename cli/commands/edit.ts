@@ -26,7 +26,7 @@ export async function editPost() {
           value: dir,
           data,
         });
-      } catch (e) {
+      } catch {
         // Skip if not a valid post
         continue;
       }
@@ -216,10 +216,11 @@ export async function editPost() {
 
     console.log(chalk.green("\n✓ Post updated successfully!"));
     console.log(chalk.dim(`Location: ${postPath}`));
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string; name?: string };
     if (
-      error.message?.includes("User force closed the prompt") ||
-      error.name === "ExitPromptError"
+      err.message?.includes("User force closed the prompt") ||
+      err.name === "ExitPromptError"
     ) {
       throw error;
     }

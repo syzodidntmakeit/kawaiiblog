@@ -5,9 +5,19 @@ import matter from "gray-matter";
 import Fuse from "fuse.js";
 import inquirer from "inquirer";
 
+interface Post {
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string | Date;
+  body: string;
+  dir: string;
+  [key: string]: unknown;
+}
+
 export async function searchPosts(query?: string) {
   const postsDir = path.join(process.cwd(), "src", "content", "posts");
-  const posts = [];
+  const posts: Post[] = [];
 
   try {
     const dirs = await fs.readdir(postsDir);
@@ -17,8 +27,8 @@ export async function searchPosts(query?: string) {
       try {
         const content = await fs.readFile(filePath, "utf-8");
         const { data, content: body } = matter(content);
-        posts.push({ ...data, body, dir });
-      } catch (e) {
+        posts.push({ ...data, body, dir } as Post);
+      } catch {
         // Skip
       }
     }
@@ -50,16 +60,17 @@ export async function searchPosts(query?: string) {
       return;
     }
 
-    results.forEach(({ item }: any) => {
+    results.forEach(({ item }) => {
       console.log(`${chalk.green("●")} ${chalk.bold(item.title)}`);
       console.log(`  ${chalk.dim(item.dir)}`);
       console.log(`  ${chalk.italic(item.excerpt)}`);
       console.log("");
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string; name?: string };
     if (
-      error.message?.includes("User force closed the prompt") ||
-      error.name === "ExitPromptError"
+      err.message?.includes("User force closed the prompt") ||
+      err.name === "ExitPromptError"
     ) {
       throw error;
     }

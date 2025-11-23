@@ -52,7 +52,6 @@ const categories = ["all", ...new Set(posts.map((p) => p.data.category))];
 </BaseLayout>
 
 <script is:inline>
-  const postsGrid = document.getElementById("posts-grid");
   const postWrappers = document.querySelectorAll(".post-wrapper");
   const filterBtns = document.querySelectorAll(".filter-btn");
   const noResults = document.getElementById("no-results");
@@ -102,22 +101,22 @@ const categories = ["all", ...new Set(posts.map((p) => p.data.category))];
 
   // Search Handler
   document.addEventListener("search-query", (e) => {
-    console.log("[Archive] Received search event:", e);
+    // console.log("[Archive] Received search event:", e);
     const { query, results } = e.detail;
 
-    console.log("[Archive] Search query:", query);
-    console.log("[Archive] Search results:", results);
+    // console.log("[Archive] Search query:", query);
+    // console.log("[Archive] Search results:", results);
 
     if (!query || query === "") {
       currentSearchIds = null;
-      console.log("[Archive] Cleared search filter");
+      // console.log("[Archive] Cleared search filter");
     } else {
       currentSearchIds = new Set(results.map((r) => r.item.slug));
-      console.log(
-        "[Archive] Updated search filter with",
-        currentSearchIds.size,
-        "posts",
-      );
+      // console.log(
+      //   "[Archive] Updated search filter with",
+      //   currentSearchIds.size,
+      //   "posts",
+      // );
     }
 
     filterPosts();

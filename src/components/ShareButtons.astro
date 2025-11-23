@@ -53,7 +53,7 @@ const { title, url } = Astro.props;
 <div id="toast" class="toast hidden">Link copied! 📋</div>
 
 <script>
-  const wrapper = document.querySelector(".share-buttons");
+  const wrapper = document.querySelector(".share-buttons") as HTMLElement;
   const __title = wrapper?.dataset?.title || "";
   const __url = wrapper?.dataset?.url || "";
   const shareBtn = document.getElementById("share-button");
@@ -69,9 +69,10 @@ const { title, url } = Astro.props;
             title: __title,
             url: __url,
           });
-        } catch (err) {
-          if (err.name !== "AbortError") {
-            console.error("Share failed:", err);
+        } catch (err: unknown) {
+          const e = err as { name: string };
+          if (e.name !== "AbortError") {
+            console.error("Share failed:", e);
           }
         }
       });
@@ -87,7 +88,7 @@ const { title, url } = Astro.props;
       try {
         await navigator.clipboard.writeText(__url);
         showToast();
-      } catch (err) {
+      } catch {
         // Fallback for older browsers
         const textArea = document.createElement("textarea");
         textArea.value = __url;

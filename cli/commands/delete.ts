@@ -49,10 +49,11 @@ export async function deletePost() {
     spinner.succeed(
       chalk.green(`Post "${answers.postFolder}" deleted successfully!`),
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { message?: string; name?: string };
     if (
-      error.message?.includes("User force closed the prompt") ||
-      error.name === "ExitPromptError"
+      err.message?.includes("User force closed the prompt") ||
+      err.name === "ExitPromptError"
     ) {
       throw error;
     }

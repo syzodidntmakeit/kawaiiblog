@@ -152,6 +152,34 @@ Or use PowerShell (Windows):
 Remove-Item -Recurse -Force "src\content\posts\2025-11-21-post-to-delete"
 ```
 
+## 📡 RSS Feeds
+
+Multiple RSS feed options are available:
+
+### Main Feed
+```
+https://blog.kawaii-san.org/rss.xml
+```
+
+### Category-Specific Feeds
+```
+https://blog.kawaii-san.org/rss/tech.xml
+https://blog.kawaii-san.org/rss/music.xml
+https://blog.kawaii-san.org/rss/games.xml
+https://blog.kawaii-san.org/rss/commentary.xml
+```
+
+### Featured Posts Feed
+```
+https://blog.kawaii-san.org/rss/featured.xml
+```
+
+### Full-Text Feed
+Includes complete post content (not just excerpts):
+```
+https://blog.kawaii-san.org/rss/full.xml
+```
+
 ## 🧹 Code Quality
 
 This project uses **ESLint** and **Prettier** to maintain code quality and consistency.
@@ -181,6 +209,9 @@ npm run format
 | `npm run cli edit`   | Edit existing post metadata                       |
 | `npm run cli list`   | List all posts                                    |
 | `npm run cli search` | Search posts by content                           |
+| `npm run cli stats`  | Show blog statistics and analytics                |
+| `npm run cli validate` | Validate content health and check for issues     |
+| `npm run cli export` | Export blog content to a zip archive              |
 | `npm run lint`       | Check code for linting errors                     |
 | `npm run format`     | Automatically format code                         |
 | `npm run astro ...`  | Run Astro CLI commands directly                   |
@@ -314,7 +345,11 @@ Output goes to `dist/` directory.
 - [ ] **View Counter** - Track post views
 - [ ] **TOC Mobile Toggle** - Collapsible table of contents on mobile
 - [ ] **Search Highlighting** - Highlight matched terms in results
-- [ ] **Image Optimization** - Auto-compress and convert to WebP
+- [x] **Image Optimization** - Auto-compress and convert to WebP ✨
+- [x] **Advanced RSS Feeds** - Category, featured, and full-text feeds ✨
+- [x] **CLI Statistics** - Blog analytics and insights ✨
+- [x] **Content Validation** - Automated health checks ✨
+- [x] **Export Tool** - Backup blog content to zip ✨
 - [ ] **Analytics** - Privacy-friendly analytics (Plausible/Umami)
 - [ ] **Webmentions** - IndieWeb interactions
 

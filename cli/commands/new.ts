@@ -60,8 +60,9 @@ export async function newPost() {
 
     spinner.succeed(chalk.green(`Post created successfully!`));
     console.log(chalk.dim(`Location: ${postDir}`));
-  } catch (error) {
+  } catch (error: unknown) {
     spinner.fail(chalk.red("Failed to create post"));
-    console.error(error);
+    const err = error as Error;
+    console.error(chalk.red("Error:"), err.message || err);
   }
 }

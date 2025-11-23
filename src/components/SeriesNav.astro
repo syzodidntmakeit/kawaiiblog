@@ -70,7 +70,7 @@ const progress = ((currentIndex + 1) / seriesPosts.length) * 100;
       <details class="series-list">
         <summary>View All Parts ({seriesPosts.length})</summary>
         <ol>
-          {seriesPosts.map((post, idx) => (
+          {seriesPosts.map((post) => (
             <li class={post.slug === currentPost.slug ? "current" : ""}>
               {post.slug === currentPost.slug ? (
                 <span class="current-marker">→ {post.data.title}</span>

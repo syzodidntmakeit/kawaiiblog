@@ -79,10 +79,10 @@ const { placeholder = "Search posts... (Press / to focus)" } = Astro.props;
       bubbles: true,
     });
 
-    console.log("[SearchBar] Dispatching search event:", {
-      query,
-      resultCount: results.length,
-    });
+    // console.log("[SearchBar] Dispatching search event:", {
+    //   query,
+    //   resultCount: results.length,
+    // });
     document.dispatchEvent(event);
   };
 
