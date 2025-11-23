@@ -1,32 +1,43 @@
 ---
+
 ---
 
 <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
     <line x1="12" y1="19" x2="12" y2="5"></line>
     <polyline points="5 12 12 5 19 12"></polyline>
   </svg>
 </button>
 
 <script>
-  const backToTop = document.getElementById('back-to-top');
-  
+  const backToTop = document.getElementById("back-to-top");
+
   function toggleButtonVisibility() {
     if (window.scrollY > 300) {
-      backToTop?.classList.add('visible');
+      backToTop?.classList.add("visible");
     } else {
-      backToTop?.classList.remove('visible');
+      backToTop?.classList.remove("visible");
     }
   }
-  
-  backToTop?.addEventListener('click', () => {
+
+  backToTop?.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   });
-  
-  window.addEventListener('scroll', toggleButtonVisibility, { passive: true });
+
+  window.addEventListener("scroll", toggleButtonVisibility, { passive: true });
   toggleButtonVisibility();
 </script>
 
@@ -52,13 +63,13 @@
     box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
     pointer-events: none;
   }
-  
+
   .back-to-top.visible {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
-  
+
   .back-to-top:hover {
     background: var(--blue);
     transform: translateY(-4px);

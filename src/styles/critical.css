@@ -1,16 +1,16 @@
 /* src/styles/critical.css */
 /* Critical styles to be inlined */
 body {
-    background-color: #0d011f;
-    /* Fallback */
-    color: #e5e7eb;
+  background-color: #0d011f;
+  /* Fallback */
+  color: #e5e7eb;
 }
 
 .nav-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 192, 203, 0.25);
-    padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 192, 203, 0.25);
+  padding: 1rem 0;
 }

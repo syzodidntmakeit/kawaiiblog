@@ -30,8 +30,8 @@ Before you begin, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/syzodidntmakeit/kawaiiblog.git
-cd kawaiiblog
+git clone https://github.com/syzodidntmakeit/kawaiiblog2.0.git
+cd kawaiiblog2.0
 ```
 
 ### 2. Install Dependencies
@@ -57,11 +57,12 @@ npm run cli new
 ```
 
 **Example Interactive Session:**
+
 ```
 ? Enter post title: My First Blog Post
 ? Select category: tech
 ? Enter excerpt: This is my awesome first blog post about web development
-? Add image path (optional): 
+? Add image path (optional):
 ```
 
 This creates a new folder at `src/content/posts/YYYY-MM-DD-my-first-blog-post/index.md`
@@ -95,6 +96,7 @@ npm run cli edit
 ```
 
 **Example:**
+
 ```
 ? Select a post to edit:
   ❯ 2025-11-21 - My First Blog Post
@@ -115,6 +117,7 @@ npm run cli list
 ```
 
 Output:
+
 ```
 📚 All Blog Posts (3 total)
 
@@ -144,22 +147,43 @@ rm -rf 2025-11-21-post-to-delete/
 ```
 
 Or use PowerShell (Windows):
+
 ```powershell
 Remove-Item -Recurse -Force "src\content\posts\2025-11-21-post-to-delete"
 ```
 
+## 🧹 Code Quality
+
+This project uses **ESLint** and **Prettier** to maintain code quality and consistency.
+
+### Linting
+Checks for potential errors and coding standard violations:
+
+```bash
+npm run lint
+```
+
+### Formatting
+Automatically formats code to match the project's style guide:
+
+```bash
+npm run format
+```
+
 ## 📦 Available Commands
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server at http://localhost:4321 |
-| `npm run build` | Build production site to `dist/` |
-| `npm run preview` | Preview production build locally |
-| `npm run cli new` | Create a new blog post (interactive) |
-| `npm run cli edit` | Edit existing post metadata |
-| `npm run cli list` | List all posts |
-| `npm run cli search` | Search posts by content |
-| `npm run astro ...` | Run Astro CLI commands directly |
+| Command              | Description                                       |
+| -------------------- | ------------------------------------------------- |
+| `npm run dev`        | Start development server at http://localhost:4321 |
+| `npm run build`      | Build production site to `dist/`                  |
+| `npm run preview`    | Preview production build locally                  |
+| `npm run cli new`    | Create a new blog post (interactive)              |
+| `npm run cli edit`   | Edit existing post metadata                       |
+| `npm run cli list`   | List all posts                                    |
+| `npm run cli search` | Search posts by content                           |
+| `npm run lint`       | Check code for linting errors                     |
+| `npm run format`     | Automatically format code                         |
+| `npm run astro ...`  | Run Astro CLI commands directly                   |
 
 ## 📁 Project Structure
 
@@ -246,7 +270,7 @@ Edit `src/styles/global.css`:
 Edit `src/pages/index.astro` (lines 23-31):
 
 ```typescript
-const timeBasedTitle = 
+const timeBasedTitle =
   hour >= 5 && hour < 11 ? "Your morning text" :
   hour >= 11 && hour < 17 ? "Your afternoon text" :
   // ... customize as needed

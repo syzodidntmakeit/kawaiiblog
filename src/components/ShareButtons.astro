@@ -9,7 +9,17 @@ const { title, url } = Astro.props;
 
 <div class="share-buttons" data-title={title} data-url={url}>
   <button id="share-button" class="share-btn" aria-label="Share this post">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
       <circle cx="18" cy="5" r="3"></circle>
       <circle cx="6" cy="12" r="3"></circle>
       <circle cx="18" cy="19" r="3"></circle>
@@ -18,11 +28,23 @@ const { title, url } = Astro.props;
     </svg>
     <span>Share</span>
   </button>
-  
+
   <button id="copy-link" class="share-btn" aria-label="Copy link">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+      ></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+      ></path>
     </svg>
     <span>Copy Link</span>
   </button>
@@ -31,62 +53,62 @@ const { title, url } = Astro.props;
 <div id="toast" class="toast hidden">Link copied! 📋</div>
 
 <script>
-  const wrapper = document.querySelector('.share-buttons');
-  const __title = wrapper?.dataset?.title || '';
-  const __url = wrapper?.dataset?.url || '';
-  const shareBtn = document.getElementById('share-button');
-  const copyBtn = document.getElementById('copy-link');
-  const toast = document.getElementById('toast');
-  
+  const wrapper = document.querySelector(".share-buttons");
+  const __title = wrapper?.dataset?.title || "";
+  const __url = wrapper?.dataset?.url || "";
+  const shareBtn = document.getElementById("share-button");
+  const copyBtn = document.getElementById("copy-link");
+  const toast = document.getElementById("toast");
+
   // Web Share API
   if (shareBtn) {
     if (navigator.share) {
-      shareBtn.addEventListener('click', async () => {
+      shareBtn.addEventListener("click", async () => {
         try {
           await navigator.share({
             title: __title,
-            url: __url
+            url: __url,
           });
         } catch (err) {
-          if (err.name !== 'AbortError') {
-            console.error('Share failed:', err);
+          if (err.name !== "AbortError") {
+            console.error("Share failed:", err);
           }
         }
       });
     } else {
       // Hide share button if not supported
-      shareBtn.style.display = 'none';
+      shareBtn.style.display = "none";
     }
   }
-  
+
   // Copy link
   if (copyBtn) {
-    copyBtn.addEventListener('click', async () => {
+    copyBtn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(__url);
         showToast();
       } catch (err) {
         // Fallback for older browsers
-        const textArea = document.createElement('textarea');
+        const textArea = document.createElement("textarea");
         textArea.value = __url;
         document.body.appendChild(textArea);
         textArea.select();
         try {
-          document.execCommand('copy');
+          document.execCommand("copy");
           showToast();
         } catch (e) {
-          console.error('Copy failed:', e);
+          console.error("Copy failed:", e);
         }
         document.body.removeChild(textArea);
       }
     });
   }
-  
+
   function showToast() {
     if (toast) {
-      toast.classList.remove('hidden');
+      toast.classList.remove("hidden");
       setTimeout(() => {
-        toast.classList.add('hidden');
+        toast.classList.add("hidden");
       }, 2000);
     }
   }
@@ -98,7 +120,7 @@ const { title, url } = Astro.props;
     gap: 0.75rem;
     margin: var(--spacing-lg) 0;
   }
-  
+
   .share-btn {
     display: inline-flex;
     align-items: center;
@@ -114,17 +136,17 @@ const { title, url } = Astro.props;
     cursor: pointer;
     transition: var(--transition);
   }
-  
+
   .share-btn:hover {
     background: var(--pink);
     color: var(--bg);
     transform: translateY(-2px);
   }
-  
+
   .share-btn svg {
     flex-shrink: 0;
   }
-  
+
   .toast {
     position: fixed;
     bottom: 2rem;
@@ -138,11 +160,11 @@ const { title, url } = Astro.props;
     z-index: 1000;
     animation: slideIn 0.3s ease-out;
   }
-  
+
   .toast.hidden {
     display: none;
   }
-  
+
   @keyframes slideIn {
     from {
       transform: translateX(100%);

@@ -1,25 +1,26 @@
 ---
+
 ---
 
 <div id="reading-progress" class="reading-progress"></div>
 
 <script>
-  const progressBar = document.getElementById('reading-progress');
-  
+  const progressBar = document.getElementById("reading-progress");
+
   function updateProgress() {
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight - windowHeight;
     const scrolled = window.scrollY;
     const progress = (scrolled / docHeight) * 100;
-    
+
     if (progressBar) {
       progressBar.style.width = `${Math.min(progress, 100)}%`;
     }
   }
-  
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  window.addEventListener('resize', updateProgress, { passive: true });
-  
+
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress, { passive: true });
+
   // Initial call
   updateProgress();
 </script>

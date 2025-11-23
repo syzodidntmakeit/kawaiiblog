@@ -1,12 +1,11 @@
 ---
 title: Why I am breaking up with Windows (and you should too)
-date: '2025-10-19'
+date: "2025-10-19"
 category: tech
 excerpt: >-
   Windows is being very invasive in their actions, choosing to be an AI agent
   first operating system, and macOS is a sin against humainty. But there is an
   alternative...
-tags:
   - windows
   - linux
   - os
@@ -96,6 +95,6 @@ We can't talk about gaming on Linux without mentioning Anti-cheat. Yes this mean
 
 Windows had a strong hand on the operating system industry. There was no asking what OS you use. It's always Microsoft's Windows, or you're a snob. And if you use Linux, you don't interact with other people. But not anymore. Linux continues to be widely adopted and support for Linux only continues to grow. No subscriptions, no inflation (pyrocynical ahh), no "Ah. Need an update. Sowwy." Take control of your device. It belongs to you. Even if you don't know how to use it. There's no Windows 10 for a blender. Why is a computer any different? It serves a purpose. Let it serve you. Don't become the product. Not anymore.
 
-***
+---
 
-*Disclaimer: This blog post was written by a penguin.*
+_Disclaimer: This blog post was written by a penguin._

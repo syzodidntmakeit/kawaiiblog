@@ -1,11 +1,10 @@
 ---
-title: 'Cyberpunk 2077: From corporate greed to redemption'
-date: '2025-10-22'
+title: "Cyberpunk 2077: From corporate greed to redemption"
+date: "2025-10-22"
 category: games
 excerpt: >-
   A game that once anticipated, fall short and suffered public execution. Just
   to be revamped 5 years later and become the best game today.
-tags: []
 ---
 
 ## Grand Theft Auto: 2077
@@ -20,15 +19,15 @@ It got pulled from the PlayStation Store, refunded out of the game dev’s pocke
 
 This is 2012. Far Cry 3 is released and being called “Skyrim with guns” makes my skin crawl. A Swedish man suffering from depression from a car accident called Cry of Fear (the creator has since been involved in serious controversies) and GTA 5 is anticipated for next year.
 
-But wittle baby boi CD Projekt Red announced *Cyberpunk 2077* after acquiring the rights to Mike Pondsmith’s Cyberpunk tabletop RPG universe. Weird. But after the teaser trailer gave half the gaming industry a boner (wish i was there), full production didn’t start till 2016. Why? Oh, they only released a little game called the **fucking Witcher 3**. So they didn’t start fully focusing on coding the yellow killing game in 2016. Investors and fans were not too happy. Neither was Twitter but name one time they were lmao. But this raises an issue for them. 
+But wittle baby boi CD Projekt Red announced _Cyberpunk 2077_ after acquiring the rights to Mike Pondsmith’s Cyberpunk tabletop RPG universe. Weird. But after the teaser trailer gave half the gaming industry a boner (wish i was there), full production didn’t start till 2016. Why? Oh, they only released a little game called the **fucking Witcher 3**. So they didn’t start fully focusing on coding the yellow killing game in 2016. Investors and fans were not too happy. Neither was Twitter but name one time they were lmao. But this raises an issue for them.
 
 ### Witcher 3 Problem
 
-Why did releasing a good game bring problems? Same thing with Valve and Rockstar Games. When you show you could pull it off, your next move is to outdo yourself. And only the mentioned along with FROMSOFTWARE have done it thus far. 
+Why did releasing a good game bring problems? Same thing with Valve and Rockstar Games. When you show you could pull it off, your next move is to outdo yourself. And only the mentioned along with FROMSOFTWARE have done it thus far.
 
 This also meant that delaying games WERE worth the wait. Which you and I both know already.
 
-> *If you gave shit time to produce, it produces quality*.
+> _If you gave shit time to produce, it produces quality_.
 
 Shocker. hmm…
 
@@ -38,25 +37,25 @@ CD Projekt Red makes a massive decision; **reboot development**. From 3rd person
 
 ### Why tf did they do that?
 
-I can’t tell you exactly *why* they did but we can come to conclusions based on the finished product, interviews with the developers and my personally opinions. Which if you didn’t like my opinion, I kindly suggest you stop reading and fuck off.
+I can’t tell you exactly _why_ they did but we can come to conclusions based on the finished product, interviews with the developers and my personally opinions. Which if you didn’t like my opinion, I kindly suggest you stop reading and fuck off.
 
-One justification for the switch; immersion. Which I totally agree. I feel like I am V climbing over obstacles and gunning down enemies (sounds corny ik). This also allows for a complex mechanic in the game to be implemented into the game easier; hacks. It IS the future and hacking doors, jamming guns, blowing up tankers and seeing through objects are possible. But with this, you needed a UI (User Interface) to allow the player to interact with this feature. It would be FAR more immersive if it’s happening through the character’s eyes instead of a floating camera behind the character. 
+One justification for the switch; immersion. Which I totally agree. I feel like I am V climbing over obstacles and gunning down enemies (sounds corny ik). This also allows for a complex mechanic in the game to be implemented into the game easier; hacks. It IS the future and hacking doors, jamming guns, blowing up tankers and seeing through objects are possible. But with this, you needed a UI (User Interface) to allow the player to interact with this feature. It would be FAR more immersive if it’s happening through the character’s eyes instead of a floating camera behind the character.
 
-One of the developers said that this change allowed them to “immerse the player further in the world and home in on the megacorpo motif”. Which meant actually *feeling* like you’re living in Night City through V’s cybernatically-enhanced eyes that would provide diegetic UI information, instead of just looking at it from another perspective. 
+One of the developers said that this change allowed them to “immerse the player further in the world and home in on the megacorpo motif”. Which meant actually _feeling_ like you’re living in Night City through V’s cybernatically-enhanced eyes that would provide diegetic UI information, instead of just looking at it from another perspective.
 
-Lead developer Alvin Liu explained another crucial factor: "Since it's first-person, literally you can shoot someone within a second. You pull the gun and you're immediately shooting people. That to us is really important and really immersive because it feels like danger. It was one of the big reasons why we actually switched from third-person.” Which I personally disagree with. Take Grand Theft Auto 5 for example, you had to use a weapons wheel. In 1st person or 3rd, scrolling through your categorical circle to select your weapon, especially during combat does not have a noticeable delay that pulls you out of the immersion of the character. 
+Lead developer Alvin Liu explained another crucial factor: "Since it's first-person, literally you can shoot someone within a second. You pull the gun and you're immediately shooting people. That to us is really important and really immersive because it feels like danger. It was one of the big reasons why we actually switched from third-person.” Which I personally disagree with. Take Grand Theft Auto 5 for example, you had to use a weapons wheel. In 1st person or 3rd, scrolling through your categorical circle to select your weapon, especially during combat does not have a noticeable delay that pulls you out of the immersion of the character.
 
-One thing I did notice is the seamless transitions between exploration, dialogue and combat without jarring camera cuts. It is common in open-world adventure video games for that transition to be stilted either by camera control or characters disappearing behind the camera. So it is rather impress for this game to perform it almost perfectly. Seamless transition in games is nothing new, but still not seen enough. Like the newer God of War games where the major narrative is that the entire game takes place in a single camera take. 
+One thing I did notice is the seamless transitions between exploration, dialogue and combat without jarring camera cuts. It is common in open-world adventure video games for that transition to be stilted either by camera control or characters disappearing behind the camera. So it is rather impress for this game to perform it almost perfectly. Seamless transition in games is nothing new, but still not seen enough. Like the newer God of War games where the major narrative is that the entire game takes place in a single camera take.
 
 > More of that please.
 
-But the biggest factor for this change is this decision came in 2016, years after the initial announcement. A game that has already been built around the 3rd person perspective is now being written in 1st, meant features like flying cars and wall running could not be implemented into the game (at least not well). This made the elaborate character customization system entirely fucking useless. You only ever got to see your character when V looks into the mirror halfway through the story, when you upgrade your cybernatics, change your clothes or look down. 
+But the biggest factor for this change is this decision came in 2016, years after the initial announcement. A game that has already been built around the 3rd person perspective is now being written in 1st, meant features like flying cars and wall running could not be implemented into the game (at least not well). This made the elaborate character customization system entirely fucking useless. You only ever got to see your character when V looks into the mirror halfway through the story, when you upgrade your cybernatics, change your clothes or look down.
 
 ### There is another
 
 There was another game that did this, but had done it so well, you don’t even remember that it happened.
 
-Grand Theft Auto 5 was released in September 2013. An open world game in 3rd person perspective and it’s own story. But during the production for the 2014 re-release for the PS4/Xbox One/PC version, Rockstar games added the 1st person perspective as a novelty. This did mean that they had to update graphics like guns and car interiors, rework certain animations and in game physics. But they were already going to do that for the newer hardware anyways. And this is after game had already been released, so that meant no pressure from the public to rush it. So why *not* add a 1st person POV option? And if you didn’t like it, you can turn it off with just a single button. You had the *option* between 1st person and 3rd person. It was about **player choice and flexibility.** Which Cyberpunk didn’t provide. You were stuck in first person (except in cars) because they believed the entire experience needed to be built around that perspective to work properly. Just do 1st or 3rd person if you won’t let me choose. Don’t play both sides, you’ll fall.
+Grand Theft Auto 5 was released in September 2013. An open world game in 3rd person perspective and it’s own story. But during the production for the 2014 re-release for the PS4/Xbox One/PC version, Rockstar games added the 1st person perspective as a novelty. This did mean that they had to update graphics like guns and car interiors, rework certain animations and in game physics. But they were already going to do that for the newer hardware anyways. And this is after game had already been released, so that meant no pressure from the public to rush it. So why _not_ add a 1st person POV option? And if you didn’t like it, you can turn it off with just a single button. You had the _option_ between 1st person and 3rd person. It was about **player choice and flexibility.** Which Cyberpunk didn’t provide. You were stuck in first person (except in cars) because they believed the entire experience needed to be built around that perspective to work properly. Just do 1st or 3rd person if you won’t let me choose. Don’t play both sides, you’ll fall.
 
 ### What did it cost?
 
@@ -82,21 +81,21 @@ In Cyberpunk? V is essentially a ghost you occasionally glimpse. Some players re
 
 The tragic irony? The character customization system is genuinely detailed—cyberware, tattoos, scars, piercings, multiple body types. CDPR put significant development time into a feature that became functionally cosmetic. That's dev time that could have gone toward fixing bugs, improving AI, or building out promised features.
 
-Modders later discovered that V's character model is *literally incomplete* when viewed from third-person. The head is missing (it's just floating hair), and the body has weird proportions because it was only designed to look correct from the first-person camera position. This wasn't an oversight—it was an intentional optimization. Why render a full character model when the player never sees it?
+Modders later discovered that V's character model is _literally incomplete_ when viewed from third-person. The head is missing (it's just floating hair), and the body has weird proportions because it was only designed to look correct from the first-person camera position. This wasn't an oversight—it was an intentional optimization. Why render a full character model when the player never sees it?
 
-This is the cost of the 2016 perspective shift. They rebuilt the entire game around first-person, which meant features designed for third-person became vestigial. And unlike GTA V, where you could toggle perspectives and actually *use* your customization, Cyberpunk locked you into a perspective that made one of its major RPG features largely irrelevant.
+This is the cost of the 2016 perspective shift. They rebuilt the entire game around first-person, which meant features designed for third-person became vestigial. And unlike GTA V, where you could toggle perspectives and actually _use_ your customization, Cyberpunk locked you into a perspective that made one of its major RPG features largely irrelevant.
 
 By 2023, CD Projekt Red stated they had "no regrets" about the first-person choice, though they haven't yet decided whether the sequel, Cyberpunk Orion, will also be first-person only. To which I can’t say I’m excited for, and I’d be lying if I said I was interested.
 
 And unlike Rockstar's approach with GTA V, which added first-person as a bonus without compromising the core third-person design, CD Projekt Red went all-in on a single vision. Whether that was genius or hubris depends on who you ask.
 
-Oh, and they were also building their game engine (REDengine 4) at the same time they were building the game and making this fundamental perspective shift. Imagine trying to build a house while simultaneously inventing new construction materials and deciding to turn it into a submarine halfway through. That’s just plain fucking stupidity. 
+Oh, and they were also building their game engine (REDengine 4) at the same time they were building the game and making this fundamental perspective shift. Imagine trying to build a house while simultaneously inventing new construction materials and deciding to turn it into a submarine halfway through. That’s just plain fucking stupidity.
 
 ### You LIED!
 
-E3. Never been, never will. But E3 2018, CD Projekt Red showed a 50-minute gameplay demo to journalists, and it was fucking amazing. (according to game journalists. yuck). Gameplay was smooth, graphics were amazing unsurprisingly, RPG systems looked deep. Everyone lost their shit. 
+E3. Never been, never will. But E3 2018, CD Projekt Red showed a 50-minute gameplay demo to journalists, and it was fucking amazing. (according to game journalists. yuck). Gameplay was smooth, graphics were amazing unsurprisingly, RPG systems looked deep. Everyone lost their shit.
 
-But of course, expectations vs reality. And reality is often disappointing. That demo was carefully crafted that didn’t represent that actual state of the game. What’s worse, creating the demo would *naturally* delay the final build even more. They were showing off a product that didn't exist to build hype for a game they hadn't actually made yet. But maybe that’s just how the sun rises in the gaming industry. 
+But of course, expectations vs reality. And reality is often disappointing. That demo was carefully crafted that didn’t represent that actual state of the game. What’s worse, creating the demo would _naturally_ delay the final build even more. They were showing off a product that didn't exist to build hype for a game they hadn't actually made yet. But maybe that’s just how the sun rises in the gaming industry.
 
 The clock is ticking, the hype is real. What’s next, bucko?
 
@@ -104,7 +103,7 @@ The clock is ticking, the hype is real. What’s next, bucko?
 
 ### June 2019
 
-CD Projekt fuckward announces a release date of **April 16, 2020.** The crowd goes wild. Pre-orders flood in. 
+CD Projekt fuckward announces a release date of **April 16, 2020.** The crowd goes wild. Pre-orders flood in.
 
 But back at DumbDumb HQ, devs were pulling their hair out. They knew this date was ambitious as fuck. But management pushed it anyway because investors needed a date, marketing needed a date, and the public was getting restless. And you kinda can’t blame them.
 
@@ -122,10 +121,9 @@ COVID-19 hits. The entire studio shifts to remote work. CD Projekt Red claims th
 
 ### October 2020
 
-The game goes gold (meaning it's theoretically ready to ship). Then, *one month before launch*, they delay it AGAIN to December 10. Now you’re starting to piss ME off. (as I write this in 2025).
+The game goes gold (meaning it's theoretically ready to ship). Then, _one month before launch_, they delay it AGAIN to December 10. Now you’re starting to piss ME off. (as I write this in 2025).
 
 > Rush perfection, and you don’t get perfection. You get catastrophe.
-> 
 
 ### The Breaking Point
 
@@ -140,7 +138,7 @@ Because once the delays kept piling up, the discourse shifted. It wasn't just im
 
 ### The pattern
 
-Noticed something? All these game studios had massive teams, long development times and enormous budgets. Not to mention these were all talented classes, not your regulary Joe. These teams had a *passion* for games and wanted to produce something from their hearts. 
+Noticed something? All these game studios had massive teams, long development times and enormous budgets. Not to mention these were all talented classes, not your regulary Joe. These teams had a _passion_ for games and wanted to produce something from their hearts.
 
 Yet people will STILL complain. They always do. But why did CD Projekt Red go through so much backlash while the rest didn’t?
 
@@ -148,13 +146,13 @@ Yet people will STILL complain. They always do. But why did CD Projekt Red go th
 - Set realistic expectations.
 - Had the backing of massive parent companies.
 
-This wasn’t entirely their fault. This was only their second major title ever made under the CD Projekt Red title. But **that doesn't excuse the fans who sent death threats to developers.** Ffs. 
+This wasn’t entirely their fault. This was only their second major title ever made under the CD Projekt Red title. But **that doesn't excuse the fans who sent death threats to developers.** Ffs.
 
 ### So What's The Actual Problem Here?
 
 Let's be clear about what the "since 2012" complaint misses:
 
-**The Real Timeline**: 4-5 years of full production with 400 people is *completely normal* for a game of this scope. The problem wasn't the development time—it was:
+**The Real Timeline**: 4-5 years of full production with 400 people is _completely normal_ for a game of this scope. The problem wasn't the development time—it was:
 
 1. **Announcing 4+ years before production started** - This set a clock in people's heads that didn't match reality
 2. **Team size vs. ambition mismatch** - They tried to match games made by 2,000-3,000 person teams with 400 people
@@ -186,7 +184,7 @@ Elden Ring? Why are we talking about this absolute fucking masterpiece? (Best ga
 - Sold over 30 million copies
 - Note: FromSoftware was **simultaneously developing Armored Core 6** with the same team pool, shuffling developers between projects as needed
 
-So why did *this* game get over 30 million copies sold and GotY 2022, with a 96 Metacritic score?
+So why did _this_ game get over 30 million copies sold and GotY 2022, with a 96 Metacritic score?
 
 - **Asset reuse mastery**: FromSoftware is legendary at reusing and refining animations, systems, and design patterns from previous games
 - **Focused scope**: They knew exactly what they were making and didn't chase every trendy feature
@@ -194,7 +192,7 @@ So why did *this* game get over 30 million copies sold and GotY 2022, with a 96 
 - **No feature creep**: They didn't reboot development halfway through or completely change perspective
 - **Realistic ambitions**: The scope matched the team size and timeline
 
-There was also one more factor that these other production didn’t suffer from. The Japanese work culture. FROMSOFTWARE being a Japanese company, the work ethic of working overtime with no pay and expected 80 hour workweek. Sometimes expect pregnant employees to leave the company for new hire. So yes, they were really fucking efficient and made, what I think, the best game to have ever made by one of my favourite company of all time. But with the expense of human ethics is challenging to bare. However, the Japanese work ethic is actively improving. So keep your hopes up. 
+There was also one more factor that these other production didn’t suffer from. The Japanese work culture. FROMSOFTWARE being a Japanese company, the work ethic of working overtime with no pay and expected 80 hour workweek. Sometimes expect pregnant employees to leave the company for new hire. So yes, they were really fucking efficient and made, what I think, the best game to have ever made by one of my favourite company of all time. But with the expense of human ethics is challenging to bare. However, the Japanese work ethic is actively improving. So keep your hopes up.
 
 ## Act IV: “It’s Almost Dry” feat. Pharrell Williams and Kanye West
 
@@ -220,10 +218,9 @@ What’s worse is that features that were promised or shown in demos were a mira
 
 ### The Reception
 
-The internet had a field day. Reddit megathreads documented a billion issues. YouTubers made *career* out of bug compilations. Review sites that had initially praised the game start to issue warnings in it. 
+The internet had a field day. Reddit megathreads documented a billion issues. YouTubers made _career_ out of bug compilations. Review sites that had initially praised the game start to issue warnings in it.
 
 > This game is promising. Update: Don’t buy it.
-> 
 
 And I don’t know who at CD Projekt Red thought it would be a good idea to start HIDING REVIEWS for consoles. Pre-launch, they only sent out PC review codes and prohibited reviewers from using their own console footage. They knew. They fucking knew the console versions were broken, and they shipped them anyway. Scums.
 
@@ -239,11 +236,11 @@ And here's where the game's themes get darkly poetic. You know what Cyberpunk 20
 
 Sound familiar?
 
-The developers were literally writing dialogue for Johnny Silverhand—a character who rages against corporate exploitation—while *experiencing* corporate exploitation. They were coding scenes about workers being crushed by impossible deadlines while working mandatory 100-hour weeks. They were designing quests about deceptive corpo marketing while management hid console performance from reviewers.
+The developers were literally writing dialogue for Johnny Silverhand—a character who rages against corporate exploitation—while _experiencing_ corporate exploitation. They were coding scenes about workers being crushed by impossible deadlines while working mandatory 100-hour weeks. They were designing quests about deceptive corpo marketing while management hid console performance from reviewers.
 
 The game became a mirror of its own creation. Art imitating life imitating art.
 
-The fans were constantly demanding for the game to be released despite being told it’s already in production. This hate was fed by the demos and the fake release day and the delays. 
+The fans were constantly demanding for the game to be released despite being told it’s already in production. This hate was fed by the demos and the fake release day and the delays.
 
 The investors that know nothing about making a video game, demands for a release date. Which meant people could buy copies, which meant they would make a profit. And when money is involved, everyone is skeptical and inpatient.
 
@@ -262,7 +259,7 @@ For the next **four years**, CDPR released:
 **2021**: The Year of Damage Control
 
 - Patches 1.1 through 1.3: Literally hundreds of bug fixes
-- Performance optimizations for last-gen consoles (though they never ran *great*)
+- Performance optimizations for last-gen consoles (though they never ran _great_)
 - Sony re-lists the game on PlayStation Store in June 2021
 - Free DLC started trickling in—cosmetics, weapons, apartments
 
@@ -270,7 +267,7 @@ For the next **four years**, CDPR released:
 
 - Patch 1.5: Next-gen console optimization (finally ran properly on PS5/Xbox Series X)
 - More gameplay improvements, UI fixes, better AI
-- The game became *playable* across all platforms
+- The game became _playable_ across all platforms
 - Player count started climbing back up on Steam
 
 **2023**: The Redemption
@@ -287,7 +284,7 @@ For the next **four years**, CDPR released:
 - Community modding scene thrives
 - Player sentiment shifts from "broken mess" to "hidden gem"
 - Total sales exceed 30 million copies
-- Netflix anime *Cyberpunk: Edgerunners* (2022) brings new players
+- Netflix anime _Cyberpunk: Edgerunners_ (2022) brings new players
 - Reviews shift from "Mixed" to "Mostly Positive" on Steam
 
 ### Did They Deserve Redemption?
@@ -310,7 +307,7 @@ Here's the uncomfortable question: Does fixing your fuck-up erase the fuck-up?
 - Lost trust doesn't magically return with bug fixes
 - Some players will never come back after getting burned
 
-The truth? It's both. They redeemed the *game* but not the *launch*. The product became what it should have been, but the process that created it—and destroyed it—remains a permanent stain.
+The truth? It's both. They redeemed the _game_ but not the _launch_. The product became what it should have been, but the process that created it—and destroyed it—remains a permanent stain.
 
 ### The Current State (2025)
 
@@ -382,4 +379,4 @@ CD Projekt Red got lucky. Most studios don't.
 
 Welcome to Night City, choom. The game is finally ready. Only took four years longer than it should have.
 
-*Now if you'll excuse me, I've got some cyberpsychos to hunt.*
+_Now if you'll excuse me, I've got some cyberpsychos to hunt._

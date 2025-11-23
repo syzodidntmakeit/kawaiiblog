@@ -1,11 +1,10 @@
 ---
 title: Clanker Might Be the New N Word
-date: '2025-10-20'
+date: "2025-10-20"
 category: commentary
 excerpt: >-
   Economic anxiety is real, and people bond over shared fears. But we don't have
   to normalize slurs to do it.
-tags: []
 ---
 
 ## Why My Joke Doesn't Work Yet
@@ -27,7 +26,6 @@ And "clanker"? It's a linguistic handshake. It's humans saying to each other, "Y
 That makes complete sense. And that's exactly why this pattern is so insidious.
 
 When you strip away the moral posturing, slurs are just really efficient bonding tools. They create instant solidarity. They say "you and me, we get it" without anyone having to be vulnerable about the actual dread underneath. It's easier to laugh together than to actually talk about the nightmare scenario.
-
 
 ## The Smoking Gun
 
@@ -61,6 +59,6 @@ Understand why people are doing it. Don't judge them too hard for the genuine fe
 
 You lose nothing by not saying it. But everyone watching learns something by watching you refuse.
 
-***
+---
 
-*I hate Star Wars.*
+_I hate Star Wars._

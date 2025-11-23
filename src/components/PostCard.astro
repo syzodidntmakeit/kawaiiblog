@@ -1,17 +1,17 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  post: CollectionEntry<'posts'>;
+  post: CollectionEntry<"posts">;
 }
 
 const { post } = Astro.props;
 const { title, date, excerpt, category } = post.data;
 
-const formattedDate = date.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+const formattedDate = date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 });
 
 // Calculate reading time (simple approximation)
@@ -25,10 +25,10 @@ const readingTime = Math.ceil(wordCount / wordsPerMinute);
     <span class="category">{category}</span>
     <span class="date">{formattedDate}</span>
   </div>
-  
+
   <h3 class="title">{title}</h3>
   <p class="excerpt">{excerpt}</p>
-  
+
   <div class="meta-bottom">
     <span class="read-time">{readingTime} min read</span>
   </div>

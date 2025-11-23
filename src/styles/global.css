@@ -11,8 +11,8 @@
   --gold: #ffd166;
 
   /* Typography */
-  --font-primary: 'Nunito', sans-serif;
-  --font-mono: 'VT323', monospace;
+  --font-primary: "Nunito", sans-serif;
+  --font-mono: "VT323", monospace;
 
   /* Spacing */
   --container-max: 1200px;
@@ -100,7 +100,9 @@ body {
   line-height: 1.6;
   scrollbar-color: var(--pink) transparent;
   scrollbar-width: thin;
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
 
   /* Sticky Footer Setup */
   display: flex;
@@ -140,7 +142,9 @@ a:hover {
 .card:hover {
   transform: translateY(-4px);
   border-color: var(--pink);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35), 0 10px 30px rgba(255, 192, 203, 0.12);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.35),
+    0 10px 30px rgba(255, 192, 203, 0.12);
 }
 
 /* Mobile First Padding */

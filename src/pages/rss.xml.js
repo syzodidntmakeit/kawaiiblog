@@ -1,20 +1,20 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
 
 export async function GET(context) {
-    const posts = await getCollection('posts', ({ data }) => {
-        return import.meta.env.PROD ? !data.draft : true;
-    });
-    return rss({
-        title: 'KawaiiBlog',
-        description: 'A lightweight blog about tech, music, and commentary.',
-        site: context.site,
-        items: posts.map((post) => ({
-            title: post.data.title,
-            pubDate: post.data.date,
-            description: post.data.excerpt,
-            link: `/posts/${post.slug}/`,
-        })),
-        customData: `<language>en-us</language>`,
-    });
+  const posts = await getCollection("posts", ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+  return rss({
+    title: "KawaiiBlog",
+    description: "A lightweight blog about tech, music, and commentary.",
+    site: context.site,
+    items: posts.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.date,
+      description: post.data.excerpt,
+      link: `/posts/${post.slug}/`,
+    })),
+    customData: `<language>en-us</language>`,
+  });
 }

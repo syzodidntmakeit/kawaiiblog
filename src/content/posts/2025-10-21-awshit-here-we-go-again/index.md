@@ -1,10 +1,9 @@
 ---
-title: 'AWShit, here we go again.'
-date: '2025-10-21'
+title: "AWShit, here we go again."
+date: "2025-10-21"
 category: tech
 excerpt: >-
   AWS went down for three hours and broke 30% the internet. And I think it's entirely our fault. At least it's not cloudflare this time...
-tags: []
 ---
 
 ## What happened?
@@ -71,8 +70,6 @@ Active-Passive Setup: Primary on AWS, backup on Azure that activates during outa
 
 Keep essential functions on local servers. Being implemented in government offices, hospitals, education and media centres. Having saved the important files locally AND on the cloud, so if their provider goes down, internal officers can still operate though significantly limited. Like battery saver. Better than nothing.
 
-
-
 ## Give it to me straight, doc.
 
 Nothing will change. It's either too expensive or too much hassle to implement any changes. Oct 20 is not a one-off, but happens too infrequent to suggests changes immediately. Hell, it took us only 3 years to bounce back from COVID 19. So we COULD change. But it isn't cost effective. It's just not worth it.
@@ -83,6 +80,6 @@ Welcome to the future. It's centralized, it's fragile, and your favorite blog ho
 
 Sweet dreams, pussy.
 
-***
+---
 
-*Look, I hate Amazon as much as the next Twitter user, but maybe we do need them after all.*
+_Look, I hate Amazon as much as the next Twitter user, but maybe we do need them after all._

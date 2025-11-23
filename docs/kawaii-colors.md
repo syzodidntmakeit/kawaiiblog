@@ -7,32 +7,34 @@ The kawaii blog uses a system of 8 rotating colors (`--k-1` through `--k-8`) tha
 ## Color Palettes
 
 ### Dark Mode (Default) - Soft Pastels
+
 These soft, pastel colors work beautifully against dark backgrounds:
 
-| Variable | Color | Hex Code | Description |
-|----------|-------|----------|-------------|
-| `--k-1` | Pink | `#ffc0cb` | Soft pink |
-| `--k-2` | Blue | `#a7c7e7` | Pastel blue |
-| `--k-3` | Mint | `#b2f2bb` | Soft mint green |
-| `--k-4` | Gold | `#ffd166` | Warm gold |
-| `--k-5` | Lavender | `#c7ceea` | Soft lavender |
-| `--k-6` | Peach | `#ffdac1` | Gentle peach |
-| `--k-7` | Lime | `#e2f0cb` | Soft lime |
-| `--k-8` | Salmon | `#ff9aa2` | Coral salmon |
+| Variable | Color    | Hex Code  | Description     |
+| -------- | -------- | --------- | --------------- |
+| `--k-1`  | Pink     | `#ffc0cb` | Soft pink       |
+| `--k-2`  | Blue     | `#a7c7e7` | Pastel blue     |
+| `--k-3`  | Mint     | `#b2f2bb` | Soft mint green |
+| `--k-4`  | Gold     | `#ffd166` | Warm gold       |
+| `--k-5`  | Lavender | `#c7ceea` | Soft lavender   |
+| `--k-6`  | Peach    | `#ffdac1` | Gentle peach    |
+| `--k-7`  | Lime     | `#e2f0cb` | Soft lime       |
+| `--k-8`  | Salmon   | `#ff9aa2` | Coral salmon    |
 
 ### Light Mode - Deep Vibrant Colors
+
 These saturated colors provide strong contrast on light backgrounds:
 
-| Variable | Color | Hex Code | Description |
-|----------|-------|----------|-------------|
-| `--k-1` | Hot Pink | `#e91e63` | Vibrant hot pink |
-| `--k-2` | Royal Blue | `#2563eb` | Deep royal blue |
-| `--k-3` | Emerald | `#059669` | Rich emerald green |
-| `--k-4` | Amber | `#d97706` | Warm amber/orange |
-| `--k-5` | Violet | `#7c3aed` | Deep violet |
-| `--k-6` | Orange | `#ea580c` | Vibrant orange |
-| `--k-7` | Lime | `#65a30d` | Bright lime green |
-| `--k-8` | Red | `#dc2626` | Bold red |
+| Variable | Color      | Hex Code  | Description        |
+| -------- | ---------- | --------- | ------------------ |
+| `--k-1`  | Hot Pink   | `#e91e63` | Vibrant hot pink   |
+| `--k-2`  | Royal Blue | `#2563eb` | Deep royal blue    |
+| `--k-3`  | Emerald    | `#059669` | Rich emerald green |
+| `--k-4`  | Amber      | `#d97706` | Warm amber/orange  |
+| `--k-5`  | Violet     | `#7c3aed` | Deep violet        |
+| `--k-6`  | Orange     | `#ea580c` | Vibrant orange     |
+| `--k-7`  | Lime       | `#65a30d` | Bright lime green  |
+| `--k-8`  | Red        | `#dc2626` | Bold red           |
 
 ## Usage
 
@@ -45,6 +47,7 @@ The colors are used in a cycling pattern for:
 3. **H3 Headings**: Similar cycling pattern as H2s
 
 Example:
+
 ```css
 .post-title {
   background: linear-gradient(135deg, var(--k-1), var(--k-2));
@@ -91,6 +94,7 @@ The colors are applied in [`PostLayout.astro`](file:///c:/Users/Kawaiisan/Projec
 ## Future Enhancements
 
 You could extend this system to:
+
 - Apply kawaii colors to other elements (tags, categories, etc.)
 - Use the colors for animated backgrounds or decorative elements
 - Create themed color variations (e.g., seasonal palettes)

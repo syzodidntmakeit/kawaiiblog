@@ -1,4 +1,5 @@
 <!-- Copilot instructions for repository-specific AI coding tasks -->
+
 # Copilot Instructions — KawaiiBlog 2.0
 
 Purpose: give coding agents immediate, actionable context to work productively in this repository.

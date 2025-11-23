@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchBar from '../components/SearchBar.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SearchBar from "../components/SearchBar.astro";
+import { getCollection } from "astro:content";
 
-const posts = await getCollection('posts');
+const posts = await getCollection("posts");
 const randomPost = posts[Math.floor(Math.random() * posts.length)];
 
 const title = "404 - Page Not Found";
@@ -14,8 +14,10 @@ const description = "Oops! This page doesn't exist.";
   <div class="not-found">
     <div class="emoji">💔</div>
     <h1>404 - Page Not Found</h1>
-    <p class="message">Oops! Looks like this page took a wrong turn into the void.</p>
-    
+    <p class="message">
+      Oops! Looks like this page took a wrong turn into the void.
+    </p>
+
     <div class="search-section">
       <p class="helper-text">Try searching for what you're looking for:</p>
       <SearchBar />
@@ -51,8 +53,13 @@ const description = "Oops! This page doesn't exist.";
   }
 
   @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
 
   h1 {

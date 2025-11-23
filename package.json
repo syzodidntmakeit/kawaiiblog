@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "cli": "tsx cli/kawaii-blog.ts"
+    "cli": "tsx cli/kawaii-blog.ts",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/compiler": "^2.13.0",
@@ -24,6 +26,15 @@
     "slugify": "^1.6.6"
   },
   "devDependencies": {
-    "tsx": "^4.20.6"
+    "@eslint/js": "^9.39.1",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-astro": "^1.5.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "tsx": "^4.20.6",
+    "typescript-eslint": "^8.47.0"
   }
 }

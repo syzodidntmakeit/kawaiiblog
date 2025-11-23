@@ -1,9 +1,9 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  currentPost: CollectionEntry<'posts'>;
-  allPosts: CollectionEntry<'posts'>[];
+  currentPost: CollectionEntry<"posts">;
+  allPosts: CollectionEntry<"posts">[];
 }
 
 const { currentPost, allPosts } = Astro.props;
@@ -16,69 +16,74 @@ if (!series) {
 
 // Get all posts in the same series
 const seriesPosts = allPosts
-  .filter(post => post.data.series?.name === series.name)
+  .filter((post) => post.data.series?.name === series.name)
   .sort((a, b) => (a.data.series?.order || 0) - (b.data.series?.order || 0));
 
 // Find current post index
-const currentIndex = seriesPosts.findIndex(p => p.slug === currentPost.slug);
+const currentIndex = seriesPosts.findIndex((p) => p.slug === currentPost.slug);
 const prevPost = currentIndex > 0 ? seriesPosts[currentIndex - 1] : null;
-const nextPost = currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null;
+const nextPost =
+  currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null;
 
 // Calculate progress
 const progress = ((currentIndex + 1) / seriesPosts.length) * 100;
 ---
 
-{series && (
-  <aside class="series-nav">
-    <div class="series-header">
-      <span class="series-icon">📚</span>
-      <div class="series-info">
-        <h3>Part of a Series</h3>
-        <p class="series-name">{series.name}</p>
+{
+  series && (
+    <aside class="series-nav">
+      <div class="series-header">
+        <span class="series-icon">📚</span>
+        <div class="series-info">
+          <h3>Part of a Series</h3>
+          <p class="series-name">{series.name}</p>
+        </div>
       </div>
-    </div>
 
-    <div class="progress-bar">
-      <div class="progress-fill" style={`width: ${progress}%`}></div>
-    </div>
-    <p class="progress-text">Part {currentIndex + 1} of {seriesPosts.length}</p>
+      <div class="progress-bar">
+        <div class="progress-fill" style={`width: ${progress}%`} />
+      </div>
+      <p class="progress-text">
+        Part {currentIndex + 1} of {seriesPosts.length}
+      </p>
 
-    <div class="series-nav-buttons">
-      {prevPost ? (
-        <a href={`/posts/${prevPost.slug}`} class="nav-btn prev">
-          <span class="arrow">←</span>
-          <span class="label">Previous</span>
-        </a>
-      ) : (
-        <div class="nav-btn disabled"></div>
-      )}
+      <div class="series-nav-buttons">
+        {prevPost ? (
+          <a href={`/posts/${prevPost.slug}`} class="nav-btn prev">
+            <span class="arrow">←</span>
+            <span class="label">Previous</span>
+          </a>
+        ) : (
+          <div class="nav-btn disabled" />
+        )}
 
-      {nextPost ? (
-        <a href={`/posts/${nextPost.slug}`} class="nav-btn next">
-          <span class="label">Next</span>
-          <span class="arrow">→</span>
-        </a>
-      ) : (
-        <div class="nav-btn disabled"></div>
-      )}
-    </div>
+        {nextPost ? (
+          <a href={`/posts/${nextPost.slug}`} class="nav-btn next">
+            <span class="label">Next</span>
+            <span class="arrow">→</span>
+          </a>
+        ) : (
+          <div class="nav-btn disabled" />
+        )}
+      </div>
 
-    <details class="series-list">
-      <summary>View All Parts ({seriesPosts.length})</summary>
-      <ol>
-        {seriesPosts.map((post, idx) => (
-          <li class={post.slug === currentPost.slug ? 'current' : ''}>
-            {post.slug === currentPost.slug ? (
-              <span class="current-marker">→ {post.data.title}</span>
-            ) : (
-              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-            )}
-          </li>
-        ))}
-      </ol>
-    </details>
-  </aside>
-)}
+      <details class="series-list">
+        <summary>View All Parts ({seriesPosts.length})</summary>
+        <ol>
+          {seriesPosts.map((post, idx) => (
+            <li class={post.slug === currentPost.slug ? "current" : ""}>
+              {post.slug === currentPost.slug ? (
+                <span class="current-marker">→ {post.data.title}</span>
+              ) : (
+                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </details>
+    </aside>
+  )
+}
 
 <style>
   .series-nav {
