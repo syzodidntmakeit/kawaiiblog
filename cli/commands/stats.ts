@@ -6,11 +6,21 @@ import ora from "ora";
 
 const POSTS_DIR = path.join(process.cwd(), "src/content/posts");
 
+interface PostData {
+    title: string;
+    date: Date;
+    category: string;
+    draft?: boolean;
+    series?: { name: string; order: number };
+    words: number;
+    [key: string]: unknown;
+}
+
 export async function showStats() {
     const spinner = ora("Calculating blog stats...").start();
 
     try {
-        const posts: any[] = [];
+        const posts: PostData[] = [];
         const categories: Record<string, number> = {};
         const months: Record<string, number> = {};
         let totalWords = 0;
@@ -57,7 +67,7 @@ export async function showStats() {
                     totalWords += words;
                     totalReadTime += Math.ceil(words / 200); // 200 wpm
 
-                    posts.push({ ...data, words });
+                    posts.push({ ...data, words } as PostData);
                 }
             }
         }
@@ -76,6 +86,7 @@ export async function showStats() {
         console.log(`  Total Words: ${chalk.magenta(totalWords.toLocaleString())}`);
         console.log(`  Avg Length:  ${chalk.magenta(Math.round(totalWords / posts.length).toLocaleString())} words`);
         console.log(`  Total Read:  ${chalk.magenta(totalReadTime)} mins`);
+        console.log(`  Avg Read:    ${chalk.magenta(Math.round(totalReadTime / posts.length))} mins`);
         console.log("");
 
         console.log(chalk.bold("Categories"));
