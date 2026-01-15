@@ -9,6 +9,7 @@ A high-performance, lightweight personal blogging platform built with Astro. Fea
 ## ✨ Features
 
 ### 🎨 **Design & UX**
+
 - **Dark Pastel Cyberpunk Theme** - Unique glassmorphism aesthetic with cycling H2 colors
 - **Dark/Light Mode Toggle** - Seamless theme switching with localStorage persistence
 - **Reading Progress Bar** - Visual scroll indicator on blog posts
@@ -16,6 +17,7 @@ A high-performance, lightweight personal blogging platform built with Astro. Fea
 - **Custom Scrollbar** - Styled scrollbars matching the cyberpunk theme
 
 ### ⚡ **Performance**
+
 - **Lightning Fast** - Static site generation with zero-JS by default
 - **Instant Navigation** - Global link prefetching for zero-latency clicks
 - **Self-Hosted Fonts** - Privacy-friendly `@fontsource` implementation (Nunito & VT323)
@@ -24,12 +26,14 @@ A high-performance, lightweight personal blogging platform built with Astro. Fea
 - **SEO Optimized** - JSON-LD schema, sitemaps, robots.txt, and webmentions
 
 ### 📝 **Content Management**
+
 - **Powerful CLI Tools** - Interactive commands for post creation, editing, and management
 - **Content Validation** - Automated health checks for broken links and missing metadata
 - **Export & Backup** - One-command zip export of all content
 - **Blog Statistics** - Comprehensive analytics about your content
 
 ### 🔍 **Discovery**
+
 - **Fuzzy Search** - Client-side search powered by Fuse.js
 - **Category Organization** - tech, music, games, commentary
 - **Series Support** - Group related posts with progress tracking
@@ -37,12 +41,14 @@ A high-performance, lightweight personal blogging platform built with Astro. Fea
 - **Related Posts** - Smart recommendations based on category and recency
 
 ### 📡 **RSS Feeds**
+
 - **Main Feed** - All published posts
 - **Category Feeds** - Separate feeds for each category
 - **Featured Feed** - Curated best posts
 - **Full-Text Feed** - Complete content in RSS (not just excerpts)
 
 ### � **Dynamic Elements**
+
 - **Time-Based Greetings** - Hero text changes based on Singapore time
 - **Auto Table of Contents** - Generated from post headings (Collapsible on Mobile)
 - **Reading Time** - Estimated read time displayed on post cards
@@ -98,6 +104,7 @@ npm run cli new
 ```
 
 **Interactive prompts:**
+
 ```
 ? Enter post title: My First Blog Post
 ? Select category: tech
@@ -120,9 +127,9 @@ category: tech
 excerpt: "A brief description that appears in post cards"
 draft: false
 featured: false
-cover: ./cover-image.webp  # Optional
-coverAlt: "Image description"  # Optional
-series:  # Optional
+cover: ./cover-image.webp # Optional
+coverAlt: "Image description" # Optional
+series: # Optional
   name: "Getting Started Series"
   order: 1
 ---
@@ -139,6 +146,7 @@ npm run cli edit
 ```
 
 **Features:**
+
 - Fuzzy search to find posts quickly
 - Edit title, date, category, excerpt
 - Automatically renames folders when title/date changes
@@ -214,6 +222,7 @@ npm run cli validate
 ```
 
 **Checks for:**
+
 - Missing required frontmatter fields
 - Broken image links (relative and absolute paths)
 - Missing `index.md` files
@@ -226,6 +235,7 @@ npm run cli export
 ```
 
 Creates timestamped zip archive in `exports/` containing:
+
 - All posts from `src/content/`
 - Images from `public/images/`
 
@@ -236,11 +246,13 @@ Creates timestamped zip archive in `exports/` containing:
 All feeds available at:
 
 ### Main Feed
+
 ```
 https://blog.kawaii-san.org/rss.xml
 ```
 
 ### Category-Specific Feeds
+
 ```
 https://blog.kawaii-san.org/rss/tech.xml
 https://blog.kawaii-san.org/rss/music.xml
@@ -249,12 +261,15 @@ https://blog.kawaii-san.org/rss/commentary.xml
 ```
 
 ### Featured Posts Feed
+
 ```
 https://blog.kawaii-san.org/rss/featured.xml
 ```
 
 ### Full-Text Feed
+
 Includes complete post content (not just excerpts):
+
 ```
 https://blog.kawaii-san.org/rss/full.xml
 ```
@@ -280,6 +295,7 @@ npm run format
 ```
 
 **Configuration:**
+
 - ESLint for TypeScript/JavaScript
 - Prettier for code formatting
 - Astro ESLint plugin for `.astro` files
@@ -288,28 +304,28 @@ npm run format
 
 ## 📦 Available Commands
 
-| Command | Description |
-|---------|-------------|
-| **Development** |
-| `npm run dev` | Start development server at http://localhost:4321 |
-| `npm run build` | Build production site to `dist/` |
-| `npm run preview` | Preview production build locally |
-| **Content Management** |
-| `npm run cli new` | Create a new blog post (interactive) |
-| `npm run cli edit` | Edit existing post metadata |
-| `npm run cli list` | List all posts with status |
-| `npm run cli search [query]` | Search posts by content |
-| `npm run cli delete` | Delete an existing blog post |
-| **Analytics & Maintenance** |
-| `npm run cli stats` | Show comprehensive blog statistics |
-| `npm run cli validate` | Validate content health and integrity |
-| `npm run cli export` | Export blog content to zip archive |
-| **Code Quality** |
-| `npm run lint` | Check code for linting errors |
-| `npm run format` | Auto-format code with Prettier |
-| `npm run format:check` | Check code formatting (CI) |
-| **Direct Astro** |
-| `npm run astro ...` | Run Astro CLI commands directly |
+| Command                      | Description                                       |
+| ---------------------------- | ------------------------------------------------- |
+| **Development**              |
+| `npm run dev`                | Start development server at http://localhost:4321 |
+| `npm run build`              | Build production site to `dist/`                  |
+| `npm run preview`            | Preview production build locally                  |
+| **Content Management**       |
+| `npm run cli new`            | Create a new blog post (interactive)              |
+| `npm run cli edit`           | Edit existing post metadata                       |
+| `npm run cli list`           | List all posts with status                        |
+| `npm run cli search [query]` | Search posts by content                           |
+| `npm run cli delete`         | Delete an existing blog post                      |
+| **Analytics & Maintenance**  |
+| `npm run cli stats`          | Show comprehensive blog statistics                |
+| `npm run cli validate`       | Validate content health and integrity             |
+| `npm run cli export`         | Export blog content to zip archive                |
+| **Code Quality**             |
+| `npm run lint`               | Check code for linting errors                     |
+| `npm run format`             | Auto-format code with Prettier                    |
+| `npm run format:check`       | Check code formatting (CI)                        |
+| **Direct Astro**             |
+| `npm run astro ...`          | Run Astro CLI commands directly                   |
 
 ---
 
@@ -419,10 +435,13 @@ Edit `src/pages/index.astro`:
 ```typescript
 const hour = now.getHours();
 const timeBasedTitle =
-  hour >= 5 && hour < 11 ? "Good morning, you early riser! ☀️" :
-  hour >= 11 && hour < 17 ? "Good afternoon! ⛅" :
-  hour >= 17 && hour < 21 ? "Good evening! 🌆" :
-  "Burning the midnight oil? 🌙";
+  hour >= 5 && hour < 11
+    ? "Good morning, you early riser! ☀️"
+    : hour >= 11 && hour < 17
+      ? "Good afternoon! ⛅"
+      : hour >= 17 && hour < 21
+        ? "Good evening! 🌆"
+        : "Burning the midnight oil? 🌙";
 ```
 
 ### Add New Categories
@@ -471,6 +490,7 @@ git push origin main
 ```
 
 GitHub Actions automatically builds and deploys to:
+
 - **GitHub Pages**: `https://username.github.io/kawaiiblog2.0/`
 - **Custom Domain**: `https://blog.kawaii-san.org` (if configured in repo settings)
 
@@ -481,6 +501,7 @@ npm run build
 ```
 
 Output goes to `dist/` directory. Deploy to any static hosting service:
+
 - Netlify
 - Vercel
 - Cloudflare Pages
@@ -491,6 +512,7 @@ Output goes to `dist/` directory. Deploy to any static hosting service:
 ## 🔮 Roadmap
 
 ### Completed ✨
+
 - [x] **Image Optimization** - Auto WebP conversion and lazy loading
 - [x] **Advanced RSS Feeds** - Category, featured, and full-text feeds
 - [x] **CLI Statistics** - Comprehensive blog analytics
@@ -502,6 +524,7 @@ Output goes to `dist/` directory. Deploy to any static hosting service:
 - [x] **CI/CD Quality Checks** - Auto linting and formatting in GitHub Actions
 
 ### Planned 🚧
+
 - [ ] **Bookmark System** - Save favorite posts with localStorage
 - [ ] **View Counter** - Track post views with privacy-friendly analytics
 - [ ] **Search Highlighting** - Highlight matched terms in search results
@@ -589,7 +612,7 @@ Built with **[Astro](https://astro.build)** and a lot of caffeine ☕
 
 ## 🤝 Contributing
 
-Found a bug or have a feature request? 
+Found a bug or have a feature request?
 
 - **Issues**: [Open an issue](https://github.com/syzodidntmakeit/kawaiiblog2.0/issues)
 - **Pull Requests**: Contributions welcome!

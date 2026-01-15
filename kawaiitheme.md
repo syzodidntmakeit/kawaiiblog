@@ -9,6 +9,7 @@ A comprehensive guide to understanding the visual identity, tone, and aesthetic 
 **Dark Pastel Cyberpunk** - A unique fusion of soft kawaii aesthetics with cyberpunk edge. Think neon-lit Tokyo streets meets pastel Instagram feeds. The visual language balances between playful cuteness and moody, atmospheric depth.
 
 ### Design Philosophy
+
 - **Glassmorphism** - Translucent cards with backdrop blur effects
 - **Cycling Gradients** - Dynamic color rotation through headings
 - **Soft Edges** - Rounded corners (10px-14px) throughout
@@ -20,19 +21,23 @@ A comprehensive guide to understanding the visual identity, tone, and aesthetic 
 ## 🌈 Color Palettes
 
 ### Dark Mode (Default)
+
 **Background Vibes**: Deep purple-black `#0d011f` - Almost cosmic, like staring into space
 
 **Text Colors**:
+
 - Primary: `#e5e7eb` (Soft white, easy on eyes)
 - Muted: `#9ca3af` (Gray for secondary info)
 
 **Accent Colors**:
+
 - Pink: `#ffc0cb` (Primary brand color, used EVERYWHERE)
 - Blue: `#a7c7e7` (Pastel baby blue)
 - Mint: `#b2f2bb` (Soft green-mint)
 - Gold: `#ffd166` (Warm yellow-gold)
 
 **Kawaii Palette** (8 rotating colors for H2/H3 headings):
+
 1. `#ffc0cb` - Pink (soft, dreamy)
 2. `#a7c7e7` - Blue (calm pastel)
 3. `#b2f2bb` - Mint (fresh green)
@@ -43,19 +48,23 @@ A comprehensive guide to understanding the visual identity, tone, and aesthetic 
 8. `#ff9aa2` - Salmon (vibrant pink-orange)
 
 ### Light Mode
+
 **Background**: `#fef3f2` (Warm off-white, like paper)
 
 **Text Colors**:
+
 - Primary: `#1f2937` (Dark gray-black)
 - Muted: `#6b7280` (Medium gray)
 
 **Accent Colors** (More vibrant/saturated than dark mode):
+
 - Pink: `#db2777` (Hot pink)
 - Blue: `#3b82f6` (Royal blue)
 - Mint: `#10b981` (Emerald green)
 - Gold: `#f59e0b` (Amber/orange-gold)
 
 **Kawaii Palette** (Deep, vibrant colors):
+
 1. `#e91e63` - Hot Pink
 2. `#2563eb` - Royal Blue
 3. `#059669` - Emerald
@@ -66,6 +75,7 @@ A comprehensive guide to understanding the visual identity, tone, and aesthetic 
 8. `#dc2626` - Red
 
 **Color Strategy**:
+
 - **Pink** is the hero - used for links, categories, scrollbars, hover states, borders
 - **Gradients** combine pink + blue for brand elements (logo, titles)
 - **Cycling colors** keep headings visually interesting (each H2/H3 gets next color in rotation)
@@ -78,12 +88,14 @@ A comprehensive guide to understanding the visual identity, tone, and aesthetic 
 ### Font Families
 
 **Primary**: `"Nunito", sans-serif`
+
 - Google Font, weights: 400 (regular), 700 (bold), 900 (black)
 - Rounded, friendly, modern sans-serif
 - Used for: All body text, headings, UI elements
 - **Vibe**: Approachable, clean, slightly playful
 
 **Monospace**: `"VT323", monospace`
+
 - Retro terminal/arcade font
 - Used for: Reading time indicators, code snippets
 - **Vibe**: Nostalgic, cyberpunk, tech-y
@@ -91,18 +103,21 @@ A comprehensive guide to understanding the visual identity, tone, and aesthetic 
 ### Typography Scale
 
 #### Headings
+
 - **H1** (Page titles): `3rem` (48px), font-weight 900, gradient background
 - **H2** (Post content): `1.8rem` (28.8px), kawaii color rotation
 - **H3** (Post content): `1.4rem` (22.4px), kawaii color rotation
 - **Section titles**: `1.8rem`, font-weight 900, pink color
 
 #### Body
+
 - **Post content**: `1.125rem` (18px), line-height 1.8 (generous spacing)
 - **Card text**: `1rem` (16px)
 - **Post excerpts**: `1rem`, 3-line clamp
 - **Meta info**: `0.85rem` (13.6px), uppercase, letter-spacing 0.05em
 
 ### Typography Choices
+
 - **Line height 1.6** for body, **1.8 for posts** (very readable)
 - **Uppercase + letter-spacing** for categories and meta (TECH, GAMES)
 - **Gradient text** using `-webkit-background-clip` for brand moments
@@ -119,6 +134,7 @@ A comprehensive guide to understanding the visual identity, tone, and aesthetic 
 The blog doesn't pull punches or sanitize opinions. The voice is:
 
 #### Key Characteristics:
+
 1. **Profanity-laden** - Fuck, shit, bitch used liberally for emphasis
 2. **Conversational** - Writes like talking to a friend over Discord
 3. **Self-aware** - Acknowledges cringe, admits uncertainty ("Maybe I'm wrong")
@@ -129,6 +145,7 @@ The blog doesn't pull punches or sanitize opinions. The voice is:
 8. **Vulnerable** - Shares personal moments (beating Malenia, friends responding "crazy")
 
 #### Sentence Structure:
+
 - **Short. Punchy. Often fragments.**
 - Uses one-word sentences for emphasis. "Fuck."
 - Long analytical paragraphs mixed with abrupt transitions
@@ -136,6 +153,7 @@ The blog doesn't pull punches or sanitize opinions. The voice is:
 - Lists (numbered, bulleted) for structure
 
 #### Recurring Phrases:
+
 - "Let me be clear..."
 - "Here's where it gets [adjective]..."
 - "Here's the thing..."
@@ -147,6 +165,7 @@ The blog doesn't pull punches or sanitize opinions. The voice is:
 ### Snarky Subtitles (Homepage)
 
 Rotates daily based on day of month:
+
 1. "A blogging website no one asked for"
 2. "Why are you even here?"
 3. "Is it just me or is this low-key gas?"
@@ -160,6 +179,7 @@ Rotates daily based on day of month:
 ### Time-Based Greetings (Homepage)
 
 Changes based on Singapore time (UTC+8):
+
 - **5am-11am**: "KawaiiBlog up for coffee" ☀️
 - **11am-5pm**: "KawaiiBlog down to work" ⛅
 - **5pm-9pm**: "KawaiiBlog chilling in the sunset" 🌆
@@ -172,6 +192,7 @@ Changes based on Singapore time (UTC+8):
 ## 🏗️ Visual Components
 
 ### Cards (`.card`)
+
 - **Background**: `rgba(31, 41, 55, 0.6)` - Semi-transparent dark overlay
 - **Border**: `1px solid rgba(255, 192, 203, 0.28)` - Subtle pink outline
 - **Border Radius**: `14px` (rounded but not circular)
@@ -181,6 +202,7 @@ Changes based on Singapore time (UTC+8):
   - Shadow: `0 15px 30px rgba(0,0,0,0.35) + 0 10px 30px rgba(255,192,203,0.12)` (double shadow, dark + pink glow)
 
 ### Navigation
+
 - **Sticky**: Stays at top when scrolling
 - **Backdrop blur**: `blur(10px)` - Glassmorphism effect
 - **Border**: `1px solid rgba(255, 192, 203, 0.25)` bottom only
@@ -189,18 +211,21 @@ Changes based on Singapore time (UTC+8):
 - **Theme Toggle**: Icon-based, persists to localStorage
 
 ### Scrollbar (Custom)
+
 - **Width**: `10px`
 - **Thumb**: Pink `var(--pink)`, rounded pill shape
 - **Track**: Transparent
 - **Border**: `2px solid var(--bg)` on thumb (creates floating effect)
 
 ### Reading Progress Bar
+
 - Appears only on blog posts (not homepage/archive)
 - Fixed to top of viewport
 - Pink `var(--pink)` indicator
 - Updates on scroll
 
 ### Post Layout
+
 - **Max-width**: `800px` for header + content (readability)
 - **Two-column** on desktop (1024px+): Content + sticky TOC sidebar
 - **Category badge**: Pink, uppercase, bold
@@ -208,6 +233,7 @@ Changes based on Singapore time (UTC+8):
 - **Meta info**: Category • Date • Reading time (all in one line, separated by `•`)
 
 ### Table of Contents (Desktop Only)
+
 - **Sticky**: Follows scroll at `top: 120px`
 - **Max height**: `calc(100vh - 140px)`
 - **Overflow**: Scrollable if needed
@@ -225,6 +251,7 @@ Four categories with distinct identities:
 4. **commentary** - Cultural criticism, Gen Z rants, philosophy
 
 **Category Display**:
+
 - Always uppercase (TECH, MUSIC, GAMES, COMMENTARY)
 - Pink color
 - Bold font-weight
@@ -235,6 +262,7 @@ Four categories with distinct identities:
 ## 💬 Copywriting Patterns
 
 ### Post Titles
+
 - Direct, confrontational, no clickbait
 - Examples:
   - "Stop being nonchalant fucks"
@@ -243,11 +271,13 @@ Four categories with distinct identities:
   - "The Greatest Rapper: MF DOOM"
 
 ### Excerpts
+
 - 1-2 sentences
 - Hook with conflict or question
 - Example: "You traded your humanity for safety and social credits because you thought it made you look cool. The fucked up part? You're not even getting real safety and you not even cooler."
 
 ### Section Headings (H2 in posts)
+
 - Cultural references: "Kung Fu Kenny", "The Tyler Durden Delusion"
 - Direct address: "But Isaiah, What If You're Wrong?"
 - Provocative: "I'm Horny, Therefore I Perform"
@@ -255,6 +285,7 @@ Four categories with distinct identities:
 - Memes: "Big Brain Not So Big", "What's Wrong with my FYP?"
 
 ### Call-to-Actions
+
 - Imperative mood
 - Often profane: "Do. It. Anyway."
 - Numbered lists (clear, actionable)
@@ -265,20 +296,24 @@ Four categories with distinct identities:
 ## 🎬 Interactive Elements
 
 ### Hover States
+
 - **Links**: Underline appears (2px thick, 4px offset)
 - **Cards**: Lift + glow + pink border intensifies
 - **Buttons**: Subtle color shift
 - **All transitions**: `0.18s ease` (unified timing)
 
 ### Focus States
+
 - Pink outline for keyboard navigation
 - Maintains accessibility
 
 ### Loading States
+
 - Minimal - static site, instant page loads
 - No spinners needed
 
 ### Error States
+
 - **404 Page**: Exists, maintains theme
 - Custom error handling in CLI tools
 
@@ -287,15 +322,18 @@ Four categories with distinct identities:
 ## 🔤 Microcopy
 
 ### Footer
+
 - "© 2025 KawaiiBlog. **All wrongs reserved.**" (wordplay on "rights")
 - Dual license: "Content licensed under CC BY-NC 4.0 · Code licensed under MIT"
 
 ### Meta Text
+
 - "min read" (not "minute read" or "mins")
 - Dates: "October 31, 2025" (full month name)
 - No Oxford comma in lists
 
 ### Buttons/Links
+
 - "Back to Top" (not "Return" or "Scroll Up")
 - "Share" (not "Share this post")
 - Simple, direct language
@@ -305,17 +343,20 @@ Four categories with distinct identities:
 ## 🧩 Layout Patterns
 
 ### Homepage Grid
+
 - **Latest Post**: Full-width card
 - **Featured Posts**: 3-column grid (1-col mobile)
 - **Recent Posts**: Auto-fit grid, min 300px columns
 - Sections separated by subtle borders `rgba(255, 192, 203, 0.1)`
 
 ### Archive Page
+
 - Searchable (Fuse.js fuzzy search)
 - Grid layout (same as homepage)
 - All posts in reverse chronological order
 
 ### Blog Post Page
+
 - Centered content column
 - Sticky TOC sidebar (desktop)
 - Related posts at bottom
@@ -326,6 +367,7 @@ Four categories with distinct identities:
 ## 🎨 Image Treatment
 
 ### Blog Images
+
 - **Border radius**: `14px` (matches card radius)
 - **Border**: `1px solid rgba(255, 255, 255, 0.1)` (subtle outline)
 - **Margin**: `1rem 0` (breathing room)
@@ -333,11 +375,13 @@ Four categories with distinct identities:
 - **Lazy loading**: Enabled via Astro
 
 ### Cover Images
+
 - Optional in frontmatter
 - WebP format preferred
 - Stored in post folder
 
 ### Icons/Favicon
+
 - **Favicon**: Backwards "K" in Nunito font, pink
 - **SVG format**: Scalable, theme-aware potential
 
@@ -353,6 +397,7 @@ CSS variables for consistency:
 - `--spacing-xl`: `3rem` (48px)
 
 **Usage**:
+
 - **Cards**: `md` padding
 - **Sections**: `xl` margin-bottom
 - **Component gaps**: `md` or `lg`
@@ -374,21 +419,25 @@ CSS variables for consistency:
 ## 🔊 Brand Voice Examples
 
 ### When Explaining Tech:
+
 > "I know that everything I do online is being tracked, logged, analyzed, fed to me through adverts. Every search query, every click, every ChatGPT prompt, every moment of engagement is data that feeds the machine."
 
 **Tone**: Matter-of-fact, technical, but accessible
 
 ### When Calling Out Behavior:
+
 > "You're not protecting yourself. You're just slowly killing the parts of yourself that define you and make life worth living for."
 
 **Tone**: Direct, unflinching, harsh but caring
 
 ### When Being Vulnerable:
+
 > "I'm writing this because I'm fucking terrified. I'm terrified that I'm watching an entire generation—MY generation—voluntarily lobotomize themselves."
 
 **Tone**: Raw emotion, personal stakes, confession
 
 ### When Using Humor:
+
 > "Brother, you drank an egg. You didn't cure cancer."
 
 **Tone**: Sarcastic, mocking, but playful
@@ -424,7 +473,7 @@ To understand the vibe, here's what to **avoid**:
 ❌ Inspirational quotes in cursive fonts  
 ❌ "Hustle culture" positivity  
 ❌ Trying to appeal to everyone  
-❌ Hiding opinions behind "just my thoughts"  
+❌ Hiding opinions behind "just my thoughts"
 
 ---
 
@@ -445,19 +494,19 @@ When creating new content or components, ask:
 
 ## 🎨 Style Guide Quick Reference
 
-| Element | Style |
-|---------|-------|
+| Element           | Style                                     |
+| ----------------- | ----------------------------------------- |
 | **Primary Color** | Pink `#ffc0cb` (dark) / `#db2777` (light) |
-| **Background** | `#0d011f` (dark) / `#fef3f2` (light) |
-| **Font** | Nunito (primary), VT323 (mono) |
-| **Border Radius** | 10-14px |
-| **Transition** | 0.18s ease |
-| **Max Width** | 1200px |
-| **Card Hover** | translateY(-4px) + pink glow |
-| **Links** | Pink color, underline on hover |
-| **Headings** | Cycling kawaii colors (8 rotations) |
-| **Categories** | Uppercase, pink, bold, 700 weight |
-| **Tone** | Raw, profane, authentic, passionate |
+| **Background**    | `#0d011f` (dark) / `#fef3f2` (light)      |
+| **Font**          | Nunito (primary), VT323 (mono)            |
+| **Border Radius** | 10-14px                                   |
+| **Transition**    | 0.18s ease                                |
+| **Max Width**     | 1200px                                    |
+| **Card Hover**    | translateY(-4px) + pink glow              |
+| **Links**         | Pink color, underline on hover            |
+| **Headings**      | Cycling kawaii colors (8 rotations)       |
+| **Categories**    | Uppercase, pink, bold, 700 weight         |
+| **Tone**          | Raw, profane, authentic, passionate       |
 
 ---
 
@@ -477,6 +526,7 @@ When creating new content or components, ask:
 10. **Be vulnerable** - Share failures, fears, cringe moments
 
 ### Excerpt Formula:
+
 **[Provocative statement]. [Twist/contradiction].**
 
 Example: "You traded your humanity for safety and social credits. The fucked up part? You're not even getting real safety."
@@ -543,25 +593,30 @@ Small touches that add personality:
 To maintain the blog's voice, be familiar with:
 
 **Music**:
-- Kendrick Lamar (especially *Mr. Morale & The Big Steppers*, "N95")
+
+- Kendrick Lamar (especially _Mr. Morale & The Big Steppers_, "N95")
 - MF DOOM (mask as metaphor, underground hip-hop)
 - Pop Smoke ("Anti-corpo like my name Pop Smoke")
 
 **Gaming**:
+
 - Elden Ring (Malenia boss fight)
 - Cyberpunk 2077 (redemption arc)
 
 **Philosophy**:
+
 - Stoicism (often misunderstood by "sigma males")
 - Authenticity (existentialist themes)
 
 **Internet Culture**:
+
 - TikTok trends (nonchalance, stoic edits)
 - Gen Z slang ("lowkey", "fr fr", "ion")
 - Sigma male/Andrew Tate critique
 - "Main character energy" memes
 
 **Tech**:
+
 - VPNs, digital footprints, threat models
 - Arch Linux (joke for Linux nerds)
 - Algorithms, engagement patterns
@@ -605,27 +660,32 @@ Recurring patterns that define the KawaiiBlog style:
 Why these specific colors?
 
 **Pink** (`#ffc0cb` dark / `#db2777` light):
+
 - Traditionally feminine → reclaimed as rebellion
 - Soft + aggressive (pastel in dark mode, hot in light mode)
 - Stands out against dark purple-black
 - **Meaning**: Passion, vulnerability, anti-masculinity toxicity
 
 **Blue** (`#a7c7e7` dark / `#3b82f6` light):
+
 - Calming, trustworthy
 - Balances pink's intensity
 - **Meaning**: Clarity, logic, tech
 
 **Mint** (`#b2f2bb` dark / `#10b981` light):
+
 - Fresh, energizing
 - Less common than pink/blue
 - **Meaning**: Growth, renewal, optimism
 
 **Gold** (`#ffd166` dark / `#f59e0b` light):
+
 - Warm, valuable
 - Complements cool palette
 - **Meaning**: Insight, worth, emphasis
 
 **Purple-black background** (`#0d011f`):
+
 - Deep, cosmic, mysterious
 - Not pure black (warmer, less harsh)
 - **Meaning**: Depth, night, cyberpunk dystopia
@@ -648,6 +708,7 @@ If you need a mental image:
 - **Glassmorphism** - iOS/macOS translucent cards
 
 **NOT**:
+
 - ❌ Corporate tech blogs (Medium, dev.to sterility)
 - ❌ Minimalist brutalism (too harsh)
 - ❌ Maximalist novelty (too chaotic)
@@ -658,6 +719,7 @@ If you need a mental image:
 ## ✨ In Summary
 
 **KawaiiBlog is**:
+
 - A **Dark Pastel Cyberpunk** blog
 - With **raw, profane, authentic** voice
 - Using **pink as religion**
@@ -672,6 +734,7 @@ If you need a mental image:
 - **"All wrongs reserved"** energy
 
 If you can describe it in one sentence:
+
 > **"A Gen Z cyberpunk diary that yells at you to stop being emotionally dead while looking absolutely gorgeous in pink and purple."**
 
 ---

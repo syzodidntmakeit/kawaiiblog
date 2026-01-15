@@ -14,7 +14,9 @@ import chalk from "chalk";
 const program = new Command();
 
 // Wrapper for graceful exit on Ctrl+C
-const withGracefulExit = <T extends unknown[]>(fn: (...args: T) => Promise<void>) => {
+const withGracefulExit = <T extends unknown[]>(
+  fn: (...args: T) => Promise<void>,
+) => {
   return async (...args: T) => {
     try {
       await fn(...args);

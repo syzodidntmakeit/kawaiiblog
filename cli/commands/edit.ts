@@ -174,7 +174,6 @@ export async function editPost() {
       date: answers.date,
       category: answers.category,
       excerpt: answers.excerpt,
-
     };
 
     const updatedContent = matter.stringify(currentContent, updatedData);
