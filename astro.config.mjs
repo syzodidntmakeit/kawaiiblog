@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://blog.kawaii-san.org",
+  site: "https://blog.kawaiisan.org",
   base: "/",
   output: "static",
   prefetch: true,

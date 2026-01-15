@@ -2,7 +2,7 @@
 
 A high-performance, lightweight personal blogging platform built with Astro. Features a "Dark Pastel Cyberpunk" aesthetic with zero bloat, powerful CLI tools, advanced RSS feeds, and automated content management.
 
-**Live at**: [blog.kawaii-san.org](https://blog.kawaii-san.org)
+**Live at**: [blog.kawaiisan.org](https://blog.kawaiisan.org)
 
 ---
 
@@ -246,32 +246,27 @@ Creates timestamped zip archive in `exports/` containing:
 All feeds available at:
 
 ### Main Feed
-
 ```
-https://blog.kawaii-san.org/rss.xml
+https://blog.kawaiisan.org/rss.xml
 ```
 
 ### Category-Specific Feeds
-
 ```
-https://blog.kawaii-san.org/rss/tech.xml
-https://blog.kawaii-san.org/rss/music.xml
-https://blog.kawaii-san.org/rss/games.xml
-https://blog.kawaii-san.org/rss/commentary.xml
+https://blog.kawaiisan.org/rss/tech.xml
+https://blog.kawaiisan.org/rss/music.xml
+https://blog.kawaiisan.org/rss/games.xml
+https://blog.kawaiisan.org/rss/commentary.xml
 ```
 
 ### Featured Posts Feed
-
 ```
-https://blog.kawaii-san.org/rss/featured.xml
+https://blog.kawaiisan.org/rss/featured.xml
 ```
 
 ### Full-Text Feed
-
 Includes complete post content (not just excerpts):
-
 ```
-https://blog.kawaii-san.org/rss/full.xml
+https://blog.kawaiisan.org/rss/full.xml
 ```
 
 ---
@@ -492,7 +487,7 @@ git push origin main
 GitHub Actions automatically builds and deploys to:
 
 - **GitHub Pages**: `https://username.github.io/kawaiiblog2.0/`
-- **Custom Domain**: `https://blog.kawaii-san.org` (if configured in repo settings)
+- **Custom Domain**: `https://blog.kawaiisan.org` (if configured in repo settings)
 
 ### Manual Build
 
@@ -605,7 +600,7 @@ Built with **[Astro](https://astro.build)** and a lot of caffeine ☕
 
 **Author**: [syzodidntmakeit](https://github.com/syzodidntmakeit)
 
-**Live Demo**: [blog.kawaii-san.org](https://blog.kawaii-san.org)
+**Live Demo**: [blog.kawaiisan.org](https://blog.kawaiisan.org)
 
 ---
 
