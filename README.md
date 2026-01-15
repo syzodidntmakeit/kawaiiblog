@@ -23,7 +23,7 @@ A high-performance, lightweight personal blogging platform built with Astro. Fea
 - **Self-Hosted Fonts** - Privacy-friendly `@fontsource` implementation (Nunito & VT323)
 - **Image Optimization** - Automatic WebP conversion and lazy loading
 - **Optimized Builds** - Production builds under 3 seconds
-- **SEO Optimized** - JSON-LD schema, sitemaps, robots.txt, and webmentions
+- **SEO Optimized** - JSON-LD schema, sitemaps, and robots.txt
 
 ### 📝 **Content Management**
 
@@ -520,7 +520,6 @@ Output goes to `dist/` directory. Deploy to any static hosting service:
 - [x] **Export Tool** - Backup blog content to zip
 - [x] **TOC Mobile Toggle** - Collapsible table of contents on mobile
 - [x] **Reading Time Display** - Show estimated reading time on post cards
-- [x] **Webmentions** - IndieWeb interactions support
 - [x] **CI/CD Quality Checks** - Auto linting and formatting in GitHub Actions
 
 ### Planned 🚧
