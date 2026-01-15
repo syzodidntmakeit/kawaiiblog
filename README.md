@@ -246,11 +246,13 @@ Creates timestamped zip archive in `exports/` containing:
 All feeds available at:
 
 ### Main Feed
+
 ```
 https://blog.kawaiisan.org/rss.xml
 ```
 
 ### Category-Specific Feeds
+
 ```
 https://blog.kawaiisan.org/rss/tech.xml
 https://blog.kawaiisan.org/rss/music.xml
@@ -259,12 +261,15 @@ https://blog.kawaiisan.org/rss/commentary.xml
 ```
 
 ### Featured Posts Feed
+
 ```
 https://blog.kawaiisan.org/rss/featured.xml
 ```
 
 ### Full-Text Feed
+
 Includes complete post content (not just excerpts):
+
 ```
 https://blog.kawaiisan.org/rss/full.xml
 ```
