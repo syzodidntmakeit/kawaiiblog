@@ -14,10 +14,12 @@ const formattedDate = date.toLocaleDateString("en-US", {
   day: "numeric",
 });
 
-// Calculate reading time (simple approximation)
+// Calculate reading time (safer approximation)
 const wordsPerMinute = 225;
-const wordCount = post.body.trim().split(/\s+/).length;
-const readingTime = Math.ceil(wordCount / wordsPerMinute);
+const bodyText = (post.body ?? "") + "";
+const wordCount = bodyText.trim() ? bodyText.trim().split(/\s+/).length : 0;
+const readingTime =
+  wordCount > 0 ? Math.max(1, Math.ceil(wordCount / wordsPerMinute)) : 1;
 ---
 
 <a href={`/posts/${post.slug}`} class="card post-card">

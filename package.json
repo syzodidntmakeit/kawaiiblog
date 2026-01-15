@@ -9,12 +9,15 @@
     "astro": "astro",
     "cli": "tsx cli/kawaii-blog.ts",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@astrojs/compiler": "^2.13.0",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
+    "@fontsource/nunito": "^5.2.7",
+    "@fontsource/vt323": "^5.2.7",
     "@types/archiver": "^7.0.0",
     "@types/markdown-it": "^14.1.2",
     "@types/sanitize-html": "^2.16.0",

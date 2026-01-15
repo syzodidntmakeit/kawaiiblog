@@ -35,6 +35,18 @@ const {
       content={new URL("og-image.png", Astro.site || Astro.url.origin).href}
     />
 
+    <!-- SEO & Webmentions -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link
+      rel="webmention"
+      href="https://webmention.io/PLACEHOLDER_USERNAME/webmention"
+    />
+    <link
+      rel="pingback"
+      href="https://webmention.io/PLACEHOLDER_USERNAME/xmlrpc"
+    />
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -53,13 +65,8 @@ const {
     />
     <link rel="canonical" href={Astro.url} />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=VT323&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts -->
+    <!-- Self-hosted via @fontsource in global.css -->
 
     <title>{title} | KawaiiBlog</title>
 
@@ -95,8 +102,10 @@ const {
     </style>
   </head>
   <body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <Navigation />
-    <main class="container main-content">
+    <main id="main-content" class="container main-content">
       <slot />
     </main>
 
@@ -116,12 +125,21 @@ const {
           </a>
           · Code licensed under
           <a
-            href="https://github.com/kawaiisan/kawaiiblog/blob/main/LICENSE"
+            href="https://github.com/syzodidntmakeit/kawaiiblog2.0/blob/main/LICENSE"
             target="_blank"
             rel="noopener noreferrer"
             title="MIT License"
           >
             MIT
+          </a>
+        </p>
+        <p class="repo-link">
+          <a
+            href="https://github.com/syzodidntmakeit/kawaiiblog2.0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Configured on GitHub
           </a>
         </p>
       </div>
@@ -133,6 +151,22 @@ const {
   .main-content {
     flex: 1; /* Pushes footer down */
     width: 100%;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--pink);
+    color: var(--bg);
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.2s;
+    font-weight: bold;
+  }
+
+  .skip-link:focus {
+    top: 0;
   }
 
   .footer {
@@ -151,14 +185,14 @@ const {
   }
 
   .license-info a {
-    color: var(--kawaii-pink);
+    color: var(--pink);
     text-decoration: none;
     transition: all 0.2s ease;
     border-bottom: 1px solid transparent;
   }
 
   .license-info a:hover {
-    color: var(--kawaii-lavender);
-    border-bottom-color: var(--kawaii-lavender);
+    color: var(--k-5);
+    border-bottom-color: var(--k-5);
   }
 </style>

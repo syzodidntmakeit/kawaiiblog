@@ -1,4 +1,9 @@
 /* src/styles/global.css */
+@import "@fontsource/nunito/400.css";
+@import "@fontsource/nunito/700.css";
+@import "@fontsource/nunito/900.css";
+@import "@fontsource/vt323";
+
 :root {
   /* Colors */
   --bg: #0d011f;

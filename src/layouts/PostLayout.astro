@@ -6,7 +6,10 @@ import SeriesNav from "../components/SeriesNav.astro";
 import ShareButtons from "../components/ShareButtons.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import RelatedPosts from "../components/RelatedPosts.astro";
-// import CodeCopyButton from '../components/CodeCopyButton.astro';
+import CodeCopyButton from "../components/CodeCopyButton.astro";
+import AuthorBio from "../components/AuthorBio.astro";
+import Newsletter from "../components/Newsletter.astro";
+import Comments from "../components/Comments.astro";
 
 interface Props {
   post: CollectionEntry<"posts">;
@@ -39,7 +42,22 @@ const readingTime =
 
 // Get full URL for sharing
 const postUrl = `${Astro.site}posts/${post.slug}/`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  datePublished: date.toISOString(),
+  description: excerpt,
+  author: {
+    "@type": "Person",
+    name: "KawaiiBlog",
+    url: Astro.site,
+  },
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 <BaseLayout title={title} description={excerpt}>
   <ReadingProgress />
@@ -66,9 +84,18 @@ const postUrl = `${Astro.site}posts/${post.slug}/`;
 
     <div class="content-wrapper">
       <div class="content">
+        <div class="mobile-toc">
+          <TableOfContents headings={headings} />
+        </div>
         <slot />
 
         <ShareButtons title={title} url={postUrl} />
+
+        <div class="post-footer-components">
+          <AuthorBio />
+          <Newsletter />
+          <Comments />
+        </div>
       </div>
 
       <aside class="sidebar">
@@ -79,7 +106,7 @@ const postUrl = `${Astro.site}posts/${post.slug}/`;
 
   <RelatedPosts currentPost={post} allPosts={allPosts} />
 
-  {/* <CodeCopyButton /> */}
+  <CodeCopyButton />
 </BaseLayout>
 
 <style>
@@ -266,5 +293,25 @@ const postUrl = `${Astro.site}posts/${post.slug}/`;
       max-height: calc(100vh - 140px);
       overflow-y: auto;
     }
+  }
+
+  /* Mobile TOC Visibility */
+  .mobile-toc {
+    display: block;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-toc {
+      display: none;
+    }
+  }
+
+  /* Post Footer Components */
+  .post-footer-components {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
   }
 </style>

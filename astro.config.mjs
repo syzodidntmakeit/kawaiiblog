@@ -6,6 +6,7 @@ export default defineConfig({
   site: "https://blog.kawaii-san.org",
   base: "/",
   output: "static",
+  prefetch: true,
   integrations: [sitemap()],
   markdown: {
     shikiConfig: {

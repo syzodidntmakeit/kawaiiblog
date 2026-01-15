@@ -11,16 +11,18 @@ const filteredHeadings = headings.filter((h) => h.depth <= 3);
 ---
 
 <nav class="toc">
-  <h3 class="toc-title">On this page</h3>
-  <ul class="toc-list">
-    {
-      filteredHeadings.map((heading) => (
-        <li class={`toc-item depth-${heading.depth}`}>
-          <a href={`#${heading.slug}`}>{heading.text}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <details class="toc-details" open>
+    <summary class="toc-title">On this page</summary>
+    <ul class="toc-list">
+      {
+        filteredHeadings.map((heading) => (
+          <li class={`toc-item depth-${heading.depth}`}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </details>
 </nav>
 
 <script>
@@ -88,9 +90,22 @@ const filteredHeadings = headings.filter((h) => h.depth <= 3);
   }
 
   /* Hide TOC on mobile */
+  /* Custom marker for summary */
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Mobile styles */
   @media (max-width: 1024px) {
     .toc {
-      display: none;
+      margin-bottom: var(--spacing-lg);
+      border-left: 2px solid var(--pink);
+      background: rgba(255, 192, 203, 0.05);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     }
   }
 </style>
