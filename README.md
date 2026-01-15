@@ -17,9 +17,11 @@ A high-performance, lightweight personal blogging platform built with Astro. Fea
 
 ### ⚡ **Performance**
 - **Lightning Fast** - Static site generation with zero-JS by default
+- **Instant Navigation** - Global link prefetching for zero-latency clicks
+- **Self-Hosted Fonts** - Privacy-friendly `@fontsource` implementation (Nunito & VT323)
 - **Image Optimization** - Automatic WebP conversion and lazy loading
 - **Optimized Builds** - Production builds under 3 seconds
-- **SEO Optimized** - Auto-generated sitemaps, robots.txt, and meta tags
+- **SEO Optimized** - JSON-LD schema, sitemaps, robots.txt, and webmentions
 
 ### 📝 **Content Management**
 - **Powerful CLI Tools** - Interactive commands for post creation, editing, and management
@@ -42,8 +44,10 @@ A high-performance, lightweight personal blogging platform built with Astro. Fea
 
 ### � **Dynamic Elements**
 - **Time-Based Greetings** - Hero text changes based on Singapore time
-- **Auto Table of Contents** - Generated from post headings
+- **Auto Table of Contents** - Generated from post headings (Collapsible on Mobile)
+- **Reading Time** - Estimated read time displayed on post cards
 - **Share Buttons** - Twitter, Reddit, LinkedIn, Facebook
+- **Code Copy** - One-click copy button for code blocks
 - **Back to Top** - Smooth scroll navigation
 
 ---
@@ -303,6 +307,7 @@ npm run format
 | **Code Quality** |
 | `npm run lint` | Check code for linting errors |
 | `npm run format` | Auto-format code with Prettier |
+| `npm run format:check` | Check code formatting (CI) |
 | **Direct Astro** |
 | `npm run astro ...` | Run Astro CLI commands directly |
 
@@ -491,17 +496,16 @@ Output goes to `dist/` directory. Deploy to any static hosting service:
 - [x] **CLI Statistics** - Comprehensive blog analytics
 - [x] **Content Validation** - Automated health checks
 - [x] **Export Tool** - Backup blog content to zip
+- [x] **TOC Mobile Toggle** - Collapsible table of contents on mobile
+- [x] **Reading Time Display** - Show estimated reading time on post cards
+- [x] **Webmentions** - IndieWeb interactions support
+- [x] **CI/CD Quality Checks** - Auto linting and formatting in GitHub Actions
 
 ### Planned 🚧
-- [ ] **Comments System** - Integrate giscus (GitHub Discussions)
-- [ ] **Newsletter** - Email subscription via ConvertKit/Mailchimp
 - [ ] **Bookmark System** - Save favorite posts with localStorage
 - [ ] **View Counter** - Track post views with privacy-friendly analytics
-- [ ] **TOC Mobile Toggle** - Collapsible table of contents on mobile
 - [ ] **Search Highlighting** - Highlight matched terms in search results
 - [ ] **Analytics** - Plausible or Umami integration
-- [ ] **Webmentions** - IndieWeb interactions and comments
-- [ ] **Reading Time Display** - Show estimated reading time on post cards
 - [ ] **Dark Mode for Images** - Auto-invert images in dark mode
 
 ---

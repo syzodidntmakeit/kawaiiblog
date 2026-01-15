@@ -11,82 +11,88 @@ const description =
     <header class="about-header">
       <h1>About <span class="highlight">KawaiiBlog</span></h1>
       <p class="subtitle">A lightweight blog with a kawaii twist 💖</p>
+      <div class="banner-container">
+        <img
+          src="/images/banner.jpg"
+          alt="KawaiiBlog Banner"
+          class="about-banner"
+        />
+      </div>
     </header>
 
     <div class="about-content">
+      <section class="author-section">
+        <h2>Meet the Author</h2>
+        <div class="author-profile">
+          <div class="author-img-container">
+            <img
+              src="/images/profile.jpg"
+              alt="The Author"
+              class="author-img"
+            />
+          </div>
+          <div class="author-bio">
+            <p>
+              Hi, I'm the creator behind KawaiiBlog. This platform is my
+              personal digital garden where I document my journey through tech,
+              music, and internet culture.
+            </p>
+            <p>
+              I built this blog to be a raw, unfiltered space—no corporate
+              fluff, just vibes. Everything you see here is hand-coded with love
+              (and a lot of caffeine). Visual aesthetics are just as important
+              to me as clean code, which is why I created this "Dark Pastel
+              Cyberpunk" theme.
+            </p>
+            <p>
+              When I'm not coding, I'm probably listening to hip-hop, gaming, or
+              overanalyzing the state of the modern web.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section>
         <h2>What is KawaiiBlog?</h2>
         <p>
-          KawaiiBlog is a modern, lightweight blogging platform that combines
-          the power of
-          <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>
-          with a beautiful dark pastel aesthetic. It's designed to be fast, accessible,
-          and a joy to use.
+          KawaiiBlog is a custom-built blogging platform powered by **Astro**
+          and TypeScript. It combines modern web performance with a unique
+          visual identity.
         </p>
-      </section>
-
-      <section>
-        <h2>The Philosophy</h2>
         <p>This blog is built on three core principles:</p>
         <ul>
           <li>
-            <strong>Lightweight:</strong> No bloat, no unnecessary JavaScript. Just
-            fast, static pages.
+            <strong>Lightweight:</strong> Zero bloat. Static HTML first.
           </li>
           <li>
-            <strong>Accessible:</strong> Works for 99.9% of users, with semantic
-            HTML and keyboard navigation.
+            <strong>Accessible:</strong> Designed for everyone.
           </li>
           <li>
-            <strong>Beautiful:</strong> Dark pastel kawaii aesthetics that don't
-            sacrifice readability.
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>What You'll Find Here</h2>
-        <p>This blog covers a mix of topics including:</p>
-        <ul>
-          <li>
-            <strong>Tech:</strong> Programming tutorials, web development, and tech
-            commentary
-          </li>
-          <li>
-            <strong>Music:</strong> Album reviews, playlists, and music discussions
-          </li>
-          <li><strong>Games:</strong> Game reviews and gaming culture</li>
-          <li>
-            <strong>Commentary:</strong> Thoughts on various topics and life experiences
+            <strong>Aesthetic:</strong> Because the internet should be beautiful.
           </li>
         </ul>
       </section>
 
       <section>
         <h2>The Tech Stack</h2>
-        <p>KawaiiBlog is built with modern web technologies:</p>
-        <ul>
-          <li>
-            <strong>Astro 5.16:</strong> Static site generation for optimal performance
-          </li>
-          <li>
-            <strong>Vanilla CSS:</strong> Custom properties and no framework bloat
-          </li>
-          <li><strong>Fuse.js:</strong> Client-side fuzzy search</li>
-          <li><strong>TypeScript:</strong> Type-safe CLI tooling</li>
+        <p>Proudly built with:</p>
+        <ul class="tech-stack">
+          <li>🚀 Astro 5.0 (Static Site Generation)</li>
+          <li>🎨 Vanilla CSS (Glassmorphism & Variables)</li>
+          <li>🔍 Fuse.js (Fuzzy Search)</li>
+          <li>✨ TypeScript (Type Safety)</li>
         </ul>
       </section>
 
       <section>
         <h2>Open Source</h2>
         <p>
-          This project is open source! Feel free to check out the
+          This project is fully open source. You can check out the code on
           <a
             href="https://github.com/syzodidntmakeit/kawaiiblog2.0"
             target="_blank"
-            rel="noopener">GitHub repository</a
-          >
-          and use it as a template for your own blog.
+            rel="noopener">GitHub</a
+          >.
         </p>
       </section>
     </div>
@@ -95,7 +101,7 @@ const description =
 
 <style>
   .about-page {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: var(--spacing-lg) 0;
   }
@@ -120,6 +126,23 @@ const description =
   .subtitle {
     font-size: 1.25rem;
     color: var(--muted);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .banner-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 192, 203, 0.2);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .about-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 300px;
   }
 
   .about-content {
@@ -131,31 +154,69 @@ const description =
     margin-bottom: var(--spacing-xl);
   }
 
-  .about-content h2 {
+  h2 {
     color: var(--pink);
     font-size: 1.8rem;
     margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid rgba(255, 192, 203, 0.1);
+    padding-bottom: 0.5rem;
+    display: inline-block;
   }
 
-  .about-content p {
+  /* Author Section */
+  .author-profile {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .author-img-container {
+    flex-shrink: 0;
+  }
+
+  .author-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--pink);
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.2);
+  }
+
+  .author-bio p {
     margin-bottom: 1rem;
   }
 
-  .about-content ul {
+  .author-bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .author-profile {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  ul {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
   }
 
-  .about-content li {
+  li {
     margin-bottom: 0.5rem;
   }
 
-  .about-content a {
+  a {
     color: var(--pink);
     text-decoration: underline;
   }
-
-  .about-content a:hover {
+  a:hover {
     color: var(--blue);
   }
 </style>
